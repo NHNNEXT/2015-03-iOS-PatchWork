@@ -6,10 +6,7 @@
 //  Copyright © 2015년 NEXT Institute. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "PATGoogleMapViewController.h"
-
-@import GoogleMaps;
 
 @implementation PATGoogleMapViewController
 {
@@ -76,14 +73,9 @@
 }
 
 - (void)slideOutSideMenu {
-	
-	[self.delegate PATShowSideMenu];
+	[self.delegate PATShowSideMenu:YES];
 }
 
 
-- (void)didReceiveMemoryWarning {
-	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
-}
 
 @end

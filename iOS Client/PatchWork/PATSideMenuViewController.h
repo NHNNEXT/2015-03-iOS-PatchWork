@@ -7,13 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 @interface PATSideMenuViewController : UIViewController
-
-- (IBAction)searchPlace:(id)sender;
-- (IBAction)timeMachine:(id)sender;
-- (IBAction)settings:(id)sender;
-
 
 
 @end

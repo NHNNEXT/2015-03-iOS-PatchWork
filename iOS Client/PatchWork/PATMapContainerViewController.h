@@ -7,14 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "PATGoogleMapViewController.h"
+#import "PATSideMenuViewController.h"
 @class PATGoogleMapViewController;
-
-@protocol sideMenuShowUp
--(void) PATShowSideMenu;
-@end
+@class PATSideMenuViewController;
 
 @interface PATMapContainerViewController : UIViewController<sideMenuShowUp>
 
+@property (nonatomic, strong) PATGoogleMapViewController* mapViewController;
+@property (nonatomic, strong) PATSideMenuViewController* sideMenuViewController;
+
+@property (nonatomic) BOOL isSideMenuButtonOn;
+
+- (void) PATLoadSideMenuView;
 
 @end
 

@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PATMapContainerViewController.h"
+#import <Foundation/Foundation.h>
+@import GoogleMaps;
+
+@protocol sideMenuShowUp
+-(void) PATShowSideMenu:(BOOL)YesOrNo;
+@end
+
 
 @interface PATGoogleMapViewController : UIViewController
 
-@property (strong, nonatomic) id<sideMenuShowUp> delegate;
+@property (weak, nonatomic) id<sideMenuShowUp> delegate;
 
 @end
 

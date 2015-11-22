@@ -4,6 +4,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Odin Rounded.otf">
+            <string>OdinRounded</string>
+            <string>OdinRounded</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Landing-->
         <scene sceneID="a0B-Jr-HuB">
@@ -68,105 +74,25 @@
                                 <rect key="frame" x="0.0" y="-20" width="600" height="620"/>
                                 <animations/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isr-dg-JZN">
-                                <rect key="frame" x="170" y="172" width="260" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDi-Rj-OnJ">
+                                <rect key="frame" x="238" y="285" width="124" height="30"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title=".">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NiQ-Ps-yXa">
-                                <rect key="frame" x="260" y="-46" width="260" height="48"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title=".">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxd-au-ftC">
-                                <rect key="frame" x="294" y="-46" width="260" height="48"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title=".">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="15"/>
+                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="xH8-Rs-ry6" kind="presentation" id="4pi-Bf-YBi"/>
+                                    <segue destination="xH8-Rs-ry6" kind="popoverPresentation" popoverAnchorView="fDi-Rj-OnJ" id="FVD-06-4if">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tS-ZS-bBP">
-                                <rect key="frame" x="260" y="360" width="260" height="48"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title=".">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Pn-Hi-E10">
-                                <rect key="frame" x="170" y="398" width="254" height="48"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title=".">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYL-oC-Mhn">
-                                <rect key="frame" x="85" y="360" width="30" height="48"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title=".">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMp-cs-kUn">
-                                <rect key="frame" x="50" y="276" width="30" height="48"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title=".">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTr-0g-sFX">
-                                <rect key="frame" x="86" y="190" width="30" height="48"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title=".">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
                             </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="60i-7u-r3e" firstAttribute="top" secondItem="pxd-au-ftC" secondAttribute="bottom" constant="227" id="0k0-AU-pb3"/>
-                            <constraint firstItem="isr-dg-JZN" firstAttribute="leading" secondItem="SPl-7g-OEJ" secondAttribute="leadingMargin" constant="150" id="1V4-9n-LNa"/>
-                            <constraint firstItem="60i-7u-r3e" firstAttribute="top" secondItem="QYL-oC-Mhn" secondAttribute="bottom" constant="192" id="3mE-vK-J6V"/>
-                            <constraint firstItem="pxd-au-ftC" firstAttribute="top" secondItem="Enl-Jc-iRM" secondAttribute="bottom" constant="273" id="7cx-wr-hDS"/>
-                            <constraint firstItem="QYL-oC-Mhn" firstAttribute="leading" secondItem="SPl-7g-OEJ" secondAttribute="leadingMargin" constant="65" id="7jA-q2-uib"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="pxd-au-ftC" secondAttribute="trailing" constant="26" id="9Aj-5D-7Q9"/>
-                            <constraint firstItem="2Pn-Hi-E10" firstAttribute="top" secondItem="aTr-0g-sFX" secondAttribute="bottom" constant="160" id="D0T-93-hGu"/>
-                            <constraint firstItem="2Pn-Hi-E10" firstAttribute="leading" secondItem="isr-dg-JZN" secondAttribute="leading" id="EHk-xL-GS0"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="2Pn-Hi-E10" secondAttribute="bottom" constant="154" id="EeG-jj-xhe"/>
-                            <constraint firstItem="60i-7u-r3e" firstAttribute="top" secondItem="isr-dg-JZN" secondAttribute="bottom" constant="380" id="J0I-qi-LqN"/>
-                            <constraint firstItem="isr-dg-JZN" firstAttribute="top" secondItem="Enl-Jc-iRM" secondAttribute="bottom" constant="172" id="JKF-lh-bOW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="isr-dg-JZN" secondAttribute="trailing" constant="150" id="KEo-LI-P64"/>
-                            <constraint firstItem="NiQ-Ps-yXa" firstAttribute="top" secondItem="Enl-Jc-iRM" secondAttribute="bottom" constant="210" id="Nyq-Mh-zyy"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="NiQ-Ps-yXa" secondAttribute="trailing" constant="60" id="QKd-Wr-sOQ"/>
-                            <constraint firstItem="2Pn-Hi-E10" firstAttribute="trailing" secondItem="isr-dg-JZN" secondAttribute="trailing" constant="-6" id="S0i-C0-V04"/>
-                            <constraint firstItem="60i-7u-r3e" firstAttribute="top" secondItem="NiQ-Ps-yXa" secondAttribute="bottom" constant="340" id="SpH-Is-sgj"/>
-                            <constraint firstItem="3tS-ZS-bBP" firstAttribute="trailing" secondItem="NiQ-Ps-yXa" secondAttribute="trailing" id="UOd-Fz-RvM"/>
                             <constraint firstItem="60i-7u-r3e" firstAttribute="top" secondItem="27C-Sd-nEb" secondAttribute="bottom" id="YMK-ag-6Q7"/>
-                            <constraint firstItem="60i-7u-r3e" firstAttribute="top" secondItem="3tS-ZS-bBP" secondAttribute="bottom" constant="192" id="b5Z-fL-1R1"/>
-                            <constraint firstItem="3tS-ZS-bBP" firstAttribute="leading" secondItem="NiQ-Ps-yXa" secondAttribute="leading" id="byv-kr-ymS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="27C-Sd-nEb" secondAttribute="trailing" constant="-20" id="em6-Wr-xdj"/>
-                            <constraint firstItem="QMp-cs-kUn" firstAttribute="leading" secondItem="SPl-7g-OEJ" secondAttribute="leadingMargin" constant="30" id="gBU-NY-YsO"/>
                             <constraint firstItem="27C-Sd-nEb" firstAttribute="leading" secondItem="SPl-7g-OEJ" secondAttribute="leadingMargin" constant="-20" id="gZ5-3S-NH6"/>
-                            <constraint firstItem="aTr-0g-sFX" firstAttribute="leading" secondItem="SPl-7g-OEJ" secondAttribute="leadingMargin" constant="66" id="hC5-Nn-lKk"/>
                             <constraint firstItem="27C-Sd-nEb" firstAttribute="top" secondItem="Enl-Jc-iRM" secondAttribute="bottom" constant="-20" id="hkO-RD-kPO"/>
-                            <constraint firstItem="pxd-au-ftC" firstAttribute="leading" secondItem="SPl-7g-OEJ" secondAttribute="leadingMargin" constant="274" id="hxc-Ez-Bnj"/>
-                            <constraint firstItem="QYL-oC-Mhn" firstAttribute="top" secondItem="QMp-cs-kUn" secondAttribute="bottom" constant="36" id="pyw-ny-62E"/>
-                            <constraint firstItem="NiQ-Ps-yXa" firstAttribute="leading" secondItem="SPl-7g-OEJ" secondAttribute="leadingMargin" constant="240" id="szw-x3-QM1"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -195,9 +121,6 @@
                                 <rect key="frame" x="140" y="300" width="320" height="50"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <segue destination="NVO-hj-wZl" kind="presentation" id="nLu-vO-DUz"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iij-tB-H39">
                                 <rect key="frame" x="140" y="510" width="320" height="30"/>
@@ -205,8 +128,9 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6p-nU-3Uv">
-                                <rect key="frame" x="277" y="515" width="46" height="30"/>
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
                                 <animations/>
+                                <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="15"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="dQO-8j-WCY" kind="presentation" id="1jp-Gf-1Er"/>
@@ -235,10 +159,10 @@
             </objects>
             <point key="canvasLocation" x="1218" y="308"/>
         </scene>
-        <!--MapContainerViewController-->
+        <!--PATMapContainerViewController-->
         <scene sceneID="MjN-9U-mSG">
             <objects>
-                <viewController title="MapContainerViewController" id="dQO-8j-WCY" customClass="PATMapContainerViewController" sceneMemberID="viewController">
+                <viewController title="PATMapContainerViewController" id="dQO-8j-WCY" customClass="PATMapContainerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PBE-fS-ldz"/>
                         <viewControllerLayoutGuide type="bottom" id="RsF-iP-r5Z"/>
@@ -270,10 +194,10 @@
             </objects>
             <point key="canvasLocation" x="1920" y="308"/>
         </scene>
-        <!--GoogleMapViewController-->
+        <!--PATGoogleMapViewController-->
         <scene sceneID="c9e-gJ-i4k">
             <objects>
-                <viewController storyboardIdentifier="PATGoogleMapViewController" title="GoogleMapViewController" id="633-4N-eVW" customClass="PATGoogleMapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PATGoogleMapViewController" title="PATGoogleMapViewController" id="633-4N-eVW" customClass="PATGoogleMapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nWA-hG-fA7"/>
                         <viewControllerLayoutGuide type="bottom" id="Evb-Kx-uTJ"/>
@@ -289,16 +213,16 @@
             </objects>
             <point key="canvasLocation" x="2747" y="713"/>
         </scene>
-        <!--SideMenuViewController-->
+        <!--PATSideMenuViewController-->
         <scene sceneID="Cv4-XO-vHr">
             <objects>
-                <viewController storyboardIdentifier="PATSideMenuViewController" title="SideMenuViewController" id="sBD-LX-WfL" customClass="PATSideMenuViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PATSideMenuViewController" title="PATSideMenuViewController" id="sBD-LX-WfL" customClass="PATSideMenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Npz-WQ-U14"/>
                         <viewControllerLayoutGuide type="bottom" id="ziE-iA-99q"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9AC-hM-XTA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="348" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -313,7 +237,4 @@
         <image name="EMOTION-DARK1.jpg" width="720" height="1280"/>
         <image name="EMOTION-DARK4.jpg" width="720" height="1280"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="nLu-vO-DUz"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -28,7 +28,7 @@
                                 <animations/>
                                 <state key="normal" title="Next Scene"/>
                                 <connections>
-                                    <segue destination="NVO-hj-wZl" kind="presentation" id="dam-PS-rhO"/>
+                                    <segue destination="1I9-4n-rMm" kind="presentation" id="GdT-0l-co2"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Landing Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5s7-sv-6N8">
@@ -40,7 +40,7 @@
                             </label>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.023529411764705882" green="0.035294117647058823" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="7Mu-q3-9pd" secondAttribute="trailing" constant="100" id="Jmi-uh-V0d"/>
                             <constraint firstItem="5s7-sv-6N8" firstAttribute="top" secondItem="eVW-yW-Y8z" secondAttribute="topMargin" constant="100" id="Nvy-rv-dio"/>
@@ -56,7 +56,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NsV-hD-fqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-474" y="308"/>
+            <point key="canvasLocation" x="-934" y="308"/>
         </scene>
         <!--Emotion-Init-->
         <scene sceneID="JZ7-mE-gtx">
@@ -67,11 +67,11 @@
                         <viewControllerLayoutGuide type="bottom" id="60i-7u-r3e"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SPl-7g-OEJ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EMOTION-DARK1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="27C-Sd-nEb">
-                                <rect key="frame" x="0.0" y="-20" width="600" height="620"/>
+                                <rect key="frame" x="-4" y="-20" width="328" height="588"/>
                                 <animations/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDi-Rj-OnJ">
@@ -168,7 +168,7 @@
                         <viewControllerLayoutGuide type="bottom" id="RsF-iP-r5Z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JMK-AT-J2V">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zMv-Kc-4IG">
@@ -232,15 +232,73 @@
             </objects>
             <point key="canvasLocation" x="2660" y="-94"/>
         </scene>
+        <!--PATLoginViewController-->
+        <scene sceneID="ug0-re-Bkl">
+            <objects>
+                <viewController title="PATLoginViewController" id="1I9-4n-rMm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Ox-Ku-sth"/>
+                        <viewControllerLayoutGuide type="bottom" id="bkh-mk-7Yi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M6i-yH-1RM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIt-cf-9AS">
+                                <rect key="frame" x="20" y="32" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Va5-pM-gab" customClass="FBSDKProfilePictureView">
+                                <rect key="frame" x="85" y="61" width="150" height="150"/>
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hU2-H9-ljw">
+                                <rect key="frame" x="20" y="219" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Avx-IK-kDj">
+                                <rect key="frame" x="20" y="248" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mae-OZ-BMw" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="60" y="430" width="200" height="50"/>
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ass-BL-QMS">
+                                <rect key="frame" x="229" y="28" width="86" height="30"/>
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="TEMP-NEXT">
+                                    <color key="titleColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="NVO-hj-wZl" kind="presentation" id="OTY-vt-fCd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="NVO-hj-wZl" kind="presentation" id="mlw-RT-hQn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jCg-aE-gLU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-312" y="308"/>
+        </scene>
     </scenes>
     <resources>
         <image name="EMOTION-DARK1.jpg" width="720" height="1280"/>
         <image name="EMOTION-DARK4.jpg" width="720" height="1280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lQO-Da-mGV"/>
-        <segue reference="X5W-9Y-yyr"/>
-        <segue reference="57h-6s-vKA"/>
-        <segue reference="dam-PS-rhO"/>
+        <segue reference="mlw-RT-hQn"/>
     </inferredMetricsTieBreakers>
 </document>

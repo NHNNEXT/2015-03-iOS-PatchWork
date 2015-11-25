@@ -27,6 +27,7 @@
     
     [FBSDKLoginButton class];
     [FBSDKProfilePictureView class];
+    
     return YES;
 }
 

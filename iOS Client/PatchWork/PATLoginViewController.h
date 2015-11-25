@@ -22,5 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet FBSDKProfilePictureView *profilePicture;
 
+@property (nonatomic, copy) NSString *profileID;
+
 
 @end

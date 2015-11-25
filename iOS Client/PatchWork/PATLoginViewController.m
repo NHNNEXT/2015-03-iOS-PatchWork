@@ -29,7 +29,7 @@
     [self toggleHiddenState:YES];
     self.lblLoginStatus.text = @"";
     
-    self.loginButton.readPermissions = @[@"public_profile", @"email"];
+    //self.loginButton.readPermissions = @[@"public_profile", @"email"];
     
     loginButton.readPermissions =
     @[@"public_profile", @"email", @"user_friends"];
@@ -50,7 +50,7 @@
 }
 
 
--(void)loginViewFetchedUserInfo:(FBSDKLoginButton *)loginView user:(userid<Open Graph Test User>)user{
+-(void)loginViewFetchedUserInfo:(FBSDKLoginButton *)loginView user:(id)user{
     NSLog(@"%@", user);
     self.profilePicture.profileID = user;
     self.lblUsername.text = user;

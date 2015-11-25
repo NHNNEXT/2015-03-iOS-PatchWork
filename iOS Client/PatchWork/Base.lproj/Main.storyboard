@@ -260,7 +260,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Avx-IK-kDj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Avx-IK-kDj">
                                 <rect key="frame" x="20" y="248" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -281,17 +281,8 @@
                                     <segue destination="NVO-hj-wZl" kind="presentation" id="OTY-vt-fCd"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="baR-6k-XPM">
-                                <rect key="frame" x="80" y="310" width="240" height="128"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="baR-6k-XPM" firstAttribute="top" secondItem="Avx-IK-kDj" secondAttribute="bottom" id="A1W-BV-Gni"/>
-                            <constraint firstItem="baR-6k-XPM" firstAttribute="leading" secondItem="M6i-yH-1RM" secondAttribute="leadingMargin" id="B7a-nY-py4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="baR-6k-XPM" secondAttribute="trailing" id="gZN-Jb-hV0"/>
-                            <constraint firstItem="bkh-mk-7Yi" firstAttribute="top" secondItem="baR-6k-XPM" secondAttribute="bottom" id="qrC-uA-PEb"/>
-                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>

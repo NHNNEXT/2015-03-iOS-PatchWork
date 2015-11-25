@@ -34,7 +34,6 @@
 		7504678D1C04A34C0027D5D3 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7504678A1C04A34C0027D5D3 /* FBSDKLoginKit.framework */; settings = {ASSET_TAGS = (); }; };
 		7504678E1C04A34C0027D5D3 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7504678B1C04A34C0027D5D3 /* FBSDKShareKit.framework */; settings = {ASSET_TAGS = (); }; };
 		75794D831C04B21300F120E3 /* PATLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75794D821C04B21300F120E3 /* PATLoginViewController.m */; settings = {ASSET_TAGS = (); }; };
-		75794D851C04D36900F120E3 /* PatchWork Design 2.002.png in Resources */ = {isa = PBXBuildFile; fileRef = 75794D841C04D36900F120E3 /* PatchWork Design 2.002.png */; settings = {ASSET_TAGS = (); }; };
 		E930E0951BD741450032C541 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E930E0941BD741450032C541 /* main.m */; };
 		E930E0981BD741460032C541 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E930E0971BD741460032C541 /* AppDelegate.m */; };
 		E930E09B1BD741460032C541 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E930E09A1BD741460032C541 /* ViewController.m */; };
@@ -85,7 +84,6 @@
 		7504678B1C04A34C0027D5D3 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-20151111/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		75794D811C04B1A500F120E3 /* PATLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PATLoginViewController.h; sourceTree = "<group>"; };
 		75794D821C04B21300F120E3 /* PATLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PATLoginViewController.m; sourceTree = "<group>"; };
-		75794D841C04D36900F120E3 /* PatchWork Design 2.002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "PatchWork Design 2.002.png"; path = "../../../../Documents/NHN NEXT/2015/2015년 3학기/개경프 iOS/PatchWork/Design/PatchWork Design 2/PatchWork Design 2.002.png"; sourceTree = "<group>"; };
 		AD2ABD4FA5BFCD325C2554E0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E930E0901BD741450032C541 /* PatchWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatchWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E930E0941BD741450032C541 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 				5841F1C41BE72C42000571B7 /* EMOTION-DARK7.jpg */,
 				5841F1C51BE72C42000571B7 /* EMOTION-DARK8.jpg */,
 				5841F1C61BE72C42000571B7 /* EMOTION-DARK9.jpg */,
-				75794D841C04D36900F120E3 /* PatchWork Design 2.002.png */,
 			);
 			name = ImageFiles;
 			sourceTree = "<group>";
@@ -325,7 +322,6 @@
 				5841F1C71BE72C42000571B7 /* EMOTION-DARK1.jpg in Resources */,
 				583D1A0F1C0038D300F5F5A1 /* hamburger.gif in Resources */,
 				E930E0A01BD741460032C541 /* Assets.xcassets in Resources */,
-				75794D851C04D36900F120E3 /* PatchWork Design 2.002.png in Resources */,
 				5841F1CF1BE72C42000571B7 /* EMOTION-DARK9.jpg in Resources */,
 				5841F1CA1BE72C42000571B7 /* EMOTION-DARK4.jpg in Resources */,
 				5841F1D61BE74C11000571B7 /* MAP-DEFAULT.jpg in Resources */,

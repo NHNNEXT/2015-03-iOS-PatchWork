@@ -39,6 +39,8 @@
 		E98357231C0569CE00CFD428 /* PATSwirlGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E98357201C0569CE00CFD428 /* PATSwirlGestureRecognizer.m */; };
 		E98357241C0569CE00CFD428 /* PATWheelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98357221C0569CE00CFD428 /* PATWheelViewController.m */; };
 		E99AA1061BD7588D00253D0F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99AA1051BD7588D00253D0F /* MapKit.framework */; };
+		E9ECE7C91C0B24E200874851 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9ECE7C81C0B24E200874851 /* AVFoundation.framework */; };
+		E9ECE7CF1C0B300F00874851 /* wheelSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = E9ECE7CE1C0B300F00874851 /* wheelSound.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		E98357211C0569CE00CFD428 /* PATWheelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATWheelViewController.h; sourceTree = "<group>"; };
 		E98357221C0569CE00CFD428 /* PATWheelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PATWheelViewController.m; sourceTree = "<group>"; };
 		E99AA1051BD7588D00253D0F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E9ECE7C81C0B24E200874851 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E9ECE7CE1C0B300F00874851 /* wheelSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wheelSound.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9ECE7C91C0B24E200874851 /* AVFoundation.framework in Frameworks */,
 				7504678E1C04A34C0027D5D3 /* FBSDKShareKit.framework in Frameworks */,
 				E99AA1061BD7588D00253D0F /* MapKit.framework in Frameworks */,
 				7504678C1C04A34C0027D5D3 /* FBSDKCoreKit.framework in Frameworks */,
@@ -122,6 +127,7 @@
 		00A34DC02ABC4401AE753626 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9ECE7C81C0B24E200874851 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -209,6 +215,7 @@
 		E930E0931BD741450032C541 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E9ECE7CE1C0B300F00874851 /* wheelSound.wav */,
 				5859A4451C01E2BF0019FC15 /* Odin Rounded.otf */,
 				E930E0941BD741450032C541 /* main.m */,
 			);
@@ -318,6 +325,7 @@
 				E98357171C0568F700CFD428 /* wheel glow2.png in Resources */,
 				E983571D1C0568F700CFD428 /* background.png in Resources */,
 				583D1A0F1C0038D300F5F5A1 /* hamburger.gif in Resources */,
+				E9ECE7CF1C0B300F00874851 /* wheelSound.wav in Resources */,
 				E930E0A01BD741460032C541 /* Assets.xcassets in Resources */,
 				E983571A1C0568F700CFD428 /* wheel2.png in Resources */,
 				E930E09E1BD741460032C541 /* Main.storyboard in Resources */,

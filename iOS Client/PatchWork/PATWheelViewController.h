@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #include "PATSwirlGestureRecognizer.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface PATWheelViewController : UIViewController <PATSwirlGestureRecognizerDelegate, UIGestureRecognizerDelegate>
 

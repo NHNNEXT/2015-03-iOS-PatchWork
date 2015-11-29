@@ -10,8 +10,9 @@
 
 @interface PATWheelViewController ()
 
-@property (strong, nonatomic) PATSwirlGestureRecognizer *swirlGestureRecognizer;
-@property (strong, nonatomic) UITapGestureRecognizer *tapGestureRecognizer;
+@property (strong, nonatomic) PATSwirlGestureRecognizer* swirlGestureRecognizer;
+@property (strong, nonatomic) UITapGestureRecognizer* tapGestureRecognizer;
+@property (strong, nonatomic) AVAudioPlayer* wheelSoundPlayer;
 
 @end
 
@@ -40,6 +41,14 @@ float bearing = 0.0;
     [self.swirlGestureRecognizer requireGestureRecognizerToFail:self.tapGestureRecognizer];
 }
 
+- (void)playWheelSound {
+    NSError * error;
+    // wheelSound 디렉토리 각자 설정해야함.
+    NSURL* wheelSoundURL = [NSURL URLWithString:@"file:///Users/Thomas/wheelSound.wav"]; 
+    self.wheelSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:wheelSoundURL error:&error];
+    [self.wheelSoundPlayer play];
+}
+
 - (void)rotationAction:(id)sender {
     
     if([(PATSwirlGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
@@ -64,6 +73,10 @@ float bearing = 0.0;
     [self.knob setTransform:newKnobTransform];
     
     self.position.text = [NSString stringWithFormat:@"%dº", (int)lroundf(bearing)];
+    
+    if ((int)bearing%5==0){
+        [self playWheelSound];
+    }
 }
 
 - (void)resetToZero:(id)sender {

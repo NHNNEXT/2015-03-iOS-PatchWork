@@ -10,10 +10,11 @@
 #import <AVFoundation/AVFoundation.h>
 #import <QuartzCore/QuartzCore.h>
 #include "PATSwirlGestureRecognizer.h"
+#include "PATWheelTouchUpGestureRecognizer.h"
 #include "PATWheelTouchDownGestureRecognizer.h"
 
 
-@interface PATWheelViewController : UIViewController <PATSwirlGestureRecognizerDelegate, PATWheelTouchDownGestureRecognizerDelegate, UIGestureRecognizerDelegate>
+@interface PATWheelViewController : UIViewController <PATSwirlGestureRecognizerDelegate, PATWheelTouchUpGestureRecognizerDelegate, PATWheelTouchDownGestureRecognizerDelegate, UIGestureRecognizerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIView *controlsView;

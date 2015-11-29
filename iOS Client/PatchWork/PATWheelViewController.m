@@ -11,7 +11,7 @@
 @interface PATWheelViewController ()
 
 @property (strong, nonatomic) PATSwirlGestureRecognizer* swirlGestureRecognizer;
-@property (strong, nonatomic) UITapGestureRecognizer* tapGestureRecognizer;
+@property (strong, nonatomic) PATWheelTouchUpGestureRecognizer* touchUpGestureRecognizer;
 @property (strong, nonatomic) PATWheelTouchDownGestureRecognizer* touchDownGestureRecognizer;
 @property (strong, nonatomic) AVAudioPlayer* wheelSoundPlayer;
 
@@ -21,6 +21,9 @@
 
 float bearing = 0.0;
 
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -29,79 +32,84 @@ float bearing = 0.0;
     [self.swirlGestureRecognizer setDelegate:self];
     [self.controlsView addGestureRecognizer:self.swirlGestureRecognizer];
     
-    /* tapGestureRecognizer에 resetToZero 메서드가 아닌 다른 메서드를 넣어줘야함 */
-    self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(wheelGlowDisappear)];
-    [self.tapGestureRecognizer setDelegate:self];
-    self.tapGestureRecognizer.numberOfTapsRequired = 3;
-    [self.controlsView addGestureRecognizer:self.tapGestureRecognizer];
-
-    self.touchDownGestureRecognizer = [[PATWheelTouchDownGestureRecognizer alloc] initWithTarget:self action:@selector(wheelGlowDisappear)];
+    self.touchDownGestureRecognizer = [[PATWheelTouchDownGestureRecognizer alloc] initWithTarget:self action:@selector(wheelGlowAppear:)];
     [self.touchDownGestureRecognizer setDelegate:self];
     [self.controlsView addGestureRecognizer:self.touchDownGestureRecognizer];
+    
+    self.touchUpGestureRecognizer = [[PATWheelTouchUpGestureRecognizer alloc] initWithTarget:self action:@selector(wheelGlowDisappear:)];
+    [self.touchUpGestureRecognizer setDelegate:self];
+    [self.controlsView addGestureRecognizer:self.touchUpGestureRecognizer];
 
-    [self.swirlGestureRecognizer requireGestureRecognizerToFail:self.tapGestureRecognizer];
+    [self.swirlGestureRecognizer requireGestureRecognizerToFail:self.touchDownGestureRecognizer];
     
     self.knob.hidden = YES;
     // wheel을 터치할 때 wheel glow가 fade-in 할 수 있도록 애니메이션 적용
     self.knob.layer.shouldRasterize = YES;
 }
 
+
+
 - (void)playWheelSound {
+    if((int)bearing%45 != 0){
+        return;
+    }
     NSError * error;
-    // wheelSound 디렉토리 각자 설정해야함.
+    // wheelSound 디렉토리는 각자 설정해야함.
     NSURL* wheelSoundURL = [NSURL URLWithString:@"file:///Users/Thomas/wheelSound.wav"]; 
     self.wheelSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:wheelSoundURL error:&error];
     [self.wheelSoundPlayer play];
 }
 
-- (void)wheelGlowAppear {
+
+
+- (void)wheelGlowAppear:(id)sender {
+    if([(PATWheelTouchDownGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
+        return;
+    }
     NSLog(@"Appear");
-    CATransition * animation = [CATransition animation];
-    animation.type = kCATransitionFade;
-    animation.duration = 0.4;
-    [self.knob.layer addAnimation:animation forKey:nil];
+    
+    CGFloat movedPosition = 180 * ((PATWheelTouchDownGestureRecognizer*)sender).currentAngle / M_PI;
+    CGFloat direction = (movedPosition - bearing) * M_PI / 180;
+    bearing = movedPosition;
+    [self transformRotate:direction];
+    
+    [self playWheelSound];
+    
+    [self updateFeelingText];
+    
+    [self giveAnimationToKnob];
     self.knob.hidden = NO;
 }
 
-- (void)wheelGlowDisappear {
+
+
+- (void)wheelGlowDisappear:(id)sender {
     NSLog(@"Disappear");
+    
+    [self giveAnimationToKnob];
+    self.knob.hidden = YES;
+}
+
+
+
+- (void)giveAnimationToKnob {
     CATransition * animation = [CATransition animation];
     animation.type = kCATransitionFade;
     animation.duration = 0.4;
     [self.knob.layer addAnimation:animation forKey:nil];
-    self.knob.hidden = YES;
 }
 
-- (void)rotationAction:(id)sender {
-    [self wheelGlowAppear];
-    
-    if([(PATSwirlGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
-        return;
-    }
-    
-    CGFloat direction = ((PATSwirlGestureRecognizer*)sender).currentAngle - ((PATSwirlGestureRecognizer*)sender).previousAngle;
-    
-    bearing += 180 * direction / M_PI;
-    
-    if (bearing < -0.5) {
-        bearing += 360;
-    }
-    else if (bearing > 359.5) {
-        bearing -= 360;
-    }
-    
-    CGAffineTransform knobTransform = self.knob.transform;
-    
-    CGAffineTransform newKnobTransform = CGAffineTransformRotate(knobTransform, direction);
 
+
+- (void)transformRotate: (CGFloat) direction {
+    CGAffineTransform knobTransform = self.knob.transform;
+    CGAffineTransform newKnobTransform = CGAffineTransformRotate(knobTransform, direction);
     [self.knob setTransform:newKnobTransform];
-    
-    self.position.text = [NSString stringWithFormat:@"%dº", (int)lroundf(bearing)];
-    
-    if ((int)bearing%45==0){
-        [self playWheelSound];
-    }
-    
+}
+
+
+
+- (void)updateFeelingText {
     if(bearing>=0 && bearing<45){
         self.position.text = @"and i'm feeling JOY";
     }
@@ -128,27 +136,32 @@ float bearing = 0.0;
     }
 }
 
-- (void)resetToZero:(id)sender {
-    [self animateRotationToBearing:0];
+
+
+- (void)rotationAction:(id)sender {
+    if([(PATSwirlGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
+        return;
+    }
+    
+    CGFloat direction = ((PATSwirlGestureRecognizer*)sender).currentAngle - ((PATSwirlGestureRecognizer*)sender).previousAngle;
+    
+    bearing += 180 * direction / M_PI;
+    if (bearing < -0.5) {
+        bearing += 360;
+    }
+    else if (bearing > 359.5) {
+        bearing -= 360;
+    }
+    
+    [self transformRotate:direction];
+    
+    if ((int)bearing%45==0){
+        [self playWheelSound];
+    }
+    
+    [self updateFeelingText];
 }
 
-- (void)animateRotationToBearing:(int)direction {
-    
-    bearing = direction;
-    
-    CGAffineTransform rotationTransform = CGAffineTransformMakeRotation(180 * direction / M_PI);
-    
-    [UIImageView beginAnimations:nil context:nil];
-    [UIImageView setAnimationDelegate:self];
-    [UIImageView setAnimationDuration:0.8f];
-    [UIImageView setAnimationCurve:UIViewAnimationCurveEaseOut];
-    
-    [self.knob setTransform:rotationTransform];
-    
-    [UIImageView commitAnimations];
-    
-    self.position.text = [NSString stringWithFormat:@"%dº", direction];
-}
 
 
 - (void)didReceiveMemoryWarning

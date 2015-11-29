@@ -70,10 +70,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2.png" translatesAutoresizingMaskIntoConstraints="NO" id="27C-Sd-nEb">
-                                <rect key="frame" x="-4" y="-20" width="328" height="588"/>
-                                <animations/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDi-Rj-OnJ">
                                 <rect key="frame" x="238" y="285" width="124" height="30"/>
                                 <animations/>
@@ -85,19 +81,33 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0º" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u29-OG-ZUN" userLabel="position">
-                                <rect key="frame" x="20" y="107" width="69" height="38"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2.png" translatesAutoresizingMaskIntoConstraints="NO" id="27C-Sd-nEb">
+                                <rect key="frame" x="0.0" y="-20" width="320" height="588"/>
+                                <animations/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" adjustable="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="aMk-n9-GFP"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0º" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u29-OG-ZUN" userLabel="position">
+                                <rect key="frame" x="151" y="491" width="19" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3bX-84-BjW" userLabel="Controls">
-                                <rect key="frame" x="10" y="163" width="300" height="300"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0IY-th-PfK" userLabel="controlsView">
+                                <rect key="frame" x="0.0" y="163" width="320" height="320"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wheel glow2.png" translatesAutoresizingMaskIntoConstraints="NO" id="jBG-fd-Ppz" userLabel="Knob">
-                                        <rect key="frame" x="-7" y="-8" width="314" height="314"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="wheel glow2.png" translatesAutoresizingMaskIntoConstraints="NO" id="jBG-fd-Ppz" userLabel="knob">
+                                        <rect key="frame" x="3" y="-6" width="314" height="314"/>
                                         <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="314" id="VWl-wM-5Bk"/>
+                                            <constraint firstAttribute="width" constant="314" id="ahd-Sv-L4H"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <animations/>
@@ -106,13 +116,20 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="60i-7u-r3e" firstAttribute="top" secondItem="27C-Sd-nEb" secondAttribute="bottom" id="YMK-ag-6Q7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="27C-Sd-nEb" secondAttribute="trailing" constant="-20" id="em6-Wr-xdj"/>
-                            <constraint firstItem="27C-Sd-nEb" firstAttribute="leading" secondItem="SPl-7g-OEJ" secondAttribute="leadingMargin" constant="-20" id="gZ5-3S-NH6"/>
-                            <constraint firstItem="27C-Sd-nEb" firstAttribute="top" secondItem="Enl-Jc-iRM" secondAttribute="bottom" constant="-20" id="hkO-RD-kPO"/>
+                            <constraint firstItem="27C-Sd-nEb" firstAttribute="leading" secondItem="SPl-7g-OEJ" secondAttribute="leading" id="E7I-YX-5DN"/>
+                            <constraint firstItem="u29-OG-ZUN" firstAttribute="leading" secondItem="SPl-7g-OEJ" secondAttribute="leadingMargin" constant="131" id="LNW-WE-Sxe"/>
+                            <constraint firstItem="60i-7u-r3e" firstAttribute="top" secondItem="u29-OG-ZUN" secondAttribute="bottom" constant="56" id="NwE-0w-4SJ"/>
+                            <constraint firstAttribute="trailing" secondItem="27C-Sd-nEb" secondAttribute="trailing" id="Uqs-8k-9Nq"/>
+                            <constraint firstItem="60i-7u-r3e" firstAttribute="top" secondItem="27C-Sd-nEb" secondAttribute="bottom" id="c7q-6L-mkd"/>
+                            <constraint firstItem="27C-Sd-nEb" firstAttribute="top" secondItem="Enl-Jc-iRM" secondAttribute="bottom" constant="-20" id="n2w-cR-dDR"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="controlsView" destination="0IY-th-PfK" id="hxW-ph-hHU"/>
+                        <outlet property="knob" destination="jBG-fd-Ppz" id="R70-eQ-EWQ"/>
+                        <outlet property="position" destination="u29-OG-ZUN" id="w05-Kq-7rJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyo-Cr-Fg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

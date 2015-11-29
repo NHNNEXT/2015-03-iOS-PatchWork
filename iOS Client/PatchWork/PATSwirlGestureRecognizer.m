@@ -31,6 +31,7 @@
 - (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     
+    NSLog(@"Touched!");
     if (touches.count > 1) {
 		self.state = UIGestureRecognizerStateFailed;
 		return;
@@ -39,7 +40,6 @@
 
 - (void)touchesMoved:(NSSet*)touches withEvent:(UIEvent *)event {
     [super touchesMoved:touches withEvent:event];
-    
     UITouch *touch = [touches anyObject];
     
     self.currentAngle = [self getTouchAngle:[touch locationInView:touch.view]];

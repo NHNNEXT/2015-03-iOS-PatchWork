@@ -7,17 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#include "PATSwirlGestureRecognizer.h"
 #import <AVFoundation/AVFoundation.h>
+#import <QuartzCore/QuartzCore.h>
+#include "PATSwirlGestureRecognizer.h"
+#include "PATWheelTouchDownGestureRecognizer.h"
 
-@interface PATWheelViewController : UIViewController <PATSwirlGestureRecognizerDelegate, UIGestureRecognizerDelegate>
+
+@interface PATWheelViewController : UIViewController <PATSwirlGestureRecognizerDelegate, PATWheelTouchDownGestureRecognizerDelegate, UIGestureRecognizerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIView *controlsView;
 @property (strong, nonatomic) IBOutlet UIImageView *knob;
 @property (strong, nonatomic) IBOutlet UILabel *position;
-
-
 
  
 @end

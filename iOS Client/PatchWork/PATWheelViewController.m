@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) PATSwirlGestureRecognizer* swirlGestureRecognizer;
 @property (strong, nonatomic) UITapGestureRecognizer* tapGestureRecognizer;
+@property (strong, nonatomic) PATWheelTouchDownGestureRecognizer* touchDownGestureRecognizer;
 @property (strong, nonatomic) AVAudioPlayer* wheelSoundPlayer;
 
 @end
@@ -25,20 +26,24 @@ float bearing = 0.0;
     [super viewDidLoad];
     
 	self.swirlGestureRecognizer = [[PATSwirlGestureRecognizer alloc] initWithTarget:self action:@selector(rotationAction:)];
-    
     [self.swirlGestureRecognizer setDelegate:self];
-    
     [self.controlsView addGestureRecognizer:self.swirlGestureRecognizer];
     
-    self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resetToZero:)];
-    
+    /* tapGestureRecognizer에 resetToZero 메서드가 아닌 다른 메서드를 넣어줘야함 */
+    self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(wheelGlowDisappear)];
     [self.tapGestureRecognizer setDelegate:self];
-    
-    self.tapGestureRecognizer.numberOfTapsRequired = 2;
-    
+    self.tapGestureRecognizer.numberOfTapsRequired = 3;
     [self.controlsView addGestureRecognizer:self.tapGestureRecognizer];
-    
+
+    self.touchDownGestureRecognizer = [[PATWheelTouchDownGestureRecognizer alloc] initWithTarget:self action:@selector(wheelGlowDisappear)];
+    [self.touchDownGestureRecognizer setDelegate:self];
+    [self.controlsView addGestureRecognizer:self.touchDownGestureRecognizer];
+
     [self.swirlGestureRecognizer requireGestureRecognizerToFail:self.tapGestureRecognizer];
+    
+    self.knob.hidden = YES;
+    // wheel을 터치할 때 wheel glow가 fade-in 할 수 있도록 애니메이션 적용
+    self.knob.layer.shouldRasterize = YES;
 }
 
 - (void)playWheelSound {
@@ -49,7 +54,26 @@ float bearing = 0.0;
     [self.wheelSoundPlayer play];
 }
 
+- (void)wheelGlowAppear {
+    NSLog(@"Appear");
+    CATransition * animation = [CATransition animation];
+    animation.type = kCATransitionFade;
+    animation.duration = 0.4;
+    [self.knob.layer addAnimation:animation forKey:nil];
+    self.knob.hidden = NO;
+}
+
+- (void)wheelGlowDisappear {
+    NSLog(@"Disappear");
+    CATransition * animation = [CATransition animation];
+    animation.type = kCATransitionFade;
+    animation.duration = 0.4;
+    [self.knob.layer addAnimation:animation forKey:nil];
+    self.knob.hidden = YES;
+}
+
 - (void)rotationAction:(id)sender {
+    [self wheelGlowAppear];
     
     if([(PATSwirlGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
         return;

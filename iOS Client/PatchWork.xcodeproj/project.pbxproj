@@ -38,6 +38,8 @@
 		E983571E1C0568F700CFD428 /* wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = E98357161C0568F700CFD428 /* wheel.png */; };
 		E98357231C0569CE00CFD428 /* PATSwirlGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E98357201C0569CE00CFD428 /* PATSwirlGestureRecognizer.m */; };
 		E98357241C0569CE00CFD428 /* PATWheelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E98357221C0569CE00CFD428 /* PATWheelViewController.m */; };
+		E99348311C0B58110096292F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99348301C0B58110096292F /* QuartzCore.framework */; };
+		E99348361C0B695F0096292F /* PATWheelTouchDownGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E99348351C0B695F0096292F /* PATWheelTouchDownGestureRecognizer.m */; };
 		E99AA1061BD7588D00253D0F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99AA1051BD7588D00253D0F /* MapKit.framework */; };
 		E9ECE7C91C0B24E200874851 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9ECE7C81C0B24E200874851 /* AVFoundation.framework */; };
 		E9ECE7CF1C0B300F00874851 /* wheelSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = E9ECE7CE1C0B300F00874851 /* wheelSound.wav */; };
@@ -96,6 +98,9 @@
 		E98357201C0569CE00CFD428 /* PATSwirlGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PATSwirlGestureRecognizer.m; sourceTree = "<group>"; };
 		E98357211C0569CE00CFD428 /* PATWheelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATWheelViewController.h; sourceTree = "<group>"; };
 		E98357221C0569CE00CFD428 /* PATWheelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PATWheelViewController.m; sourceTree = "<group>"; };
+		E99348301C0B58110096292F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E99348351C0B695F0096292F /* PATWheelTouchDownGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PATWheelTouchDownGestureRecognizer.m; sourceTree = "<group>"; };
+		E99348371C0B69B70096292F /* PATWheelTouchDownGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATWheelTouchDownGestureRecognizer.h; sourceTree = "<group>"; };
 		E99AA1051BD7588D00253D0F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E9ECE7C81C0B24E200874851 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E9ECE7CE1C0B300F00874851 /* wheelSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wheelSound.wav; sourceTree = "<group>"; };
@@ -106,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E99348311C0B58110096292F /* QuartzCore.framework in Frameworks */,
 				E9ECE7C91C0B24E200874851 /* AVFoundation.framework in Frameworks */,
 				7504678E1C04A34C0027D5D3 /* FBSDKShareKit.framework in Frameworks */,
 				E99AA1061BD7588D00253D0F /* MapKit.framework in Frameworks */,
@@ -127,6 +133,7 @@
 		00A34DC02ABC4401AE753626 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E99348301C0B58110096292F /* QuartzCore.framework */,
 				E9ECE7C81C0B24E200874851 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
@@ -191,6 +198,8 @@
 				E930E09C1BD741460032C541 /* Main.storyboard */,
 				E983571F1C0569CE00CFD428 /* PATSwirlGestureRecognizer.h */,
 				E98357201C0569CE00CFD428 /* PATSwirlGestureRecognizer.m */,
+				E99348371C0B69B70096292F /* PATWheelTouchDownGestureRecognizer.h */,
+				E99348351C0B695F0096292F /* PATWheelTouchDownGestureRecognizer.m */,
 				E98357211C0569CE00CFD428 /* PATWheelViewController.h */,
 				E98357221C0569CE00CFD428 /* PATWheelViewController.m */,
 				75794D811C04B1A500F120E3 /* PATLoginViewController.h */,
@@ -403,6 +412,7 @@
 				58FBB6DC1C0037A800951B0E /* PATLocationViewController.m in Sources */,
 				E930E0981BD741460032C541 /* AppDelegate.m in Sources */,
 				58FBB6DA1C0037A800951B0E /* PATGoogleMapViewController.m in Sources */,
+				E99348361C0B695F0096292F /* PATWheelTouchDownGestureRecognizer.m in Sources */,
 				E930E0951BD741450032C541 /* main.m in Sources */,
 				E98357231C0569CE00CFD428 /* PATSwirlGestureRecognizer.m in Sources */,
 				58FBB6DE1C0037A800951B0E /* PATMapContainerViewController.m in Sources */,

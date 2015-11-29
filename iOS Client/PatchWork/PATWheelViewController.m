@@ -74,8 +74,33 @@ float bearing = 0.0;
     
     self.position.text = [NSString stringWithFormat:@"%dº", (int)lroundf(bearing)];
     
-    if ((int)bearing%5==0){
+    if ((int)bearing%45==0){
         [self playWheelSound];
+    }
+    
+    if(bearing>=0 && bearing<45){
+        self.position.text = @"and i'm feeling JOY";
+    }
+    else if (bearing>=45 && bearing<90){
+        self.position.text = @"and i'm feeling TIRED";
+    }
+    else if (bearing>=90 && bearing<135){
+        self.position.text = @"and i'm feeling FUN";
+    }
+    else if (bearing>=135 && bearing<180){
+        self.position.text = @"and i'm feeling ANGRY";
+    }
+    else if (bearing>=180 && bearing<225){
+        self.position.text = @"and i'm feeling SURPRISED";
+    }
+    else if (bearing>=225 && bearing<270){
+        self.position.text = @"and i'm feeling SCARED";
+    }
+    else if (bearing>=270 && bearing<315){
+        self.position.text = @"and i'm feeling SAD";
+    }
+    else{
+        self.position.text = @"and i'm feeling EXCITED";
     }
 }
 

@@ -12,8 +12,12 @@
 
 @interface PATWheelViewController : UIViewController <PATSwirlGestureRecognizerDelegate, UIGestureRecognizerDelegate>
 
+
 @property (weak, nonatomic) IBOutlet UIView *controlsView;
 @property (strong, nonatomic) IBOutlet UIImageView *knob;
 @property (strong, nonatomic) IBOutlet UILabel *position;
 
+
+
+ 
 @end

@@ -1,21 +1,21 @@
 //
-//  CAYSwirlGestureRecognizer.m
-//  Sense Of Direction
+//  PATWheelTouchUpGestureRecognizer.m
+//  PatchWork
 //
-//  Created by Scott Erholm on 10/14/13.
-//  Copyright (c) 2013 Cayuse. All rights reserved.
+//  Created by 김기범 on 2015. 11. 30..
+//  Copyright © 2015년 NEXT Institute. All rights reserved.
 //
 
-#import "PATSwirlGestureRecognizer.h"
+#import "PATWheelTouchUpGestureRecognizer.h"
 
-@interface PATSwirlGestureRecognizer ()
+@interface PATWheelTouchUpGestureRecognizer ()
 
 @property (strong, nonatomic) id target;
 @property (nonatomic) SEL action;
-
 @end
 
-@implementation PATSwirlGestureRecognizer
+
+@implementation PATWheelTouchUpGestureRecognizer
 
 - (id)initWithTarget:(id)target action:(SEL)action {
     
@@ -32,27 +32,25 @@
     [super touchesBegan:touches withEvent:event];
     
     if (touches.count > 1) {
-		self.state = UIGestureRecognizerStateFailed;
-		return;
-	}
+        self.state = UIGestureRecognizerStateFailed;
+        return;
+    }
 }
 
 - (void)touchesMoved:(NSSet*)touches withEvent:(UIEvent *)event {
     [super touchesMoved:touches withEvent:event];
-    UITouch *touch = [touches anyObject];
-    
-    self.currentAngle = [self getTouchAngle:[touch locationInView:touch.view]];
-    self.previousAngle = [self getTouchAngle:[touch previousLocationInView:touch.view]];
-    
-    if ([self.target respondsToSelector:self.action]) {
-        [self.target performSelector:self.action withObject:self];
-
-    }
 }
 
 - (void)touchesEnded:(NSSet*)touches withEvent:(UIEvent *)event {
     [super touchesEnded:touches withEvent:event];
     [super setState:UIGestureRecognizerStateEnded];
+    UITouch *touch = [touches anyObject];
+    self.currentAngle = [self getTouchAngle:[touch locationInView:touch.view]];
+    self.previousAngle = [self getTouchAngle:[touch previousLocationInView:touch.view]];
+    
+    if ([self.target respondsToSelector:self.action]) {
+        [self.target performSelector:self.action withObject:self];
+    }
 }
 
 - (void)touchesCancelled:(NSSet*)touches withEvent:(UIEvent *)event {

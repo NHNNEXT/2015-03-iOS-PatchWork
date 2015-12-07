@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5838AFF51C15F19A00D9A3A8 /* PATSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5838AFF41C15F19A00D9A3A8 /* PATSettingsViewController.m */; };
+		5838AFF61C15F19A00D9A3A8 /* PATSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5838AFF41C15F19A00D9A3A8 /* PATSettingsViewController.m */; };
+		5838AFF81C15FB9900D9A3A8 /* currentPosition.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5838AFF71C15FB9900D9A3A8 /* currentPosition.gif */; };
+		5838AFF91C15FB9900D9A3A8 /* currentPosition.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5838AFF71C15FB9900D9A3A8 /* currentPosition.gif */; };
+		5838AFFB1C15FBDE00D9A3A8 /* plusEmotion.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5838AFFA1C15FBDE00D9A3A8 /* plusEmotion.gif */; };
+		5838AFFC1C15FBDE00D9A3A8 /* plusEmotion.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5838AFFA1C15FBDE00D9A3A8 /* plusEmotion.gif */; };
 		583D1A0F1C0038D300F5F5A1 /* hamburger.gif in Resources */ = {isa = PBXBuildFile; fileRef = 583D1A0E1C0038D300F5F5A1 /* hamburger.gif */; };
 		5859A4461C01E2BF0019FC15 /* Odin Rounded.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5859A4451C01E2BF0019FC15 /* Odin Rounded.otf */; };
 		58FBB6DA1C0037A800951B0E /* PATGoogleMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FBB6D31C0037A800951B0E /* PATGoogleMapViewController.m */; };
@@ -58,6 +64,10 @@
 
 /* Begin PBXFileReference section */
 		357972C415F442DC95BE7498 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		5838AFF01C15F15000D9A3A8 /* PATSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATSettingsViewController.h; sourceTree = "<group>"; };
+		5838AFF41C15F19A00D9A3A8 /* PATSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PATSettingsViewController.m; sourceTree = "<group>"; };
+		5838AFF71C15FB9900D9A3A8 /* currentPosition.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = currentPosition.gif; sourceTree = "<group>"; };
+		5838AFFA1C15FBDE00D9A3A8 /* plusEmotion.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = plusEmotion.gif; sourceTree = "<group>"; };
 		583D1A0E1C0038D300F5F5A1 /* hamburger.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hamburger.gif; sourceTree = "<group>"; };
 		5859A4451C01E2BF0019FC15 /* Odin Rounded.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Odin Rounded.otf"; sourceTree = "<group>"; };
 		58FBB6D21C0037A800951B0E /* PATGoogleMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATGoogleMapViewController.h; sourceTree = "<group>"; };
@@ -145,6 +155,8 @@
 		5841F1D11BE72CD8000571B7 /* ImageFiles */ = {
 			isa = PBXGroup;
 			children = (
+				5838AFF71C15FB9900D9A3A8 /* currentPosition.gif */,
+				583D1A0E1C0038D300F5F5A1 /* hamburger.gif */,
 				E983570F1C0568F700CFD428 /* wheel glow2.png */,
 				E98357101C0568F700CFD428 /* wheel glow.png */,
 				E98357111C0568F700CFD428 /* wheel3.png */,
@@ -153,6 +165,7 @@
 				E98357141C0568F700CFD428 /* background2.png */,
 				E98357151C0568F700CFD428 /* background.png */,
 				E98357161C0568F700CFD428 /* wheel.png */,
+				5838AFFA1C15FBDE00D9A3A8 /* plusEmotion.gif */,
 			);
 			name = ImageFiles;
 			sourceTree = "<group>";
@@ -214,10 +227,11 @@
 				58FBB6D41C0037A800951B0E /* PATLocationViewController.h */,
 				58FBB6D51C0037A800951B0E /* PATLocationViewController.m */,
 				58FBB6D61C0037A800951B0E /* PATMapContainerViewController.h */,
-				583D1A0E1C0038D300F5F5A1 /* hamburger.gif */,
 				58FBB6D71C0037A800951B0E /* PATMapContainerViewController.m */,
 				58FBB6D81C0037A800951B0E /* PATSideMenuViewController.h */,
 				58FBB6D91C0037A800951B0E /* PATSideMenuViewController.m */,
+				5838AFF01C15F15000D9A3A8 /* PATSettingsViewController.h */,
+				5838AFF41C15F19A00D9A3A8 /* PATSettingsViewController.m */,
 				E930E09F1BD741460032C541 /* Assets.xcassets */,
 				E930E0A11BD741460032C541 /* LaunchScreen.storyboard */,
 				E930E0A41BD741460032C541 /* Info.plist */,
@@ -336,6 +350,8 @@
 				E930E0A31BD741460032C541 /* LaunchScreen.storyboard in Resources */,
 				E983571B1C0568F700CFD428 /* standard.png in Resources */,
 				E983571C1C0568F700CFD428 /* background2.png in Resources */,
+				5838AFFB1C15FBDE00D9A3A8 /* plusEmotion.gif in Resources */,
+				5838AFF81C15FB9900D9A3A8 /* currentPosition.gif in Resources */,
 				E98357171C0568F700CFD428 /* wheel glow2.png in Resources */,
 				E983571D1C0568F700CFD428 /* background.png in Resources */,
 				583D1A0F1C0038D300F5F5A1 /* hamburger.gif in Resources */,
@@ -354,6 +370,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5838AFF91C15FB9900D9A3A8 /* currentPosition.gif in Resources */,
+				5838AFFC1C15FBDE00D9A3A8 /* plusEmotion.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +434,7 @@
 				E930E09B1BD741460032C541 /* ViewController.m in Sources */,
 				58FBB6DC1C0037A800951B0E /* PATLocationViewController.m in Sources */,
 				E99348391C0B72C30096292F /* PATWheelTouchDownGestureRecognizer.m in Sources */,
+				5838AFF51C15F19A00D9A3A8 /* PATSettingsViewController.m in Sources */,
 				E930E0981BD741460032C541 /* AppDelegate.m in Sources */,
 				58FBB6DA1C0037A800951B0E /* PATGoogleMapViewController.m in Sources */,
 				E99348361C0B695F0096292F /* PATWheelTouchUpGestureRecognizer.m in Sources */,
@@ -432,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58FBB6E11C0037A800951B0E /* PATSideMenuViewController.m in Sources */,
+				5838AFF61C15F19A00D9A3A8 /* PATSettingsViewController.m in Sources */,
 				58FBB6DD1C0037A800951B0E /* PATLocationViewController.m in Sources */,
 				58FBB6DB1C0037A800951B0E /* PATGoogleMapViewController.m in Sources */,
 				E930E0AE1BD741460032C541 /* PatchWorkUITests.m in Sources */,

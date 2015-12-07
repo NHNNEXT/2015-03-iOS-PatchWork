@@ -11,7 +11,7 @@
 @import GoogleMaps;
 
 @protocol sideMenuShowUp
--(void) PATShowSideMenu:(BOOL)YesOrNo;
+-(void) PATShowSideMenu;
 @end
 
 

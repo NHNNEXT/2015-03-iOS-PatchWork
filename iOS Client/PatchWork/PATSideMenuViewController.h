@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+@class PATMapContainerViewController;
 
 @interface PATSideMenuViewController : UIViewController
 
+-(UIButton *) PATaddTextButtonWithTitle:(NSString *)title withFont:(NSString *)font withSize:(CGFloat) size;
 
 @end
-
-
-/* SideMenuViewController_h */

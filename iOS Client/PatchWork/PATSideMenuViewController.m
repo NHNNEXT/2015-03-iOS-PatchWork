@@ -13,10 +13,19 @@
 - (void) viewDidLoad {
 	[super viewDidLoad];
 	
-	self.view.backgroundColor = [UIColor colorWithRed:11/255.0
-												green:16/255.0
-												 blue:41/255.0
-												alpha:1.0];
+	CALayer *leftSideLayer = [CALayer layer];
+	leftSideLayer.backgroundColor = [UIColor colorWithRed:11/255.0
+													green:16/255.0
+													 blue:41/255.0
+													alpha:1.0].CGColor;
+	leftSideLayer.frame = CGRectMake(0, 0, self.view.bounds.size.width*0.6f, self.view.bounds.size.height);
+	
+	self.view.layer.backgroundColor = [UIColor colorWithRed:1.0
+													  green:1.0
+													   blue:1.0
+													  alpha:0.0].CGColor;
+	
+	[self.view.layer addSublayer:leftSideLayer];
 	
 	// Time Machine Button
 	UIButton* timeMachineButton = [self PATaddTextButtonWithTitle:@"TIME MACHINE"
@@ -25,7 +34,6 @@
 	
 	[timeMachineButton setTranslatesAutoresizingMaskIntoConstraints:NO];
 	[self.view addSubview:timeMachineButton];
-	
 	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:timeMachineButton
 														  attribute:NSLayoutAttributeCenterY
 														  relatedBy:NSLayoutRelationEqual
@@ -37,9 +45,10 @@
 														  attribute:NSLayoutAttributeCenterX
 														  relatedBy:NSLayoutRelationEqual
 															 toItem:self.view
-														  attribute:NSLayoutAttributeCenterX
+														  attribute:NSLayoutAttributeLeading
 														 multiplier:1.0
-														   constant:0]];
+														   constant:self.view.bounds.size.width*0.3f]];
+
 	
 	// Search Place Button
 	UIButton* searchPlaceButton = [self PATaddTextButtonWithTitle:@"SEARCH PLACE"
@@ -60,9 +69,9 @@
 														  attribute:NSLayoutAttributeCenterX
 														  relatedBy:NSLayoutRelationEqual
 															 toItem:self.view
-														  attribute:NSLayoutAttributeCenterX
+														  attribute:NSLayoutAttributeLeading
 														 multiplier:1.0
-														   constant:0]];
+														   constant:self.view.bounds.size.width*0.3f]];
 	
 	// Settings Button
 	UIButton* settingsButton = [self PATaddTextButtonWithTitle:@"SETTINGS"
@@ -83,10 +92,20 @@
 														  attribute:NSLayoutAttributeCenterX
 														  relatedBy:NSLayoutRelationEqual
 															 toItem:self.view
-														  attribute:NSLayoutAttributeCenterX
+														  attribute:NSLayoutAttributeLeading
 														 multiplier:1.0
-														   constant:0]];
+														   constant:self.view.bounds.size.width*0.3f]];
 	
+	[settingsButton addTarget:self
+					   action:@selector(showSettingsFurther)
+			 forControlEvents:UIControlEventTouchUpInside];
+	
+}
+
+
+- (void) showSettingsFurther {
+	
+	// To do: implement Settings ViewController
 	
 }
 

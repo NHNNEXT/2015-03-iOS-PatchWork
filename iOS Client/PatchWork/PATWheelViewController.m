@@ -14,6 +14,7 @@
 @property (strong, nonatomic) PATWheelTouchUpGestureRecognizer* touchUpGestureRecognizer;
 @property (strong, nonatomic) PATWheelTouchDownGestureRecognizer* touchDownGestureRecognizer;
 @property (strong, nonatomic) AVAudioPlayer* wheelSoundPlayer;
+@property (strong, nonatomic) NSString* city;
 
 @end
 
@@ -45,6 +46,8 @@ float bearing = 0.0;
     self.knob.hidden = YES;
     // wheel을 터치할 때 wheel glow가 fade-in 할 수 있도록 애니메이션 적용
     self.knob.layer.shouldRasterize = YES;
+    
+    [self getCityName];
 }
 
 
@@ -111,28 +114,39 @@ float bearing = 0.0;
 
 - (void)updateFeelingText {
     if(bearing>=0 && bearing<45){
-        self.position.text = @"and i'm feeling JOY";
-    }
+        self.position.text = @"JOY";
+        self.position.textColor = [UIColor colorWithRed:(199/255.f) green:(154/255.f) blue:(23/255.f)
+                                                  alpha:1.0];
+}
     else if (bearing>=45 && bearing<90){
-        self.position.text = @"and i'm feeling TIRED";
+        self.position.text = @"TIRED";
+        self.position.textColor = [UIColor colorWithRed:(114/255.f) green:(80/255.f) blue:(46/255.f)
+                                                  alpha:1.0];
+        //[self.emotionInWheel.image
     }
     else if (bearing>=90 && bearing<135){
-        self.position.text = @"and i'm feeling FUN";
+        self.position.text = @"FUN";
+        self.position.textColor = [UIColor colorWithRed:(199/255.f) green:(87/255.f) blue:(25/255.f)alpha:1.0];
     }
     else if (bearing>=135 && bearing<180){
-        self.position.text = @"and i'm feeling ANGRY";
+        self.position.text = @"ANGRY";
+        self.position.textColor = [UIColor colorWithRed:(194/255.f) green:(46/255.f) blue:(66/255.f)alpha:1.0];
     }
     else if (bearing>=180 && bearing<225){
-        self.position.text = @"and i'm feeling SURPRISED";
+        self.position.text = @"SURPRISED";
+        self.position.textColor = [UIColor colorWithRed:(208/255.f) green:(94/255.f) blue:(142/255.f)alpha:1.0];
     }
     else if (bearing>=225 && bearing<270){
-        self.position.text = @"and i'm feeling SCARED";
+        self.position.text = @"SCARED";
+        self.position.textColor = [UIColor colorWithRed:(117/255.f) green:(62/255.f) blue:(146/255.f)alpha:1.0];
     }
     else if (bearing>=270 && bearing<315){
-        self.position.text = @"and i'm feeling SAD";
+        self.position.text = @"SAD";
+        self.position.textColor = [UIColor colorWithRed:(79/255.f) green:(111/255.f) blue:(217/255.f)alpha:1.0];
     }
     else{
-        self.position.text = @"and i'm feeling EXCITED";
+        self.position.text = @"EXCITED";
+        self.position.textColor = [UIColor colorWithRed:(90/255.f) green:(212/255.f) blue:(194/255.f)alpha:1.0];
     }
 }
 
@@ -163,10 +177,27 @@ float bearing = 0.0;
 }
 
 
+- (void) getCityName {
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ip-api.com/json"]];
+    
+    __block NSDictionary *json;
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               json = [NSJSONSerialization JSONObjectWithData:data
+                                                                      options:0
+                                                                        error:nil];
+                               [self setCity:[json objectForKey:@"city"]];
+                               NSLog(@"%@", [self city]);
+                               self.cityLabel.text = self.city;
+                           }];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
+
 
 @end

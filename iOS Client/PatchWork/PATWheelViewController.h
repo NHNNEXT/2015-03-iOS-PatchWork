@@ -23,5 +23,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *cityLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *emotionInWheel;
 
+@property (nonatomic, strong) NSString *authBy;
  
 @end

@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <Fabric/Fabric.h>
+#import <DigitsKit/DigitsKit.h>
 
-@interface PATLoginViewController : UIViewController <FBSDKLoginButtonDelegate>
+@interface PATLoginViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
 
@@ -21,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblEmail;
 
 @property (weak, nonatomic) IBOutlet FBSDKProfilePictureView *profilePicture;
+
+@property (weak, nonatomic) IBOutlet DGTAuthenticateButton *authButton;
 
 @property (nonatomic, copy) NSString *profileID;
 

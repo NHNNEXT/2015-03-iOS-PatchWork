@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <Fabric/Fabric.h>
+#import <DigitsKit/DigitsKit.h>
 @import GoogleMaps;
 
 @interface AppDelegate ()
@@ -27,7 +29,8 @@
     
     [FBSDKLoginButton class];
     [FBSDKProfilePictureView class];
-    
+	[Fabric with:@[[Digits class]]];
+
     return YES;
 }
 

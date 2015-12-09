@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIView *controlsView;
 @property (strong, nonatomic) IBOutlet UIImageView *knob;
 @property (strong, nonatomic) IBOutlet UILabel *position;
+@property (strong, nonatomic) IBOutlet UILabel *cityLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *emotionInWheel;
 
  
 @end

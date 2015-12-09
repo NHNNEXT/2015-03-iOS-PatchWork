@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) id target;
 @property (nonatomic) SEL action;
+@property NSString * city;
 
 @end
 

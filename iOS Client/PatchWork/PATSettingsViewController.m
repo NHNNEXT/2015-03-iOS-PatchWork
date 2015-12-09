@@ -40,9 +40,9 @@
 														  attribute:NSLayoutAttributeCenterY
 														  relatedBy:NSLayoutRelationEqual
 															 toItem:self.view
-														  attribute:NSLayoutAttributeBaseline
+														  attribute:NSLayoutAttributeCenterY
 														 multiplier:1.0
-														   constant:self.view.bounds.size.height*0.1f]];
+														   constant:self.view.bounds.size.height*(-0.05f)]];
 	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:logOutButton
 														  attribute:NSLayoutAttributeCenterX
 														  relatedBy:NSLayoutRelationEqual
@@ -62,9 +62,9 @@
 														  attribute:NSLayoutAttributeCenterY
 														  relatedBy:NSLayoutRelationEqual
 															 toItem:self.view
-														  attribute:NSLayoutAttributeBaseline
+														  attribute:NSLayoutAttributeCenterY
 														 multiplier:1.0
-														   constant:self.view.bounds.size.height*(-0.1f)]];
+														   constant:self.view.bounds.size.height*0.05f]];
 	[self.view addConstraint:[NSLayoutConstraint constraintWithItem:aboutButton
 														  attribute:NSLayoutAttributeCenterX
 														  relatedBy:NSLayoutRelationEqual

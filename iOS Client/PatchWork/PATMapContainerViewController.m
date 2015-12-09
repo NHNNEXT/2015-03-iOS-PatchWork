@@ -29,6 +29,7 @@
 	[self addChildViewController:self.sideMenuViewController];
 	self.sideMenuViewController.view.frame = CGRectMake(self.PATStartPositionOfSideMenu, 0, self.view.bounds.size.width, self.view.bounds.size.height);
 	[self.view addSubview:self.sideMenuViewController.view];
+	self.sideMenuViewController.delegate = self;
 	[self.sideMenuViewController didMoveToParentViewController:self];
 	
 	self.PATStartPositionOfSettings = self.view.bounds.size.width*(-1.0f);
@@ -53,21 +54,47 @@
 }
 
 
+-(void) PATShowSetting {
+
+	self.PATStartPositionOfSideMenu = self.view.bounds.size.width*(-1.0f);
+	self.PATStartPositionOfSettings = 0;
+	
+	self.sideMenuViewController.view.frame = CGRectMake(self.PATStartPositionOfSideMenu, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+	self.settingsViewController.view.frame = CGRectMake(self.PATStartPositionOfSettings, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+	
+}
+
+
 - (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
 	UITouch* touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
+	
+	NSLog(@"x = %.2f, y = %.2f)", point.x, point.y);
 
 	if (point.x >= self.view.bounds.size.width*0.6f) {
-			
-		self.PATStartPositionOfSideMenu = self.view.bounds.size.width*(-1.0f);
-		[UIView animateWithDuration:0.5
-							  delay:0.0
-							options:UIViewAnimationOptionCurveEaseOut
-						 animations:^{
-							 self.sideMenuViewController.view.frame = CGRectMake(self.PATStartPositionOfSideMenu, 0, self.view.bounds.size.width, self.view.bounds.size.height);
-						 }
-						 completion:nil];
+		
+		if (self.PATStartPositionOfSideMenu >= -0.01) {
+			self.PATStartPositionOfSideMenu = self.view.bounds.size.width*(-1.0f);
+			[UIView animateWithDuration:0.5
+								  delay:0.0
+								options:UIViewAnimationOptionCurveEaseOut
+							 animations:^{
+								 self.sideMenuViewController.view.frame = CGRectMake(self.PATStartPositionOfSideMenu, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+							 }
+							 completion:nil];
+		}
+		
+		if (self.PATStartPositionOfSettings >= -0.01) {
+			self.PATStartPositionOfSettings = self.view.bounds.size.width*(-1.0f);
+			[UIView animateWithDuration:0.5
+								  delay:0.0
+								options:UIViewAnimationOptionCurveEaseOut
+							 animations:^{
+								 self.settingsViewController.view.frame = CGRectMake(self.PATStartPositionOfSettings, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+							 }
+							 completion:nil];
+		}
 	}
 }
 

@@ -103,10 +103,8 @@
 }
 
 
-- (void) showSettingsFurther {
-	
-	// To do: implement Settings ViewController
-	
+- (void)showSettingsFurther {
+	[self.delegate PATShowSetting];
 }
 
 

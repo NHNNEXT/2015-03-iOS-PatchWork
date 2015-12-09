@@ -10,7 +10,14 @@
 #import <Foundation/Foundation.h>
 @class PATMapContainerViewController;
 
+@protocol showSettingFurther
+-(void) PATShowSetting;
+@end
+
+
 @interface PATSideMenuViewController : UIViewController
+
+@property (weak, nonatomic) id<showSettingFurther> delegate;
 
 -(UIButton *) PATaddTextButtonWithTitle:(NSString *)title withFont:(NSString *)font withSize:(CGFloat) size;
 

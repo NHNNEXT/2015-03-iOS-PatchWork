@@ -1,6 +1,6 @@
 //
 //  SideMenuViewController.m
-//  LocAndEtc
+//  PatchWork
 //
 //  Created by BgKim on 2015. 11. 20..
 //  Copyright © 2015년 NEXT Institute. All rights reserved.

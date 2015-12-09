@@ -1,6 +1,6 @@
 //
 //  MapContainerViewController.h
-//  LocAndEtc
+//  PatchWork
 //
 //  Created by BgKim on 2015. 11. 21..
 //  Copyright © 2015년 NEXT Institute. All rights reserved.

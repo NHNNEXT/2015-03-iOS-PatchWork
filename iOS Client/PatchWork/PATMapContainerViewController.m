@@ -70,8 +70,6 @@
 	UITouch* touch = [touches anyObject];
 	CGPoint point = [touch locationInView:self.view];
 	
-	NSLog(@"x = %.2f, y = %.2f)", point.x, point.y);
-
 	if (point.x >= self.view.bounds.size.width*0.6f) {
 		
 		if (self.PATStartPositionOfSideMenu >= -0.01) {

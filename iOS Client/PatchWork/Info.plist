@@ -54,6 +54,7 @@
 	<string>PATSentiMap</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>fbauth2</string>
 		<string>googleChromes</string>
 		<string>comGoogleMaps</string>
 	</array>

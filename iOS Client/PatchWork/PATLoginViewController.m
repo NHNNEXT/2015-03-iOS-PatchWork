@@ -27,11 +27,11 @@
     
     //FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     //loginButton.center = self.view.center;
-    //CGRect btnFrame = _loginButton.frame;
-    //btnFrame.origin.x = 137;
-    //btnFrame.origin.y = 391;
-    //_loginButton.frame = btnFrame;
-    //[self.view addSubview:_loginButton];
+    CGRect btnFrame = _loginButton.frame;
+    btnFrame.origin.x = 137;
+    btnFrame.origin.y = 391;
+    _loginButton.frame = btnFrame;
+    [self.view addSubview:_loginButton];
     
     //[self toggleHiddenState:YES];
     self.lblLoginStatus.text = @"";
@@ -61,16 +61,19 @@
     [self.view addSubview:authButton];
     
     
+    /*
     DGTAuthenticationConfiguration *configuration = [[DGTAuthenticationConfiguration alloc] initWithAccountFields:DGTAccountFieldsEmail];
     configuration.title = @"Login to Digits";
     Digits *digits = [Digits sharedInstance];
     [digits authenticateWithViewController:nil configuration:configuration completion:^(DGTSession *session, NSError *error) {
         // Inspect session to access the email address of the user
     }];
+    */
     
     [[Digits sharedInstance] logOut];
     
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -92,6 +95,7 @@
     self.lblEmail.text = [user objectForKey:@"email"];
 }
 
+
 -(void)loginViewShowingLoggedOutUser:(FBSDKLoginButton *)loginView{
     self.lblLoginStatus.text = @"You are logged out";
     
@@ -108,10 +112,10 @@
     [[Digits sharedInstance] authenticateWithCompletion:^(DGTSession *session, NSError *error) {
         // Inspect session/error objects
     }];
- 
+    
     Digits *digits = [Digits sharedInstance];
     DGTAuthenticationConfiguration *configuration = [[DGTAuthenticationConfiguration alloc] initWithAccountFields:DGTAccountFieldsDefaultOptionMask];
-        configuration.phoneNumber = @"+82";
+    configuration.phoneNumber = @"+82";
     [digits authenticateWithViewController:nil configuration:configuration completion:^(DGTSession *newSession, NSError *error){
         // Country selector will be set to Spain
     }];
@@ -124,20 +128,20 @@
         //[FBSDKAppEvents activateApp];
         
         /*
-        NSString *facebookAuthApiURL = @"server_api_address";
-        // Other data will be propagating
-        NSURL *postURL = [NSURL URLWithString:facebookAuthApiURL];
-        NSError __autoreleasing *errorRequest;
-        NSHTTPURLResponse __autoreleasing *responseRequest;
-        
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:postURL];
-        NSInputStream *inputData;
-        
-        [request setHTTPMethod:@"POST"];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [request setHTTPBodyStream:inputData];
-
+         NSString *facebookAuthApiURL = @"server_api_address";
+         // Other data will be propagating
+         NSURL *postURL = [NSURL URLWithString:facebookAuthApiURL];
+         NSError __autoreleasing *errorRequest;
+         NSHTTPURLResponse __autoreleasing *responseRequest;
+         
+         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:postURL];
+         NSInputStream *inputData;
+         
+         [request setHTTPMethod:@"POST"];
+         [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+         [request setHTTPBodyStream:inputData];
+         
          */
         PATWheelViewController *nextViewController = [segue destinationViewController];
         nextViewController.authBy = @"facebook";
@@ -148,34 +152,34 @@
         nextViewController.authBy = @"twitter";
         
         /*
-        DGTAuthenticateButton *authButton;
-        authButton = [DGTAuthenticateButton buttonWithAuthenticationCompletion:^(DGTSession *session, NSError *error) {
-            if (session.userID) {
-                // TODO: associate the session userID with your user model
-                NSString *msg = [NSString stringWithFormat:@"Phone number: %@", session.phoneNumber];
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You are logged in!"
-                                                                message:msg
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-                [alert show];
-            } else if (error) {
-                NSLog(@"Authentication error: %@", error.localizedDescription);
-            }
-        }];
-        
-        authButton.center = self.view.center;
-        [self.view addSubview:authButton];
-        
-        
-        DGTAuthenticationConfiguration *configuration = [[DGTAuthenticationConfiguration alloc] initWithAccountFields:DGTAccountFieldsEmail];
-        configuration.title = @"Login to Digits";
-        Digits *digits = [Digits sharedInstance];
-        [digits authenticateWithViewController:nil configuration:configuration completion:^(DGTSession *session, NSError *error) {
-            // Inspect session to access the email address of the user
-        }];
+         DGTAuthenticateButton *authButton;
+         authButton = [DGTAuthenticateButton buttonWithAuthenticationCompletion:^(DGTSession *session, NSError *error) {
+         if (session.userID) {
+         // TODO: associate the session userID with your user model
+         NSString *msg = [NSString stringWithFormat:@"Phone number: %@", session.phoneNumber];
+         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You are logged in!"
+         message:msg
+         delegate:nil
+         cancelButtonTitle:@"OK"
+         otherButtonTitles:nil];
+         [alert show];
+         } else if (error) {
+         NSLog(@"Authentication error: %@", error.localizedDescription);
+         }
+         }];
+         
+         authButton.center = self.view.center;
+         [self.view addSubview:authButton];
+         
+         
+         DGTAuthenticationConfiguration *configuration = [[DGTAuthenticationConfiguration alloc] initWithAccountFields:DGTAccountFieldsEmail];
+         configuration.title = @"Login to Digits";
+         Digits *digits = [Digits sharedInstance];
+         [digits authenticateWithViewController:nil configuration:configuration completion:^(DGTSession *session, NSError *error) {
+         // Inspect session to access the email address of the user
+         }];
          */
-
+        
     }
     
 }

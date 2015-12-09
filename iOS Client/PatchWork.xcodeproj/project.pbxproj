@@ -31,6 +31,13 @@
 		7504678C1C04A34C0027D5D3 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750467891C04A34C0027D5D3 /* FBSDKCoreKit.framework */; };
 		7504678D1C04A34C0027D5D3 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7504678A1C04A34C0027D5D3 /* FBSDKLoginKit.framework */; };
 		7504678E1C04A34C0027D5D3 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7504678B1C04A34C0027D5D3 /* FBSDKShareKit.framework */; };
+		752833EB1C17EA9C00A2CD9A /* LOGIN_facebook login.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833E41C17EA9C00A2CD9A /* LOGIN_facebook login.png */; settings = {ASSET_TAGS = (); }; };
+		752833EC1C17EA9C00A2CD9A /* LOGIN_intro logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833E51C17EA9C00A2CD9A /* LOGIN_intro logo.png */; settings = {ASSET_TAGS = (); }; };
+		752833ED1C17EA9C00A2CD9A /* LOGIN_intro page.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833E61C17EA9C00A2CD9A /* LOGIN_intro page.png */; settings = {ASSET_TAGS = (); }; };
+		752833EE1C17EA9C00A2CD9A /* LOGIN_login logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833E71C17EA9C00A2CD9A /* LOGIN_login logo.png */; settings = {ASSET_TAGS = (); }; };
+		752833EF1C17EA9C00A2CD9A /* LOGIN_login page.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833E81C17EA9C00A2CD9A /* LOGIN_login page.png */; settings = {ASSET_TAGS = (); }; };
+		752833F01C17EA9C00A2CD9A /* LOGIN_phone number login.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833E91C17EA9C00A2CD9A /* LOGIN_phone number login.png */; settings = {ASSET_TAGS = (); }; };
+		752833F11C17EA9C00A2CD9A /* LOGIN_sign in with.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833EA1C17EA9C00A2CD9A /* LOGIN_sign in with.png */; settings = {ASSET_TAGS = (); }; };
 		E930E0951BD741450032C541 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E930E0941BD741450032C541 /* main.m */; };
 		E930E0981BD741460032C541 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E930E0971BD741460032C541 /* AppDelegate.m */; };
 		E930E09B1BD741460032C541 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E930E09A1BD741460032C541 /* ViewController.m */; };
@@ -99,6 +106,13 @@
 		750467891C04A34C0027D5D3 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-20151111/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		7504678A1C04A34C0027D5D3 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-20151111/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		7504678B1C04A34C0027D5D3 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-20151111/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		752833E41C17EA9C00A2CD9A /* LOGIN_facebook login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LOGIN_facebook login.png"; path = "../../../../Documents/NHN NEXT/2015/2015년 3학기/개경프 iOS/PatchWork/Design/SentiMap Design/LOGIN/LOGIN_facebook login.png"; sourceTree = "<group>"; };
+		752833E51C17EA9C00A2CD9A /* LOGIN_intro logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LOGIN_intro logo.png"; path = "../../../../Documents/NHN NEXT/2015/2015년 3학기/개경프 iOS/PatchWork/Design/SentiMap Design/LOGIN/LOGIN_intro logo.png"; sourceTree = "<group>"; };
+		752833E61C17EA9C00A2CD9A /* LOGIN_intro page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LOGIN_intro page.png"; path = "../../../../Documents/NHN NEXT/2015/2015년 3학기/개경프 iOS/PatchWork/Design/SentiMap Design/LOGIN/LOGIN_intro page.png"; sourceTree = "<group>"; };
+		752833E71C17EA9C00A2CD9A /* LOGIN_login logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LOGIN_login logo.png"; path = "../../../../Documents/NHN NEXT/2015/2015년 3학기/개경프 iOS/PatchWork/Design/SentiMap Design/LOGIN/LOGIN_login logo.png"; sourceTree = "<group>"; };
+		752833E81C17EA9C00A2CD9A /* LOGIN_login page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LOGIN_login page.png"; path = "../../../../Documents/NHN NEXT/2015/2015년 3학기/개경프 iOS/PatchWork/Design/SentiMap Design/LOGIN/LOGIN_login page.png"; sourceTree = "<group>"; };
+		752833E91C17EA9C00A2CD9A /* LOGIN_phone number login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LOGIN_phone number login.png"; path = "../../../../Documents/NHN NEXT/2015/2015년 3학기/개경프 iOS/PatchWork/Design/SentiMap Design/LOGIN/LOGIN_phone number login.png"; sourceTree = "<group>"; };
+		752833EA1C17EA9C00A2CD9A /* LOGIN_sign in with.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LOGIN_sign in with.png"; path = "../../../../Documents/NHN NEXT/2015/2015년 3학기/개경프 iOS/PatchWork/Design/SentiMap Design/LOGIN/LOGIN_sign in with.png"; sourceTree = "<group>"; };
 		AD2ABD4FA5BFCD325C2554E0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E930E0901BD741450032C541 /* PatchWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatchWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E930E0941BD741450032C541 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -182,6 +196,13 @@
 		5841F1D11BE72CD8000571B7 /* ImageFiles */ = {
 			isa = PBXGroup;
 			children = (
+				752833E41C17EA9C00A2CD9A /* LOGIN_facebook login.png */,
+				752833E51C17EA9C00A2CD9A /* LOGIN_intro logo.png */,
+				752833E61C17EA9C00A2CD9A /* LOGIN_intro page.png */,
+				752833E71C17EA9C00A2CD9A /* LOGIN_login logo.png */,
+				752833E81C17EA9C00A2CD9A /* LOGIN_login page.png */,
+				752833E91C17EA9C00A2CD9A /* LOGIN_phone number login.png */,
+				752833EA1C17EA9C00A2CD9A /* LOGIN_sign in with.png */,
 				E996470F1C17BA4200A194E6 /* angry.png */,
 				E99647101C17BA4200A194E6 /* excited.png */,
 				E99647111C17BA4200A194E6 /* fun.png */,
@@ -248,8 +269,6 @@
 				5841F1D11BE72CD8000571B7 /* ImageFiles */,
 				E930E0961BD741460032C541 /* AppDelegate.h */,
 				E930E0971BD741460032C541 /* AppDelegate.m */,
-				58924EF21C17E35D007B94AB /* PATLoginViewController.h */,
-				58924EF31C17E35D007B94AB /* PATLoginViewController.m */,
 				E930E0991BD741460032C541 /* ViewController.h */,
 				E930E09A1BD741460032C541 /* ViewController.m */,
 				E930E09C1BD741460032C541 /* Main.storyboard */,
@@ -261,6 +280,8 @@
 				E99348381C0B72C30096292F /* PATWheelTouchDownGestureRecognizer.m */,
 				E98357211C0569CE00CFD428 /* PATWheelViewController.h */,
 				E98357221C0569CE00CFD428 /* PATWheelViewController.m */,
+				58924EF21C17E35D007B94AB /* PATLoginViewController.h */,
+				58924EF31C17E35D007B94AB /* PATLoginViewController.m */,
 				58FBB6D21C0037A800951B0E /* PATGoogleMapViewController.h */,
 				58FBB6D31C0037A800951B0E /* PATGoogleMapViewController.m */,
 				58FBB6D41C0037A800951B0E /* PATLocationViewController.h */,
@@ -388,9 +409,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				58924EF01C17E2F1007B94AB /* DigitsKitResources.bundle in Resources */,
+				752833EC1C17EA9C00A2CD9A /* LOGIN_intro logo.png in Resources */,
 				E99647161C17BA4300A194E6 /* excited.png in Resources */,
 				E930E0A31BD741460032C541 /* LaunchScreen.storyboard in Resources */,
 				E983571B1C0568F700CFD428 /* standard.png in Resources */,
+				752833F11C17EA9C00A2CD9A /* LOGIN_sign in with.png in Resources */,
 				E983571C1C0568F700CFD428 /* background2.png in Resources */,
 				5838AFFB1C15FBDE00D9A3A8 /* plusEmotion.gif in Resources */,
 				5838AFF81C15FB9900D9A3A8 /* currentPosition.gif in Resources */,
@@ -398,6 +421,7 @@
 				E983571D1C0568F700CFD428 /* background.png in Resources */,
 				E99647181C17BA4300A194E6 /* sad.png in Resources */,
 				E996471A1C17BA4300A194E6 /* surprised.png in Resources */,
+				752833ED1C17EA9C00A2CD9A /* LOGIN_intro page.png in Resources */,
 				583D1A0F1C0038D300F5F5A1 /* hamburger.gif in Resources */,
 				E996470E1C1752A600A194E6 /* tired.png in Resources */,
 				E9ECE7CF1C0B300F00874851 /* wheelSound.wav in Resources */,
@@ -406,10 +430,14 @@
 				E99647191C17BA4300A194E6 /* scared.png in Resources */,
 				E930E09E1BD741460032C541 /* Main.storyboard in Resources */,
 				E983571E1C0568F700CFD428 /* wheel.png in Resources */,
+				752833F01C17EA9C00A2CD9A /* LOGIN_phone number login.png in Resources */,
 				E99647151C17BA4300A194E6 /* angry.png in Resources */,
 				E98357191C0568F700CFD428 /* wheel3.png in Resources */,
 				E98357181C0568F700CFD428 /* wheel glow.png in Resources */,
+				752833EE1C17EA9C00A2CD9A /* LOGIN_login logo.png in Resources */,
+				752833EB1C17EA9C00A2CD9A /* LOGIN_facebook login.png in Resources */,
 				E99647171C17BA4300A194E6 /* fun.png in Resources */,
+				752833EF1C17EA9C00A2CD9A /* LOGIN_login page.png in Resources */,
 				5859A4461C01E2BF0019FC15 /* Odin Rounded.otf in Resources */,
 				E996470C1C17510000A194E6 /* joy.png in Resources */,
 			);

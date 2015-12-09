@@ -7,8 +7,13 @@
 //
 
 #import "PATWheelViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <Fabric/Fabric.h>
+#import <DigitsKit/DigitsKit.h>
 
 @interface PATWheelViewController ()
+
 
 @property (strong, nonatomic) PATSwirlGestureRecognizer* swirlGestureRecognizer;
 @property (strong, nonatomic) PATWheelTouchUpGestureRecognizer* touchUpGestureRecognizer;
@@ -50,6 +55,19 @@ float bearing = 0.0;
     [self getCityName];
 }
 
+
+- (void)didTapButton {
+    [[Digits sharedInstance] authenticateWithCompletion:^(DGTSession *session, NSError *error) {
+        // Inspect session/error objects
+    }];
+    
+    Digits *digits = [Digits sharedInstance];
+    DGTAuthenticationConfiguration *configuration = [[DGTAuthenticationConfiguration alloc] initWithAccountFields:DGTAccountFieldsDefaultOptionMask];
+    configuration.phoneNumber = @"+82";
+    [digits authenticateWithViewController:nil configuration:configuration completion:^(DGTSession *newSession, NSError *error){
+        // Country selector will be set to Spain
+    }];
+}
 
 
 - (void)playWheelSound {

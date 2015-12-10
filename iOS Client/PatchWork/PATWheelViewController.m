@@ -52,6 +52,7 @@ float bearing = 0.0;
     // wheel을 터치할 때 wheel glow가 fade-in 할 수 있도록 애니메이션 적용
     self.knob.layer.shouldRasterize = YES;
     
+    [self givePulseAnimation];
     [self getCityName];
 }
 
@@ -111,7 +112,23 @@ float bearing = 0.0;
     self.knob.hidden = YES;
 }
 
-
+- (void)givePulseAnimation {
+    CABasicAnimation *animation;
+    animation=[CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    animation.duration=2;
+    animation.repeatCount=HUGE_VALF;
+    animation.autoreverses=YES;
+    animation.fromValue=[NSNumber numberWithFloat:1.0];
+    animation.toValue=[NSNumber numberWithFloat:1.015];
+    [self.controlsView.layer addAnimation:animation forKey:@"transform.scale"];
+    animation=[CABasicAnimation animationWithKeyPath:@"opacity"];
+    animation.duration=2;
+    animation.repeatCount=HUGE_VALF;
+    animation.autoreverses=YES;
+    animation.fromValue=[NSNumber numberWithFloat:0.7];
+    animation.toValue=[NSNumber numberWithFloat:1];
+    [self.controlsView.layer addAnimation:animation forKey:@"opacity"];
+}
 
 - (void)giveAnimationToKnob {
     CATransition * animation = [CATransition animation];
@@ -119,7 +136,6 @@ float bearing = 0.0;
     animation.duration = 0.4;
     [self.knob.layer addAnimation:animation forKey:nil];
 }
-
 
 
 - (void)transformRotate: (CGFloat) direction {

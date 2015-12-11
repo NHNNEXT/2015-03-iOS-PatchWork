@@ -15,7 +15,7 @@
 @class PATSideMenuViewController;
 @class PATSettingsViewController;
 
-@interface PATMapContainerViewController : UIViewController<sideMenuShowUp, showSettingFurther>
+@interface PATMapContainerViewController : UIViewController<sideMenuShowUp, showSettingFurther, emotionSelect>
 
 @property (nonatomic, strong) PATGoogleMapViewController* mapViewController;
 @property (nonatomic, strong) PATSideMenuViewController* sideMenuViewController;

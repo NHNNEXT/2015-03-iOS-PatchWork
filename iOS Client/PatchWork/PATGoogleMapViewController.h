@@ -14,10 +14,14 @@
 -(void) PATShowSideMenu;
 @end
 
+@protocol emotionSelect
+-(void) PATShowEmotionView;
+@end
+
 
 @interface PATGoogleMapViewController : UIViewController
 
-@property (weak, nonatomic) id<sideMenuShowUp> delegate;
+@property (weak, nonatomic) id<sideMenuShowUp, emotionSelect> delegate;
 
 @end
 

@@ -65,6 +65,11 @@
 }
 
 
+-(void) PATShowEmotionView {
+	[self performSegueWithIdentifier:@"toEmotionSegue" sender:self];
+}
+
+
 - (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
 	UITouch* touch = [touches anyObject];

@@ -111,6 +111,9 @@
 															   attribute:NSLayoutAttributeHeight
 															  multiplier:1.0
 																constant:50.0]];
+	[emotionButton addTarget: self
+					   action: @selector(showWheelView)
+			 forControlEvents:UIControlEventTouchUpInside];
 	
 	
 	// Load locationButton with arrow image on the top right corner
@@ -162,6 +165,9 @@
 	[self.delegate PATShowSideMenu];
 }
 
+- (void) showWheelView {
+	[self.delegate PATShowEmotionView];
+}
 
 
 @end

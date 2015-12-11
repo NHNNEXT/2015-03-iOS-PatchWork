@@ -230,6 +230,9 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="hsz-Ta-8Zq" kind="presentation" identifier="toEmotionSegue" id="tWa-Q2-LUa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xXW-aa-bbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -351,6 +354,6 @@
         <image name="wheel.png" width="1280" height="1281"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9zf-j4-FOs"/>
+        <segue reference="tWa-Q2-LUa"/>
     </inferredMetricsTieBreakers>
 </document>

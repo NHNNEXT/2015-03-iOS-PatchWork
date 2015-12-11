@@ -22,8 +22,6 @@
 		58924EF41C17E35D007B94AB /* PATLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58924EF31C17E35D007B94AB /* PATLoginViewController.m */; };
 		58FBB6DA1C0037A800951B0E /* PATGoogleMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FBB6D31C0037A800951B0E /* PATGoogleMapViewController.m */; };
 		58FBB6DB1C0037A800951B0E /* PATGoogleMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FBB6D31C0037A800951B0E /* PATGoogleMapViewController.m */; };
-		58FBB6DC1C0037A800951B0E /* PATLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FBB6D51C0037A800951B0E /* PATLocationViewController.m */; };
-		58FBB6DD1C0037A800951B0E /* PATLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FBB6D51C0037A800951B0E /* PATLocationViewController.m */; };
 		58FBB6DE1C0037A800951B0E /* PATMapContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FBB6D71C0037A800951B0E /* PATMapContainerViewController.m */; };
 		58FBB6DF1C0037A800951B0E /* PATMapContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FBB6D71C0037A800951B0E /* PATMapContainerViewController.m */; };
 		58FBB6E01C0037A800951B0E /* PATSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FBB6D91C0037A800951B0E /* PATSideMenuViewController.m */; };
@@ -98,8 +96,6 @@
 		58924EF31C17E35D007B94AB /* PATLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PATLoginViewController.m; sourceTree = "<group>"; };
 		58FBB6D21C0037A800951B0E /* PATGoogleMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATGoogleMapViewController.h; sourceTree = "<group>"; };
 		58FBB6D31C0037A800951B0E /* PATGoogleMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PATGoogleMapViewController.m; sourceTree = "<group>"; };
-		58FBB6D41C0037A800951B0E /* PATLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATLocationViewController.h; sourceTree = "<group>"; };
-		58FBB6D51C0037A800951B0E /* PATLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PATLocationViewController.m; sourceTree = "<group>"; };
 		58FBB6D61C0037A800951B0E /* PATMapContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATMapContainerViewController.h; sourceTree = "<group>"; };
 		58FBB6D71C0037A800951B0E /* PATMapContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PATMapContainerViewController.m; sourceTree = "<group>"; };
 		58FBB6D81C0037A800951B0E /* PATSideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATSideMenuViewController.h; sourceTree = "<group>"; };
@@ -287,8 +283,6 @@
 				58924EF31C17E35D007B94AB /* PATLoginViewController.m */,
 				58FBB6D21C0037A800951B0E /* PATGoogleMapViewController.h */,
 				58FBB6D31C0037A800951B0E /* PATGoogleMapViewController.m */,
-				58FBB6D41C0037A800951B0E /* PATLocationViewController.h */,
-				58FBB6D51C0037A800951B0E /* PATLocationViewController.m */,
 				58FBB6D61C0037A800951B0E /* PATMapContainerViewController.h */,
 				58FBB6D71C0037A800951B0E /* PATMapContainerViewController.m */,
 				58FBB6D81C0037A800951B0E /* PATSideMenuViewController.h */,
@@ -525,7 +519,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E930E09B1BD741460032C541 /* ViewController.m in Sources */,
-				58FBB6DC1C0037A800951B0E /* PATLocationViewController.m in Sources */,
 				E99348391C0B72C30096292F /* PATWheelTouchDownGestureRecognizer.m in Sources */,
 				5838AFF51C15F19A00D9A3A8 /* PATSettingsViewController.m in Sources */,
 				E930E0981BD741460032C541 /* AppDelegate.m in Sources */,
@@ -546,7 +539,6 @@
 			files = (
 				58FBB6E11C0037A800951B0E /* PATSideMenuViewController.m in Sources */,
 				5838AFF61C15F19A00D9A3A8 /* PATSettingsViewController.m in Sources */,
-				58FBB6DD1C0037A800951B0E /* PATLocationViewController.m in Sources */,
 				58FBB6DB1C0037A800951B0E /* PATGoogleMapViewController.m in Sources */,
 				E930E0AE1BD741460032C541 /* PatchWorkUITests.m in Sources */,
 				58FBB6DF1C0037A800951B0E /* PATMapContainerViewController.m in Sources */,

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4F5-hr-SMS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4F5-hr-SMS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Odin Rounded.otf">
+            <string>OdinRounded</string>
             <string>OdinRounded</string>
             <string>OdinRounded</string>
             <string>OdinRounded</string>
@@ -132,14 +133,6 @@
                                     <constraint firstAttribute="height" constant="320" id="swi-jP-Ly6"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngD-JG-dur">
-                                <rect key="frame" x="179" y="524" width="125" height="30"/>
-                                <animations/>
-                                <state key="normal" title="임시 다음페이지 버튼"/>
-                                <connections>
-                                    <segue destination="dQO-8j-WCY" kind="showDetail" id="Nge-Pm-6RO"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="and i'm feeling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lK-2a-hVq">
                                 <rect key="frame" x="67" y="97" width="144" height="26"/>
                                 <animations/>
@@ -154,6 +147,18 @@
                                 <color key="textColor" red="0.3411764706" green="0.34509803919999998" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNo-rk-ZdG">
+                                <rect key="frame" x="130" y="482" width="60" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="23"/>
+                                <state key="normal" title="DONE">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didDoneButtonTouched:" destination="hsz-Ta-8Zq" eventType="touchUpInside" id="Nqg-lf-VpI"/>
+                                    <segue destination="dQO-8j-WCY" kind="show" id="y8z-xc-hx1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.023529411764705882" green="0.035294117647058823" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
@@ -163,13 +168,14 @@
                             <constraint firstItem="MiA-d0-dEM" firstAttribute="top" secondItem="QnC-Jk-7G9" secondAttribute="bottom" constant="-130" id="Bd8-5P-YYO"/>
                             <constraint firstItem="QnC-Jk-7G9" firstAttribute="top" secondItem="kTz-a8-OiP" secondAttribute="bottom" constant="190" id="CPo-ii-7ih"/>
                             <constraint firstItem="MiA-d0-dEM" firstAttribute="centerX" secondItem="Jwt-nL-Tqw" secondAttribute="centerX" id="DIL-ca-QRS"/>
+                            <constraint firstItem="QSi-Kg-xXF" firstAttribute="top" secondItem="jNo-rk-ZdG" secondAttribute="bottom" constant="56" id="Dtd-vs-Gbk"/>
                             <constraint firstItem="MiA-d0-dEM" firstAttribute="leading" secondItem="64M-uC-uxQ" secondAttribute="trailing" constant="-115" id="FYr-2O-AT2"/>
                             <constraint firstItem="QFO-jC-cBt" firstAttribute="top" secondItem="kTz-a8-OiP" secondAttribute="bottom" constant="3" id="GbE-OK-fvz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jNo-rk-ZdG" secondAttribute="trailing" constant="110" id="UtL-ap-v97"/>
                             <constraint firstItem="kTz-a8-OiP" firstAttribute="leading" secondItem="64M-uC-uxQ" secondAttribute="trailing" constant="7" id="YPz-27-MgI"/>
                             <constraint firstItem="QFO-jC-cBt" firstAttribute="leading" secondItem="4lK-2a-hVq" secondAttribute="trailing" constant="7" id="ZD2-6D-P0z"/>
                             <constraint firstItem="4lK-2a-hVq" firstAttribute="top" secondItem="kTz-a8-OiP" secondAttribute="bottom" constant="3" id="aeq-38-G9y"/>
-                            <constraint firstItem="ngD-JG-dur" firstAttribute="leading" secondItem="Jwt-nL-Tqw" secondAttribute="leadingMargin" constant="163" id="ava-Qt-Tn6"/>
-                            <constraint firstItem="QSi-Kg-xXF" firstAttribute="top" secondItem="ngD-JG-dur" secondAttribute="bottom" constant="14" id="gic-s7-T5U"/>
+                            <constraint firstItem="jNo-rk-ZdG" firstAttribute="leading" secondItem="Jwt-nL-Tqw" secondAttribute="leadingMargin" constant="110" id="kiv-Xg-uTv"/>
                             <constraint firstItem="QnC-Jk-7G9" firstAttribute="centerX" secondItem="Jwt-nL-Tqw" secondAttribute="centerX" id="nA1-WD-et1"/>
                             <constraint firstItem="QnC-Jk-7G9" firstAttribute="top" secondItem="64M-uC-uxQ" secondAttribute="bottom" constant="190" id="qOU-JJ-rdD"/>
                         </constraints>
@@ -185,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VuC-1e-jjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244" y="308"/>
+            <point key="canvasLocation" x="240" y="308"/>
         </scene>
         <!--PATMapContainerViewController-->
         <scene sceneID="MjN-9U-mSG">
@@ -227,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xXW-aa-bbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852" y="318"/>
+            <point key="canvasLocation" x="813" y="308"/>
         </scene>
         <!--PATGoogleMapViewController-->
         <scene sceneID="c9e-gJ-i4k">

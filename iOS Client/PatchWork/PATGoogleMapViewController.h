@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 @import GoogleMaps;
 
 @protocol sideMenuShowUp
@@ -19,11 +20,9 @@
 @end
 
 
-@interface PATGoogleMapViewController : UIViewController
+@interface PATGoogleMapViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (weak, nonatomic) id<sideMenuShowUp, emotionSelect> delegate;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
-
-
-/* GoogleMapViewController_h */

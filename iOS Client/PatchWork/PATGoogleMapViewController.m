@@ -8,22 +8,39 @@
 
 #import "PATGoogleMapViewController.h"
 
-@implementation PATGoogleMapViewController
+@interface PATGoogleMapViewController ()
+
+@property (nonatomic) CLLocation* currentLocation;
+
+- (void) setCameraPositionToCurrentLocation;
+
+@end
+
+
+@implementation PATGoogleMapViewController 
 {
-	GMSMapView* _mapView;
+	GMSMapView* mapView_;
 }
 
 - (void) viewDidLoad {
 	
 	[super viewDidLoad];
 	
+	// Location Manager setting
+	_locationManager = [[CLLocationManager alloc] init];
+	_locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+	_locationManager.delegate = self;
+	[_locationManager requestWhenInUseAuthorization];
+	[_locationManager startMonitoringSignificantLocationChanges];
+	[_locationManager startUpdatingLocation];
+	
 	// Load Google map (Note that an argument into mapWithFrame: is self.view.bounds instead of CGRectZero)
-	GMSCameraPosition* camera = [GMSCameraPosition cameraWithLatitude:33.3000
-															longitude:127.50000
+	GMSCameraPosition* camera = [GMSCameraPosition cameraWithLatitude:self.currentLocation.coordinate.latitude
+															longitude:self.currentLocation.coordinate.longitude
 																 zoom:1];
-	_mapView = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
-	_mapView.myLocationEnabled = YES;
-	[self.view addSubview:_mapView];
+	mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
+	mapView_.myLocationEnabled = YES;
+	[self.view addSubview:mapView_];
 	
 	// Load sideMenuButton with hamburger image on the top left corner
 	UIButton* sideMenuButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -112,8 +129,8 @@
 															  multiplier:1.0
 																constant:50.0]];
 	[emotionButton addTarget: self
-					   action: @selector(showWheelView)
-			 forControlEvents:UIControlEventTouchUpInside];
+					  action: @selector(showWheelView)
+			forControlEvents:UIControlEventTouchUpInside];
 	
 	
 	// Load locationButton with arrow image on the top right corner
@@ -157,16 +174,38 @@
 															  multiplier:1.0
 																constant:30.0]];
 	
-	
+	[locationButton addTarget: self
+					   action: @selector(setCameraPositionToCurrentLocation)
+			 forControlEvents:UIControlEventTouchUpInside];
 	
 }
+
 
 - (void)slideOutSideMenu {
 	[self.delegate PATShowSideMenu];
 }
 
+
 - (void) showWheelView {
 	[self.delegate PATShowEmotionView];
+}
+
+
+- (void) setCameraPositionToCurrentLocation {
+	CLLocationCoordinate2D target = CLLocationCoordinate2DMake(self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude);
+	mapView_.camera = [GMSCameraPosition cameraWithTarget:target zoom:1];
+}
+
+
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+	self.currentLocation = [locations lastObject];
+}
+
+
+- (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+	NSLog(@"location manager instance error.");
 }
 
 

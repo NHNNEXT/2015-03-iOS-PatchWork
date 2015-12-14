@@ -13,6 +13,10 @@
 @property (nonatomic) CLLocation* currentLocation;
 
 - (void) setCameraPositionToCurrentLocation;
+- (void) loadButtons;
+- (void) loadJSON;
+- (void) addMarkersAtLatitude:(double)lat withLongitude:(double) lon havingEmotion:(int) emotion;
+- (UIImage *) setMarkerShapeWithColor: (UIColor*) color;
 
 @end
 
@@ -20,6 +24,9 @@
 @implementation PATGoogleMapViewController 
 {
 	GMSMapView* mapView_;
+	NSMutableArray* latArr;
+	NSMutableArray* lonArr;
+	NSMutableArray* emotionArr;
 }
 
 - (void) viewDidLoad {
@@ -32,16 +39,170 @@
 	_locationManager.delegate = self;
 	[_locationManager requestWhenInUseAuthorization];
 	[_locationManager startMonitoringSignificantLocationChanges];
-	[_locationManager startUpdatingLocation];
 	
 	// Load Google map (Note that an argument into mapWithFrame: is self.view.bounds instead of CGRectZero)
-	GMSCameraPosition* camera = [GMSCameraPosition cameraWithLatitude:self.currentLocation.coordinate.latitude
-															longitude:self.currentLocation.coordinate.longitude
+	GMSCameraPosition* camera = [GMSCameraPosition cameraWithLatitude:0
+															longitude:0
 																 zoom:1];
 	mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
 	mapView_.myLocationEnabled = YES;
 	[self.view addSubview:mapView_];
+
+	[self loadJSON];
+	[self loadButtons];
 	
+	[_locationManager startUpdatingLocation];
+}
+
+
+- (void)slideOutSideMenu {
+	[self.delegate PATShowSideMenu];
+}
+
+
+- (void) showWheelView {
+	[self.delegate PATShowEmotionView];
+}
+
+
+- (void) setCameraPositionToCurrentLocation {
+	CLLocationCoordinate2D target = CLLocationCoordinate2DMake(self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude);
+	mapView_.camera = [GMSCameraPosition cameraWithTarget:target zoom:1];
+	
+}
+
+
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+	self.currentLocation = [locations lastObject];
+}
+
+
+- (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+	NSLog(@"location manager instance error.");
+}
+
+
+- (void) loadJSON
+{
+	NSURL* url = [NSURL URLWithString:@"http://localhost:5000/loadData"];
+	NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+	[request setHTTPMethod:@"GET"];
+	[request setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"content-type"];
+	
+	NSError* error;
+	NSURLResponse* response;
+	NSData* responseData = [NSURLConnection sendSynchronousRequest:request
+												 returningResponse:&response
+															 error:&error];
+	
+	NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
+														 options:NSJSONReadingMutableContainers
+														   error:&error];
+	NSDictionary* item = [json objectForKey:@"results"];
+
+	latArr = [item valueForKey:@"lat"];
+	lonArr = [item valueForKey:@"lon"];
+	emotionArr = [item valueForKey:@"emotion"];
+
+	for (int i = 0; i < [item count]; i++) {
+		double lat = [latArr[i] doubleValue];
+		double lon = [lonArr[i] doubleValue];
+		int emotion = (int)[emotionArr[i] integerValue];
+		
+		[self addMarkersAtLatitude:lat
+					 withLongitude:lon
+					 havingEmotion:emotion];
+	}
+}
+
+
+- (void) addMarkersAtLatitude:(double)lat withLongitude:(double) lon havingEmotion:(int) emotion {
+	
+	CLLocationCoordinate2D position = CLLocationCoordinate2DMake(lat, lon);
+	GMSMarker* marker = [GMSMarker markerWithPosition:position];
+	
+	switch (emotion) {
+		case 1: {
+			marker.title = @"JOY";
+			UIColor* markerColor = [UIColor colorWithRed:210/255.0 green:168/255.0 blue:30/255.0 alpha:1.0];
+			marker.icon = [self setMarkerShapeWithColor:markerColor];
+			break;
+		}
+		case 2: {
+			marker.title = @"TIRED";
+			UIColor* markerColor = [UIColor colorWithRed:134/255.0 green:99/255.0 blue:59/255.0 alpha:1.0];
+			marker.icon = [self setMarkerShapeWithColor:markerColor];
+			break;
+		}
+		case 3: {
+			marker.title = @"FUN";
+			UIColor* markerColor = [UIColor colorWithRed:211/255.0 green:108/255.0 blue:31/255.0 alpha:1.0];
+			marker.icon = [self setMarkerShapeWithColor:markerColor];
+			break;
+		}
+		case 4: {
+			marker.title = @"ANGRY";
+			UIColor* markerColor = [UIColor colorWithRed:194/255.0 green:45/255.0 blue:66/255.0 alpha:1.0];
+			marker.icon = [self setMarkerShapeWithColor:markerColor];
+			break;
+		}
+		case 5: {
+			marker.title = @"SURPRISED";
+			UIColor* markerColor = [UIColor colorWithRed:221/255.0 green:98/255.0 blue:151/255.0 alpha:1.0];
+			marker.icon = [self setMarkerShapeWithColor:markerColor];
+			break;
+		}
+		case 6: {
+			marker.title = @"SCARED";
+			UIColor* markerColor = [UIColor colorWithRed:117/255.0 green:62/255.0 blue:146/255.0 alpha:1.0];
+			marker.icon = [self setMarkerShapeWithColor:markerColor];
+			break;
+		}
+		case 7: {
+			marker.title = @"SAD";
+			UIColor* markerColor = [UIColor colorWithRed:79/255.0 green:111/255.0 blue:217/255.0 alpha:1.0];
+			marker.icon = [self setMarkerShapeWithColor:markerColor];
+			break;
+		}
+		case 8: {
+			marker.title = @"EXCITED";
+			UIColor* markerColor = [UIColor colorWithRed:97/255.0 green:238/255.0 blue:216/255.0 alpha:1.0];
+			marker.icon = [self setMarkerShapeWithColor:markerColor];
+			break;
+		}
+		default:
+			break;
+	}
+	
+	marker.map = mapView_;
+
+}
+
+
+- (UIImage *) setMarkerShapeWithColor: (UIColor*) color {
+	
+	UIImage* markerImage;
+	UIGraphicsBeginImageContext(CGSizeMake(20, 20));
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	
+	CGContextSetLineWidth(context, 1.0);
+	CGContextSetStrokeColorWithColor(context, color.CGColor);
+	[markerImage drawInRect:CGRectMake(0, 0, 20, 20)];
+	CGContextAddEllipseInRect(context, CGRectMake(0, 0, 20, 20));
+	CGContextSetFillColorWithColor(context, color.CGColor);
+	CGContextFillPath(context);
+	
+	markerImage = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	
+	return markerImage;
+}
+
+
+- (void) loadButtons
+{
 	// Load sideMenuButton with hamburger image on the top left corner
 	UIButton* sideMenuButton = [UIButton buttonWithType:UIButtonTypeCustom];
 	UIImage *hamburger = [UIImage imageNamed:@"hamburger.gif"];
@@ -97,37 +258,37 @@
 	
 	// Set autoLayout (top, leading, width, height) for emotionButton
 	NSLayoutConstraint* plusLeadConstraint = [NSLayoutConstraint constraintWithItem:emotionButton
-																			attribute:NSLayoutAttributeTrailing
-																			relatedBy:NSLayoutRelationEqual
-																			   toItem:self.view
-																			attribute:NSLayoutAttributeTrailing
-																		   multiplier:1.0
-																			 constant:-20.0];
+																		  attribute:NSLayoutAttributeTrailing
+																		  relatedBy:NSLayoutRelationEqual
+																			 toItem:self.view
+																		  attribute:NSLayoutAttributeTrailing
+																		 multiplier:1.0
+																		   constant:-20.0];
 	[self.view addConstraint:plusLeadConstraint];
 	
 	NSLayoutConstraint* plusBottomConstraint = [NSLayoutConstraint constraintWithItem:emotionButton
-																		   attribute:NSLayoutAttributeBottom
-																		   relatedBy:NSLayoutRelationEqual
-																			  toItem:self.view
-																		   attribute:NSLayoutAttributeBottom
-																		  multiplier:1.0
-																			constant:-20.0];
+																			attribute:NSLayoutAttributeBottom
+																			relatedBy:NSLayoutRelationEqual
+																			   toItem:self.view
+																			attribute:NSLayoutAttributeBottom
+																		   multiplier:1.0
+																			 constant:-20.0];
 	[self.view addConstraint:plusBottomConstraint];
 	
 	[emotionButton addConstraint:[NSLayoutConstraint constraintWithItem:emotionButton
-															   attribute:NSLayoutAttributeWidth
-															   relatedBy:NSLayoutRelationEqual
-																  toItem:nil
-															   attribute:NSLayoutAttributeWidth
-															  multiplier:1.0
-																constant:50.0]];
+															  attribute:NSLayoutAttributeWidth
+															  relatedBy:NSLayoutRelationEqual
+																 toItem:nil
+															  attribute:NSLayoutAttributeWidth
+															 multiplier:1.0
+															   constant:50.0]];
 	[emotionButton addConstraint:[NSLayoutConstraint constraintWithItem:emotionButton
-															   attribute:NSLayoutAttributeHeight
-															   relatedBy:NSLayoutRelationEqual
-																  toItem:nil
-															   attribute:NSLayoutAttributeHeight
-															  multiplier:1.0
-																constant:50.0]];
+															  attribute:NSLayoutAttributeHeight
+															  relatedBy:NSLayoutRelationEqual
+																 toItem:nil
+															  attribute:NSLayoutAttributeHeight
+															 multiplier:1.0
+															   constant:50.0]];
 	[emotionButton addTarget: self
 					  action: @selector(showWheelView)
 			forControlEvents:UIControlEventTouchUpInside];
@@ -142,21 +303,21 @@
 	
 	// Set autoLayout (top, leading, width, height) for locationButton
 	NSLayoutConstraint* arrowLeadConstraint = [NSLayoutConstraint constraintWithItem:locationButton
-																			attribute:NSLayoutAttributeTrailing
-																			relatedBy:NSLayoutRelationEqual
-																			   toItem:self.view
-																			attribute:NSLayoutAttributeTrailing
-																		   multiplier:1.0
-																			 constant:-20.0];
+																		   attribute:NSLayoutAttributeTrailing
+																		   relatedBy:NSLayoutRelationEqual
+																			  toItem:self.view
+																		   attribute:NSLayoutAttributeTrailing
+																		  multiplier:1.0
+																			constant:-20.0];
 	[self.view addConstraint:arrowLeadConstraint];
 	
 	NSLayoutConstraint* arrowTopConstraint = [NSLayoutConstraint constraintWithItem:locationButton
-																		   attribute:NSLayoutAttributeTop
-																		   relatedBy:NSLayoutRelationEqual
-																			  toItem:self.view
-																		   attribute:NSLayoutAttributeTop
-																		  multiplier:1.0
-																			constant:40.0];
+																		  attribute:NSLayoutAttributeTop
+																		  relatedBy:NSLayoutRelationEqual
+																			 toItem:self.view
+																		  attribute:NSLayoutAttributeTop
+																		 multiplier:1.0
+																		   constant:40.0];
 	[self.view addConstraint:arrowTopConstraint];
 	
 	[locationButton addConstraint:[NSLayoutConstraint constraintWithItem:locationButton
@@ -178,35 +339,47 @@
 					   action: @selector(setCameraPositionToCurrentLocation)
 			 forControlEvents:UIControlEventTouchUpInside];
 	
+	// Load transparentButton on the bottom left corner
+	UIButton* transparentButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	[transparentButton setTitle:@"Google" forState:UIControlStateNormal];
+	transparentButton.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.0];
+	[transparentButton setTitleColor:[UIColor colorWithWhite:1.0 alpha:0.0] forState:UIControlStateNormal];
+	[transparentButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+	[self.view addSubview:transparentButton];
+	
+	// Set autoLayout (top, leading, width, height) for locationButton
+	NSLayoutConstraint* transparentLeadConstraint = [NSLayoutConstraint constraintWithItem:transparentButton
+																		   attribute:NSLayoutAttributeLeading
+																		   relatedBy:NSLayoutRelationEqual
+																			  toItem:self.view
+																		   attribute:NSLayoutAttributeLeading
+																		  multiplier:1.0
+																			constant:0.0];
+	[self.view addConstraint:transparentLeadConstraint];
+	
+	NSLayoutConstraint* transparentTopConstraint = [NSLayoutConstraint constraintWithItem:transparentButton
+																		  attribute:NSLayoutAttributeBottom
+																		  relatedBy:NSLayoutRelationEqual
+																			 toItem:self.view
+																		  attribute:NSLayoutAttributeBottom
+																		 multiplier:1.0
+																		   constant:0.0];
+	[self.view addConstraint:transparentTopConstraint];
+	
+	[transparentButton addConstraint:[NSLayoutConstraint constraintWithItem:transparentButton
+															   attribute:NSLayoutAttributeWidth
+															   relatedBy:NSLayoutRelationEqual
+																  toItem:nil
+															   attribute:NSLayoutAttributeWidth
+															  multiplier:1.0
+																constant:80.0]];
+	[transparentButton addConstraint:[NSLayoutConstraint constraintWithItem:transparentButton
+															   attribute:NSLayoutAttributeHeight
+															   relatedBy:NSLayoutRelationEqual
+																  toItem:nil
+															   attribute:NSLayoutAttributeHeight
+															  multiplier:1.0
+																constant:30.0]];
 }
-
-
-- (void)slideOutSideMenu {
-	[self.delegate PATShowSideMenu];
-}
-
-
-- (void) showWheelView {
-	[self.delegate PATShowEmotionView];
-}
-
-
-- (void) setCameraPositionToCurrentLocation {
-	CLLocationCoordinate2D target = CLLocationCoordinate2DMake(self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude);
-	mapView_.camera = [GMSCameraPosition cameraWithTarget:target zoom:1];
-}
-
-
-- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
-{
-	self.currentLocation = [locations lastObject];
-}
-
-
-- (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-	NSLog(@"location manager instance error.");
-}
-
 
 @end

@@ -205,7 +205,7 @@
 {
 	// Load sideMenuButton with hamburger image on the top left corner
 	UIButton* sideMenuButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	UIImage *hamburger = [UIImage imageNamed:@"hamburger.gif"];
+	UIImage *hamburger = [UIImage imageNamed:@"hamburger.png"];
 	[sideMenuButton setImage:hamburger forState:UIControlStateNormal];
 	[sideMenuButton setTranslatesAutoresizingMaskIntoConstraints:NO];
 	[self.view addSubview:sideMenuButton];
@@ -251,7 +251,7 @@
 	
 	// Load emotionButton with plus image on the bottom right corner
 	UIButton* emotionButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	UIImage *plus = [UIImage imageNamed:@"plusEmotion.gif"];
+	UIImage *plus = [UIImage imageNamed:@"plusEmotion.png"];
 	[emotionButton setImage:plus forState:UIControlStateNormal];
 	[emotionButton setTranslatesAutoresizingMaskIntoConstraints:NO];
 	[self.view addSubview:emotionButton];

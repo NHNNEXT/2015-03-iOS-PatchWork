@@ -19,15 +19,13 @@
 @property (nonatomic) NSNumber* longitude;
 @property (nonatomic) NSNumber* latitude;
 @property (nonatomic) NSNumber* emotion;
+@property (nonatomic) float bearing;
 
 @end
 
 
 
 @implementation PATWheelViewController
-
-float bearing = 0.0;
-
 
 
 
@@ -49,11 +47,22 @@ float bearing = 0.0;
 
     [self.swirlGestureRecognizer requireGestureRecognizerToFail:self.touchDownGestureRecognizer];
     
-    self.knob.hidden = YES;
-    // wheel을 터치할 때 wheel glow가 fade-in 할 수 있도록 애니메이션 적용
-    self.knob.layer.shouldRasterize = YES;
+    // 휠 돌리기 전까지 done버튼 비활성화
+    [_doneButton setEnabled:NO];
+    [_doneButton setTitleColor:[UIColor colorWithRed:255/255.f
+                                               green:255/255.f
+                                                blue:255/255.f
+                                               alpha:0.0]
+                      forState:UIControlStateNormal];
+    _doneArrow.hidden = YES;
+    _emotionInWheel.hidden = YES;
     
-    [self givePulseAnimation];
+    // wheel을 터치할 때 wheel glow가 fade-in 할 수 있도록 애니메이션 적용
+    self.knob.hidden = YES;
+    self.knob.layer.shouldRasterize = YES;
+    // viewDidLoad에서 애니메이션 효과를 바로 적용하려면 performSelector를 통해서 실행해야한다고 함.
+    // http://stackoverflow.com/questions/2188664/how-to-add-an-animation-to-the-uiview-in-viewdidappear
+    [self performSelector:@selector(givePulseAnimation) withObject:nil afterDelay:0.1f];
     [self getCityName];
 	
 	// Location Manager setting
@@ -67,22 +76,13 @@ float bearing = 0.0;
 }
 
 
-- (void)didTapButton {
-    [[Digits sharedInstance] authenticateWithCompletion:^(DGTSession *session, NSError *error) {
-        // Inspect session/error objects
-    }];
-    
-    Digits *digits = [Digits sharedInstance];
-    DGTAuthenticationConfiguration *configuration = [[DGTAuthenticationConfiguration alloc] initWithAccountFields:DGTAccountFieldsDefaultOptionMask];
-    configuration.phoneNumber = @"+82";
-    [digits authenticateWithViewController:nil configuration:configuration completion:^(DGTSession *newSession, NSError *error){
-        // Country selector will be set to Spain
-    }];
-}
+
+
+
 
 
 - (void)playWheelSound {
-    if((int)bearing%45 != 0){
+    if((int)_bearing%45 != 0){
         return;
     }
     NSError * error;
@@ -94,6 +94,55 @@ float bearing = 0.0;
 
 
 
+
+
+
+- (void)giveAnimationToEmotion {
+    CATransition * animation = [CATransition animation];
+    animation.type = kCATransitionFade;
+    animation.duration = 0.25;
+    [self.emotionInWheel.layer addAnimation:animation forKey:nil];
+    [self.emotionInWheel.layer addAnimation:animation forKey:nil];
+    [self.position.layer addAnimation:animation forKey:nil];
+}
+
+
+
+
+
+
+- (void)giveAnimationToDoneButton {
+    CATransition * animation = [CATransition animation];
+    animation.type = kCATransitionFade;
+    animation.duration = 0.9;
+    [self.doneButton.layer addAnimation:animation forKey:nil];
+    [self.doneArrow.layer addAnimation:animation forKey:nil];
+}
+
+
+
+
+
+
+
+- (void)doneButtonEnable {
+    [self giveAnimationToDoneButton];
+    [_doneButton setEnabled:YES];
+    [_doneButton setTitleColor:[UIColor colorWithRed:255/255.f
+                                               green:255/255.f
+                                                blue:255/255.f
+                                               alpha:1]
+                      forState:UIControlStateNormal];
+    
+    _doneArrow.hidden = NO;
+}
+
+
+
+
+
+
+
 - (void)wheelGlowAppear:(id)sender {
     if([(PATWheelTouchDownGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
         return;
@@ -101,17 +150,21 @@ float bearing = 0.0;
     NSLog(@"Appear");
     
     CGFloat movedPosition = 180 * ((PATWheelTouchDownGestureRecognizer*)sender).currentAngle / M_PI;
-    CGFloat direction = (movedPosition - bearing) * M_PI / 180;
-    bearing = movedPosition;
+    CGFloat direction = (movedPosition - _bearing) * M_PI / 180;
+    _bearing = movedPosition;
+    
     [self transformRotate:direction];
-    
     [self playWheelSound];
-    
     [self updateFeelingText];
-    
+    [self doneButtonEnable];
     [self giveAnimationToKnob];
+    [self giveAnimationToEmotion];
     self.knob.hidden = NO;
+    _emotionInWheel.hidden = NO;
 }
+
+
+
 
 
 
@@ -122,6 +175,11 @@ float bearing = 0.0;
     self.knob.hidden = YES;
 }
 
+
+
+
+
+
 - (void)givePulseAnimation {
     CABasicAnimation *animation;
     animation=[CABasicAnimation animationWithKeyPath:@"transform.scale"];
@@ -129,7 +187,7 @@ float bearing = 0.0;
     animation.repeatCount=HUGE_VALF;
     animation.autoreverses=YES;
     animation.fromValue=[NSNumber numberWithFloat:1.0];
-    animation.toValue=[NSNumber numberWithFloat:1.015];
+    animation.toValue=[NSNumber numberWithFloat:1.023];
     [self.controlsView.layer addAnimation:animation forKey:@"transform.scale"];
     animation=[CABasicAnimation animationWithKeyPath:@"opacity"];
     animation.duration=2;
@@ -140,12 +198,22 @@ float bearing = 0.0;
     [self.controlsView.layer addAnimation:animation forKey:@"opacity"];
 }
 
+
+
+
+
+
 - (void)giveAnimationToKnob {
     CATransition * animation = [CATransition animation];
     animation.type = kCATransitionFade;
     animation.duration = 0.4;
     [self.knob.layer addAnimation:animation forKey:nil];
 }
+
+
+
+
+
 
 
 - (void)transformRotate: (CGFloat) direction {
@@ -156,46 +224,50 @@ float bearing = 0.0;
 
 
 
+
+
+
 - (void)updateFeelingText {
-    if(bearing>=0 && bearing<45){
+    [self giveAnimationToEmotion];
+    if(_bearing>=0 && _bearing<45){
         self.position.text = @"JOY";
         self.position.textColor = [UIColor colorWithRed:(199/255.f) green:(154/255.f) blue:(23/255.f)
                                                   alpha:1.0];
         [self.emotionInWheel setImage:[UIImage imageNamed:@"joy"]];
 		self.emotion = @1;
-}
-    else if (bearing>=45 && bearing<90){
+    }
+    else if (_bearing>=45 && _bearing<90){
         self.position.text = @"TIRED";
         self.position.textColor = [UIColor colorWithRed:(114/255.f) green:(80/255.f) blue:(46/255.f)
                                                   alpha:1.0];
 		[self.emotionInWheel setImage:[UIImage imageNamed:@"tired"]];
 		self.emotion = @2;
     }
-    else if (bearing>=90 && bearing<135){
+    else if (_bearing>=90 && _bearing<135){
         self.position.text = @"FUN";
         self.position.textColor = [UIColor colorWithRed:(199/255.f) green:(87/255.f) blue:(25/255.f)alpha:1.0];
         [self.emotionInWheel setImage:[UIImage imageNamed:@"fun"]];
 		self.emotion = @3;
     }
-    else if (bearing>=135 && bearing<180){
+    else if (_bearing>=135 && _bearing<180){
         self.position.text = @"ANGRY";
         self.position.textColor = [UIColor colorWithRed:(194/255.f) green:(46/255.f) blue:(66/255.f)alpha:1.0];
         [self.emotionInWheel setImage:[UIImage imageNamed:@"angry"]];
 		self.emotion = @4;
     }
-    else if (bearing>=180 && bearing<225){
+    else if (_bearing>=180 && _bearing<225){
         self.position.text = @"SURPRISED";
         self.position.textColor = [UIColor colorWithRed:(208/255.f) green:(94/255.f) blue:(142/255.f)alpha:1.0];
         [self.emotionInWheel setImage:[UIImage imageNamed:@"surprised"]];
 		self.emotion = @5;
     }
-    else if (bearing>=225 && bearing<270){
+    else if (_bearing>=225 && _bearing<270){
         self.position.text = @"SCARED";
         self.position.textColor = [UIColor colorWithRed:(117/255.f) green:(62/255.f) blue:(146/255.f)alpha:1.0];
         [self.emotionInWheel setImage:[UIImage imageNamed:@"scared"]];
 		self.emotion = @6;
     }
-    else if (bearing>=270 && bearing<315){
+    else if (_bearing>=270 && _bearing<315){
         self.position.text = @"SAD";
         self.position.textColor = [UIColor colorWithRed:(79/255.f) green:(111/255.f) blue:(217/255.f)alpha:1.0];
         [self.emotionInWheel setImage:[UIImage imageNamed:@"sad"]];
@@ -211,6 +283,9 @@ float bearing = 0.0;
 
 
 
+
+
+
 - (void)rotationAction:(id)sender {
     if([(PATSwirlGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
         return;
@@ -218,22 +293,27 @@ float bearing = 0.0;
     
     CGFloat direction = ((PATSwirlGestureRecognizer*)sender).currentAngle - ((PATSwirlGestureRecognizer*)sender).previousAngle;
     
-    bearing += 180 * direction / M_PI;
-    if (bearing < -0.5) {
-        bearing += 360;
+    _bearing += 180 * direction / M_PI;
+    if (_bearing < -0.5) {
+        _bearing += 360;
     }
-    else if (bearing > 359.5) {
-        bearing -= 360;
+    else if (_bearing > 359.5) {
+        _bearing -= 360;
     }
     
     [self transformRotate:direction];
     
-    if ((int)bearing%45==0){
+    if ((int)_bearing%45==0){
         [self playWheelSound];
     }
     
+    [self giveAnimationToEmotion];
     [self updateFeelingText];
 }
+
+
+
+
 
 
 - (void) getCityName {
@@ -253,13 +333,21 @@ float bearing = 0.0;
 }
 
 
+
+
+
+
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
 	CLLocation *currentLocation = [locations lastObject];
-
+    
 	self.latitude = [NSNumber numberWithDouble:currentLocation.coordinate.latitude];
 	self.longitude = [NSNumber numberWithDouble:currentLocation.coordinate.longitude];
 }
+
+
+
+
 
 
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -268,10 +356,14 @@ float bearing = 0.0;
 }
 
 
+
+
+
+
 - (IBAction)didDoneButtonTouched:(id)sender {
 
 	NSLog(@"done button touched"); //
-	
+    
 	NSMutableString *makePost = [NSMutableString stringWithCapacity:200];
 	[makePost appendString:@"userid=12"];
 	[makePost appendString:@"&lat="];
@@ -300,6 +392,10 @@ float bearing = 0.0;
 	NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 
 }
+
+
+
+
 
 
 - (void)didReceiveMemoryWarning

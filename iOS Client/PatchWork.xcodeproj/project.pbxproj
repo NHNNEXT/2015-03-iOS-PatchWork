@@ -66,6 +66,8 @@
 		E99647181C17BA4300A194E6 /* sad.png in Resources */ = {isa = PBXBuildFile; fileRef = E99647121C17BA4300A194E6 /* sad.png */; };
 		E99647191C17BA4300A194E6 /* scared.png in Resources */ = {isa = PBXBuildFile; fileRef = E99647131C17BA4300A194E6 /* scared.png */; };
 		E99AA1061BD7588D00253D0F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99AA1051BD7588D00253D0F /* MapKit.framework */; };
+		E9B876B61C209C0B00C9A645 /* hamburger.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B876B51C209C0B00C9A645 /* hamburger.png */; };
+		E9B876B81C209C6700C9A645 /* plusEmotion.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B876B71C209C6700C9A645 /* plusEmotion.png */; };
 		E9ECE7C91C0B24E200874851 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9ECE7C81C0B24E200874851 /* AVFoundation.framework */; };
 		E9ECE7CF1C0B300F00874851 /* wheelSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = E9ECE7CE1C0B300F00874851 /* wheelSound.wav */; };
 /* End PBXBuildFile section */
@@ -151,6 +153,8 @@
 		E99647121C17BA4300A194E6 /* sad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sad.png; sourceTree = "<group>"; };
 		E99647131C17BA4300A194E6 /* scared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scared.png; sourceTree = "<group>"; };
 		E99AA1051BD7588D00253D0F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E9B876B51C209C0B00C9A645 /* hamburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hamburger.png; sourceTree = "<group>"; };
+		E9B876B71C209C6700C9A645 /* plusEmotion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plusEmotion.png; sourceTree = "<group>"; };
 		E9ECE7C81C0B24E200874851 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E9ECE7CE1C0B300F00874851 /* wheelSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wheelSound.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,6 +215,7 @@
 				E996470D1C1752A600A194E6 /* tired.png */,
 				5838AFF71C15FB9900D9A3A8 /* currentPosition.gif */,
 				583D1A0E1C0038D300F5F5A1 /* hamburger.gif */,
+				E9B876B51C209C0B00C9A645 /* hamburger.png */,
 				E95BE80D1C19FD1800B4EDD3 /* wheel glow3.png */,
 				E983570F1C0568F700CFD428 /* wheel glow2.png */,
 				E98357101C0568F700CFD428 /* wheel glow.png */,
@@ -221,6 +226,7 @@
 				E98357151C0568F700CFD428 /* background.png */,
 				E98357161C0568F700CFD428 /* wheel.png */,
 				5838AFFA1C15FBDE00D9A3A8 /* plusEmotion.gif */,
+				E9B876B71C209C6700C9A645 /* plusEmotion.png */,
 			);
 			name = ImageFiles;
 			sourceTree = "<group>";
@@ -414,11 +420,13 @@
 				E983571C1C0568F700CFD428 /* background2.png in Resources */,
 				5838AFFB1C15FBDE00D9A3A8 /* plusEmotion.gif in Resources */,
 				5838AFF81C15FB9900D9A3A8 /* currentPosition.gif in Resources */,
+				E9B876B81C209C6700C9A645 /* plusEmotion.png in Resources */,
 				E98357171C0568F700CFD428 /* wheel glow2.png in Resources */,
 				E983571D1C0568F700CFD428 /* background.png in Resources */,
 				E99647181C17BA4300A194E6 /* sad.png in Resources */,
 				E95BE8081C19DFD300B4EDD3 /* joy.png in Resources */,
 				752833FB1C1805C800A2CD9A /* LOGIN_intro page.png in Resources */,
+				E9B876B61C209C0B00C9A645 /* hamburger.png in Resources */,
 				E95BE80E1C19FD1800B4EDD3 /* wheel glow3.png in Resources */,
 				583D1A0F1C0038D300F5F5A1 /* hamburger.gif in Resources */,
 				E996470E1C1752A600A194E6 /* tired.png in Resources */,

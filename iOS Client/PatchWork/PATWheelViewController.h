@@ -21,6 +21,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *position;
 @property (strong, nonatomic) IBOutlet UILabel *cityLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *emotionInWheel;
+@property (strong, nonatomic) IBOutlet UIButton *doneButton;
+@property (strong, nonatomic) IBOutlet UIButton *doneArrow;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblLoginStatus;
 

@@ -401,6 +401,10 @@
         <scene sceneID="1va-SX-ckO">
             <objects>
                 <viewController storyboardIdentifier="PATSearchLocationViewController" title="SearchLocationViewController" id="csu-oO-lFF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NY4-1X-FnS"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Fc-OA-5Gf"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pT8-Mg-EtW">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

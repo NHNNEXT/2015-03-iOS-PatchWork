@@ -14,6 +14,8 @@
 		5838AFFB1C15FBDE00D9A3A8 /* plusEmotion.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5838AFFA1C15FBDE00D9A3A8 /* plusEmotion.gif */; };
 		5838AFFC1C15FBDE00D9A3A8 /* plusEmotion.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5838AFFA1C15FBDE00D9A3A8 /* plusEmotion.gif */; };
 		583D1A0F1C0038D300F5F5A1 /* hamburger.gif in Resources */ = {isa = PBXBuildFile; fileRef = 583D1A0E1C0038D300F5F5A1 /* hamburger.gif */; };
+		584E73351C21150B006AD94D /* PATSearchLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584E73341C21150B006AD94D /* PATSearchLocationViewController.m */; };
+		584E73361C21150B006AD94D /* PATSearchLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 584E73341C21150B006AD94D /* PATSearchLocationViewController.m */; };
 		5859A4461C01E2BF0019FC15 /* Odin Rounded.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5859A4451C01E2BF0019FC15 /* Odin Rounded.otf */; };
 		58924EEE1C17E2F1007B94AB /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58924EEA1C17E2F1007B94AB /* Fabric.framework */; };
 		58924EEF1C17E2F1007B94AB /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58924EEB1C17E2F1007B94AB /* DigitsKit.framework */; };
@@ -89,6 +91,8 @@
 		5838AFF71C15FB9900D9A3A8 /* currentPosition.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = currentPosition.gif; sourceTree = "<group>"; };
 		5838AFFA1C15FBDE00D9A3A8 /* plusEmotion.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = plusEmotion.gif; sourceTree = "<group>"; };
 		583D1A0E1C0038D300F5F5A1 /* hamburger.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hamburger.gif; sourceTree = "<group>"; };
+		584E73331C2114F0006AD94D /* PATSearchLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATSearchLocationViewController.h; sourceTree = "<group>"; };
+		584E73341C21150B006AD94D /* PATSearchLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PATSearchLocationViewController.m; sourceTree = "<group>"; };
 		5859A4451C01E2BF0019FC15 /* Odin Rounded.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Odin Rounded.otf"; sourceTree = "<group>"; };
 		58924EEA1C17E2F1007B94AB /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		58924EEB1C17E2F1007B94AB /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = "<group>"; };
@@ -291,6 +295,8 @@
 				58FBB6D31C0037A800951B0E /* PATGoogleMapViewController.m */,
 				58FBB6D61C0037A800951B0E /* PATMapContainerViewController.h */,
 				58FBB6D71C0037A800951B0E /* PATMapContainerViewController.m */,
+				584E73331C2114F0006AD94D /* PATSearchLocationViewController.h */,
+				584E73341C21150B006AD94D /* PATSearchLocationViewController.m */,
 				58FBB6D81C0037A800951B0E /* PATSideMenuViewController.h */,
 				58FBB6D91C0037A800951B0E /* PATSideMenuViewController.m */,
 				5838AFF01C15F15000D9A3A8 /* PATSettingsViewController.h */,
@@ -538,6 +544,7 @@
 				E98357231C0569CE00CFD428 /* PATSwirlGestureRecognizer.m in Sources */,
 				58FBB6DE1C0037A800951B0E /* PATMapContainerViewController.m in Sources */,
 				E98357241C0569CE00CFD428 /* PATWheelViewController.m in Sources */,
+				584E73351C21150B006AD94D /* PATSearchLocationViewController.m in Sources */,
 				58FBB6E01C0037A800951B0E /* PATSideMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,6 +556,7 @@
 				58FBB6E11C0037A800951B0E /* PATSideMenuViewController.m in Sources */,
 				5838AFF61C15F19A00D9A3A8 /* PATSettingsViewController.m in Sources */,
 				58FBB6DB1C0037A800951B0E /* PATGoogleMapViewController.m in Sources */,
+				584E73361C21150B006AD94D /* PATSearchLocationViewController.m in Sources */,
 				E930E0AE1BD741460032C541 /* PatchWorkUITests.m in Sources */,
 				58FBB6DF1C0037A800951B0E /* PATMapContainerViewController.m in Sources */,
 			);

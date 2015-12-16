@@ -18,6 +18,7 @@
 	self.mapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATGoogleMapViewController"];
 	self.sideMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATSideMenuViewController"];
 	self.settingsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATSettingsViewController"];
+	self.searchLocationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATSearchLocationViewController"];
 	
 	[self addChildViewController:self.mapViewController];
 	self.mapViewController.view.frame = self.view.bounds;
@@ -37,6 +38,12 @@
 	self.settingsViewController.view.frame = CGRectMake(self.PATStartPositionOfSettings, 0, self.view.bounds.size.width, self.view.bounds.size.height);
 	[self.view addSubview:self.settingsViewController.view];
 	[self.settingsViewController didMoveToParentViewController:self];
+	
+	self.PATStartPositionOfSearchLocation = self.view.bounds.size.width*(-1.0f);
+	[self addChildViewController:self.searchLocationViewController];
+	self.searchLocationViewController.view.frame = CGRectMake(self.PATStartPositionOfSearchLocation, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+	[self.view addSubview:self.searchLocationViewController.view];
+	[self.searchLocationViewController didMoveToParentViewController:self];
 }
 
 

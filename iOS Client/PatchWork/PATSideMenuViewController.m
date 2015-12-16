@@ -72,6 +72,10 @@
 														  attribute:NSLayoutAttributeLeading
 														 multiplier:1.0
 														   constant:self.view.bounds.size.width*0.3f]];
+	[searchPlaceButton addTarget:self
+					   action:@selector(showTextField)
+			 forControlEvents:UIControlEventTouchUpInside];
+	
 	
 	// Settings Button
 	UIButton* settingsButton = [self PATaddTextButtonWithTitle:@"SETTINGS"
@@ -105,6 +109,11 @@
 
 - (void)showSettingsFurther {
 	[self.delegate PATShowSetting];
+}
+
+
+- (void) showTextField {
+	[self.delegate PATShowTextField];
 }
 
 

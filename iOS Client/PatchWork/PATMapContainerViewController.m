@@ -77,6 +77,23 @@
 }
 
 
+- (void) PATShowTextField {
+	
+	self.PATStartPositionOfSideMenu = self.view.bounds.size.width*(-1.0f);
+	self.PATStartPositionOfSearchLocation = 0;
+	
+	[UIView animateWithDuration:0.5
+						  delay:0.0
+						options:UIViewAnimationOptionCurveEaseOut
+					 animations:^{
+						 self.sideMenuViewController.view.frame = CGRectMake(self.PATStartPositionOfSideMenu, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+					 }
+					 completion:^(BOOL finished){
+						 self.searchLocationViewController.view.frame = CGRectMake(self.PATStartPositionOfSearchLocation, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+					 }];
+}
+
+
 - (void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
 	UITouch* touch = [touches anyObject];

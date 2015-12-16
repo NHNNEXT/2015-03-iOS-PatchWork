@@ -86,7 +86,7 @@
 
 - (void) loadJSON
 {
-	NSURL* url = [NSURL URLWithString:@"http://localhost:5000/loadData"];
+	NSURL* url = [NSURL URLWithString:@"http://192.168.1.20:5000/loadData"];
 	NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
 	[request setHTTPMethod:@"GET"];
 	[request setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"content-type"];
@@ -205,7 +205,7 @@
 {
 	// Load sideMenuButton with hamburger image on the top left corner
 	UIButton* sideMenuButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	UIImage *hamburger = [UIImage imageNamed:@"hamburger.png"];
+	UIImage *hamburger = [UIImage imageNamed:@"hamburger"];
 	[sideMenuButton setImage:hamburger forState:UIControlStateNormal];
 	[sideMenuButton setTranslatesAutoresizingMaskIntoConstraints:NO];
 	[self.view addSubview:sideMenuButton];

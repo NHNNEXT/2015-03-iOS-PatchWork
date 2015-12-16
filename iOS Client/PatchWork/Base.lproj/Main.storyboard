@@ -27,14 +27,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Mu-q3-9pd">
-                                <rect key="frame" x="120" y="320" width="360" height="80"/>
-                                <animations/>
-                                <state key="normal" title="Next Scene"/>
-                                <connections>
-                                    <segue destination="1I9-4n-rMm" kind="show" animates="NO" id="2xQ-bl-HIp"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Landing Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5s7-sv-6N8">
                                 <rect key="frame" x="120" y="100" width="360" height="100"/>
                                 <animations/>
@@ -43,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LOGIN_intro logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="jRk-XV-ACk">
-                                <rect key="frame" x="166" y="130" width="269" height="101"/>
+                                <rect key="frame" x="166" y="187" width="269" height="101"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="101" id="2Cr-dy-HB5"/>
@@ -52,18 +44,26 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="269" id="v4W-9r-fHz"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Mu-q3-9pd">
+                                <rect key="frame" x="120" y="330" width="360" height="80"/>
+                                <animations/>
+                                <state key="normal" title="Next Scene"/>
+                                <connections>
+                                    <segue destination="1I9-4n-rMm" kind="show" animates="NO" id="2xQ-bl-HIp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.023529411764705882" green="0.035294117647058823" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="jRk-XV-ACk" firstAttribute="top" secondItem="CRW-CD-c9O" secondAttribute="bottom" constant="130" id="89H-PQ-2xC"/>
+                            <constraint firstItem="jRk-XV-ACk" firstAttribute="top" secondItem="CRW-CD-c9O" secondAttribute="bottom" constant="187" id="89H-PQ-2xC"/>
                             <constraint firstItem="jRk-XV-ACk" firstAttribute="centerX" secondItem="eVW-yW-Y8z" secondAttribute="centerX" id="Fqj-8W-aeF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7Mu-q3-9pd" secondAttribute="trailing" constant="100" id="Jmi-uh-V0d"/>
                             <constraint firstItem="5s7-sv-6N8" firstAttribute="top" secondItem="eVW-yW-Y8z" secondAttribute="topMargin" constant="100" id="Nvy-rv-dio"/>
                             <constraint firstItem="7Mu-q3-9pd" firstAttribute="leading" secondItem="eVW-yW-Y8z" secondAttribute="leadingMargin" constant="100" id="QYr-VU-XYh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5s7-sv-6N8" secondAttribute="trailing" constant="100" id="bTu-kL-l0b"/>
-                            <constraint firstItem="7Mu-q3-9pd" firstAttribute="top" secondItem="CRW-CD-c9O" secondAttribute="bottom" constant="320" id="fJg-dJ-RfT"/>
-                            <constraint firstItem="ehE-fx-NPH" firstAttribute="top" secondItem="7Mu-q3-9pd" secondAttribute="bottom" constant="200" id="kSB-2Z-skB"/>
+                            <constraint firstItem="7Mu-q3-9pd" firstAttribute="top" secondItem="CRW-CD-c9O" secondAttribute="bottom" constant="330" id="fJg-dJ-RfT"/>
+                            <constraint firstItem="ehE-fx-NPH" firstAttribute="top" secondItem="7Mu-q3-9pd" secondAttribute="bottom" constant="190" id="kSB-2Z-skB"/>
                             <constraint firstItem="ehE-fx-NPH" firstAttribute="top" secondItem="5s7-sv-6N8" secondAttribute="bottom" constant="400" id="mAm-Wg-WQU"/>
                             <constraint firstItem="5s7-sv-6N8" firstAttribute="leading" secondItem="eVW-yW-Y8z" secondAttribute="leadingMargin" constant="100" id="rop-2h-32S"/>
                         </constraints>
@@ -72,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NsV-hD-fqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-934" y="308"/>
+            <point key="canvasLocation" x="-934" y="324"/>
         </scene>
         <!--Wheel View Controller-->
         <scene sceneID="CaD-22-UJg">
@@ -315,8 +315,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ass-BL-QMS">
-                                <rect key="frame" x="227" y="10" width="86" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ass-BL-QMS">
+                                <rect key="frame" x="246" y="10" width="71" height="27"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -327,13 +327,13 @@
                                     <segue destination="hsz-Ta-8Zq" kind="presentation" id="9zf-j4-FOs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6BD-zn-sEI" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="20" y="385" width="280" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6BD-zn-sEI" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="137" y="408" width="46" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LOGIN_sign in with.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vqm-8x-Tgn">
-                                <rect key="frame" x="43" y="271" width="234" height="21"/>
+                                <rect key="frame" x="43" y="328" width="234" height="21"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="2ht-TN-79I"/>
@@ -341,7 +341,7 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LOGIN_intro logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="6pB-Ka-Fa3">
-                                <rect key="frame" x="26" y="130" width="269" height="101"/>
+                                <rect key="frame" x="26" y="187" width="269" height="101"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="101" id="1fA-u9-Vyg"/>
@@ -352,11 +352,13 @@
                         <animations/>
                         <color key="backgroundColor" red="0.023529411764705882" green="0.035294117647058823" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="6BD-zn-sEI" firstAttribute="centerX" secondItem="M6i-yH-1RM" secondAttribute="centerX" id="8e4-Zo-fVA"/>
                             <constraint firstItem="Vqm-8x-Tgn" firstAttribute="centerX" secondItem="M6i-yH-1RM" secondAttribute="centerX" id="Eh9-Fr-MPF"/>
                             <constraint firstItem="Ass-BL-QMS" firstAttribute="top" secondItem="2Ox-Ku-sth" secondAttribute="bottom" constant="10" id="HU5-qm-dCT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ass-BL-QMS" secondAttribute="trailing" constant="-13" id="WDO-yA-4ww"/>
-                            <constraint firstItem="6pB-Ka-Fa3" firstAttribute="top" secondItem="2Ox-Ku-sth" secondAttribute="bottom" constant="130" id="bgw-VB-tME"/>
+                            <constraint firstItem="6pB-Ka-Fa3" firstAttribute="top" secondItem="2Ox-Ku-sth" secondAttribute="bottom" constant="187" id="bgw-VB-tME"/>
                             <constraint firstItem="Vqm-8x-Tgn" firstAttribute="top" secondItem="6pB-Ka-Fa3" secondAttribute="bottom" constant="40" id="mFh-c2-nPL"/>
+                            <constraint firstItem="6BD-zn-sEI" firstAttribute="top" secondItem="Vqm-8x-Tgn" secondAttribute="bottom" constant="59" id="t3g-FB-NUI"/>
                             <constraint firstItem="6pB-Ka-Fa3" firstAttribute="centerX" secondItem="M6i-yH-1RM" secondAttribute="centerX" id="tvL-gy-z2x"/>
                         </constraints>
                     </view>

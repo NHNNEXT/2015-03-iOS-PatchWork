@@ -86,7 +86,7 @@
 
 - (void) loadJSON
 {
-	NSURL* url = [NSURL URLWithString:@"http://175.210.169.123:5000/loadData"];
+	NSURL* url = [NSURL URLWithString:@"http://localhost:5000/loadData"];
 	NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
 	[request setHTTPMethod:@"GET"];
 	[request setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"content-type"];

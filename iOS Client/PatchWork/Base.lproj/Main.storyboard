@@ -278,7 +278,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ziE-iA-99q"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9AC-hM-XTA">
-                        <rect key="frame" x="0.0" y="0.0" width="348" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -359,7 +359,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ktp-oR-eoS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yls-NU-fz2">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -371,13 +371,13 @@
         <!--SearchLocationViewController-->
         <scene sceneID="1va-SX-ckO">
             <objects>
-                <viewController storyboardIdentifier="PATSearchLocationViewController" title="SearchLocationViewController" id="csu-oO-lFF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PATSearchLocationViewController" title="SearchLocationViewController" id="csu-oO-lFF" customClass="PATSearchLocationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NY4-1X-FnS"/>
                         <viewControllerLayoutGuide type="bottom" id="2Fc-OA-5Gf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pT8-Mg-EtW">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

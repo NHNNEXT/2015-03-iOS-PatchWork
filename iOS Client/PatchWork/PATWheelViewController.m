@@ -187,7 +187,7 @@
     animation.repeatCount=HUGE_VALF;
     animation.autoreverses=YES;
     animation.fromValue=[NSNumber numberWithFloat:1.0];
-    animation.toValue=[NSNumber numberWithFloat:1.023];
+    animation.toValue=[NSNumber numberWithFloat:1.04];
     [self.controlsView.layer addAnimation:animation forKey:@"transform.scale"];
     animation=[CABasicAnimation animationWithKeyPath:@"opacity"];
     animation.duration=2;
@@ -317,7 +317,7 @@
 
 
 - (void) getCityName {
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ip-api.com/json"]];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ipinfo.io/json"]];
     
     __block NSDictionary *json;
     [NSURLConnection sendAsynchronousRequest:request
@@ -327,6 +327,7 @@
                                                                       options:0
                                                                         error:nil];
                                [self setCity:[json objectForKey:@"city"]];
+                               self.city = [self.city uppercaseString];
                                NSLog(@"%@", [self city]);
                                self.cityLabel.text = self.city;
                            }];
@@ -383,7 +384,7 @@
 	NSString *postLength = [NSString stringWithFormat:@"%lu", [postData length]];
 	
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-	[request setURL:[NSURL URLWithString:@"http://192.168.1.20:5000/insertEmotion"]];
+	[request setURL:[NSURL URLWithString:@"http://175.210.169.123:5000/insertEmotion"]];
 	[request setHTTPMethod:@"POST"];
 	[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
 	[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];

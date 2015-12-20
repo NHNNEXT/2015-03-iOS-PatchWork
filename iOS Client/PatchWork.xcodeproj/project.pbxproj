@@ -38,6 +38,7 @@
 		752833FD1C1805C800A2CD9A /* LOGIN_login page.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833F61C1805C800A2CD9A /* LOGIN_login page.png */; };
 		752833FE1C1805C800A2CD9A /* LOGIN_phone number login.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833F71C1805C800A2CD9A /* LOGIN_phone number login.png */; };
 		752833FF1C1805C800A2CD9A /* LOGIN_sign in with.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833F81C1805C800A2CD9A /* LOGIN_sign in with.png */; };
+		E90EE9BB1C2527FC00AA6265 /* wheel4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E90EE9BA1C2527FC00AA6265 /* wheel4@2x.png */; };
 		E930E0951BD741450032C541 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E930E0941BD741450032C541 /* main.m */; };
 		E930E0981BD741460032C541 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E930E0971BD741460032C541 /* AppDelegate.m */; };
 		E930E09B1BD741460032C541 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E930E09A1BD741460032C541 /* ViewController.m */; };
@@ -70,6 +71,8 @@
 		E99AA1061BD7588D00253D0F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99AA1051BD7588D00253D0F /* MapKit.framework */; };
 		E9B876B61C209C0B00C9A645 /* hamburger@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B876B51C209C0B00C9A645 /* hamburger@2x.png */; };
 		E9B876B81C209C6700C9A645 /* plusEmotion.png in Resources */ = {isa = PBXBuildFile; fileRef = E9B876B71C209C6700C9A645 /* plusEmotion.png */; };
+		E9DC11551C25427100F6CBB3 /* wheel glow4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9DC11541C25427100F6CBB3 /* wheel glow4@2x.png */; };
+		E9DC11591C2543E600F6CBB3 /* wheel5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E9DC11581C2543E600F6CBB3 /* wheel5@2x.png */; };
 		E9ECE7C91C0B24E200874851 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9ECE7C81C0B24E200874851 /* AVFoundation.framework */; };
 		E9ECE7CF1C0B300F00874851 /* wheelSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = E9ECE7CE1C0B300F00874851 /* wheelSound.wav */; };
 /* End PBXBuildFile section */
@@ -117,6 +120,7 @@
 		752833F71C1805C800A2CD9A /* LOGIN_phone number login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGIN_phone number login.png"; sourceTree = "<group>"; };
 		752833F81C1805C800A2CD9A /* LOGIN_sign in with.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGIN_sign in with.png"; sourceTree = "<group>"; };
 		AD2ABD4FA5BFCD325C2554E0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E90EE9BA1C2527FC00AA6265 /* wheel4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheel4@2x.png"; sourceTree = "<group>"; };
 		E930E0901BD741450032C541 /* PatchWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatchWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E930E0941BD741450032C541 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E930E0961BD741460032C541 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 		E99AA1051BD7588D00253D0F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E9B876B51C209C0B00C9A645 /* hamburger@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hamburger@2x.png"; sourceTree = "<group>"; };
 		E9B876B71C209C6700C9A645 /* plusEmotion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plusEmotion.png; sourceTree = "<group>"; };
+		E9DC11541C25427100F6CBB3 /* wheel glow4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheel glow4@2x.png"; sourceTree = "<group>"; };
+		E9DC11581C2543E600F6CBB3 /* wheel5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheel5@2x.png"; sourceTree = "<group>"; };
 		E9ECE7C81C0B24E200874851 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E9ECE7CE1C0B300F00874851 /* wheelSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wheelSound.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,9 +226,12 @@
 				5838AFF71C15FB9900D9A3A8 /* currentPosition.gif */,
 				583D1A0E1C0038D300F5F5A1 /* hamburger.gif */,
 				E9B876B51C209C0B00C9A645 /* hamburger@2x.png */,
+				E9DC11541C25427100F6CBB3 /* wheel glow4@2x.png */,
 				E95BE80D1C19FD1800B4EDD3 /* wheel glow3.png */,
 				E983570F1C0568F700CFD428 /* wheel glow2.png */,
 				E98357101C0568F700CFD428 /* wheel glow.png */,
+				E9DC11581C2543E600F6CBB3 /* wheel5@2x.png */,
+				E90EE9BA1C2527FC00AA6265 /* wheel4@2x.png */,
 				E98357111C0568F700CFD428 /* wheel3.png */,
 				E98357121C0568F700CFD428 /* wheel2.png */,
 				E98357131C0568F700CFD428 /* standard.png */,
@@ -422,6 +431,7 @@
 				752833FA1C1805C800A2CD9A /* LOGIN_intro logo.png in Resources */,
 				E99647161C17BA4300A194E6 /* excited.png in Resources */,
 				E930E0A31BD741460032C541 /* LaunchScreen.storyboard in Resources */,
+				E9DC11551C25427100F6CBB3 /* wheel glow4@2x.png in Resources */,
 				E983571B1C0568F700CFD428 /* standard.png in Resources */,
 				752833FF1C1805C800A2CD9A /* LOGIN_sign in with.png in Resources */,
 				E983571C1C0568F700CFD428 /* background2.png in Resources */,
@@ -448,8 +458,10 @@
 				E98357191C0568F700CFD428 /* wheel3.png in Resources */,
 				E98357181C0568F700CFD428 /* wheel glow.png in Resources */,
 				752833FC1C1805C800A2CD9A /* LOGIN_login logo.png in Resources */,
+				E90EE9BB1C2527FC00AA6265 /* wheel4@2x.png in Resources */,
 				752833F91C1805C800A2CD9A /* LOGIN_facebook login.png in Resources */,
 				E99647171C17BA4300A194E6 /* fun.png in Resources */,
+				E9DC11591C2543E600F6CBB3 /* wheel5@2x.png in Resources */,
 				752833FD1C1805C800A2CD9A /* LOGIN_login page.png in Resources */,
 				E95BE80A1C19DFED00B4EDD3 /* surprised.png in Resources */,
 				5859A4461C01E2BF0019FC15 /* Odin Rounded.otf in Resources */,

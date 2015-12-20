@@ -41,6 +41,7 @@
 	
 	self.PATStartPositionOfSearchLocation = self.view.bounds.size.width*(-1.0f);
 	[self addChildViewController:self.searchLocationViewController];
+	self.searchLocationViewController.willShowKeyboard = NO;
 	self.searchLocationViewController.view.frame = CGRectMake(self.PATStartPositionOfSearchLocation, 0, self.view.bounds.size.width, self.view.bounds.size.height);
 	[self.view addSubview:self.searchLocationViewController.view];
 	[self.searchLocationViewController didMoveToParentViewController:self];
@@ -90,6 +91,7 @@
 					 }
 					 completion:^(BOOL finished){
 						 self.searchLocationViewController.view.frame = CGRectMake(self.PATStartPositionOfSearchLocation, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+						 self.searchLocationViewController.willShowKeyboard = YES;
 					 }];
 }
 

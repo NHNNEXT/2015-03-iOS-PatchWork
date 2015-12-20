@@ -10,9 +10,10 @@
 #import <UIKit/UIKit.h>
 @class PATMapContainerViewController;
 
-@interface PATSearchLocationViewController : UIViewController
+@interface PATSearchLocationViewController : UIViewController<UITextFieldDelegate, UITableViewDelegate>
 
-
+@property (nonatomic) UITextField* inputTextField;
+@property (nonatomic) BOOL willShowKeyboard;
 
 @end
 

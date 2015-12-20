@@ -41,9 +41,10 @@
 	[_locationManager startMonitoringSignificantLocationChanges];
 	
 	// Load Google map (Note that an argument into mapWithFrame: is self.view.bounds instead of CGRectZero)
-	GMSCameraPosition* camera = [GMSCameraPosition cameraWithLatitude:0
-															longitude:0
+	GMSCameraPosition* camera = [GMSCameraPosition cameraWithLatitude:self.currentLocation.coordinate.latitude
+															longitude:self.currentLocation.coordinate.longitude
 																 zoom:1];
+
 	mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
 	mapView_.myLocationEnabled = YES;
 	[self.view addSubview:mapView_];
@@ -67,7 +68,7 @@
 
 - (void) setCameraPositionToCurrentLocation {
 	CLLocationCoordinate2D target = CLLocationCoordinate2DMake(self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude);
-	mapView_.camera = [GMSCameraPosition cameraWithTarget:target zoom:1];
+	mapView_.camera = [GMSCameraPosition cameraWithTarget:target zoom:16];
 	
 }
 
@@ -86,7 +87,7 @@
 
 - (void) loadJSON
 {
-	NSURL* url = [NSURL URLWithString:@"http://localhost:5000/loadData"];
+	NSURL* url = [NSURL URLWithString:@"http://192.168.1.135:5000/loadData"];
 	NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
 	[request setHTTPMethod:@"GET"];
 	[request setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"content-type"];

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-@class PATMapContainerViewController;
 
 @protocol showSettingFurther
 -(void) PATShowSetting;
@@ -17,6 +16,7 @@
 @protocol showTextField
 -(void) PATShowTextField;
 @end
+
 
 @interface PATSideMenuViewController : UIViewController
 

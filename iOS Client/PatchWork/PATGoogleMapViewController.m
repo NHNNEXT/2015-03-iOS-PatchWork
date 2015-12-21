@@ -12,9 +12,9 @@
 
 @property (nonatomic) CLLocation* currentLocation;
 
-- (void) setCameraPositionToCurrentLocation;
 - (void) loadButtons;
 - (void) loadJSON;
+- (void) setCameraPositionToCurrentLocation;
 - (void) addMarkersAtLatitude:(double)lat withLongitude:(double) lon havingEmotion:(int) emotion;
 - (UIImage *) setMarkerShapeWithColor: (UIColor*) color;
 
@@ -23,7 +23,6 @@
 
 @implementation PATGoogleMapViewController 
 {
-	GMSMapView* mapView_;
 	NSMutableArray* latArr;
 	NSMutableArray* lonArr;
 	NSMutableArray* emotionArr;
@@ -41,13 +40,11 @@
 	[_locationManager startMonitoringSignificantLocationChanges];
 	
 	// Load Google map (Note that an argument into mapWithFrame: is self.view.bounds instead of CGRectZero)
-	GMSCameraPosition* camera = [GMSCameraPosition cameraWithLatitude:self.currentLocation.coordinate.latitude
-															longitude:self.currentLocation.coordinate.longitude
-																 zoom:1];
+	GMSCameraPosition* camera = [GMSCameraPosition cameraWithLatitude:self.currentLocation.coordinate.latitude longitude:self.currentLocation.coordinate.longitude zoom:1];
 
-	mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
-	mapView_.myLocationEnabled = YES;
-	[self.view addSubview:mapView_];
+	self.mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
+	self.mapView_.myLocationEnabled = YES;
+	[self.view addSubview:self.mapView_];
 
 	[self loadJSON];
 	[self loadButtons];
@@ -67,9 +64,7 @@
 
 
 - (void) setCameraPositionToCurrentLocation {
-	CLLocationCoordinate2D target = CLLocationCoordinate2DMake(self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude);
-	mapView_.camera = [GMSCameraPosition cameraWithTarget:target zoom:16];
-	
+	[self.delegate PATResetCameraAtLatitude:self.currentLocation.coordinate.latitude withLongitude:self.currentLocation.coordinate.longitude];
 }
 
 
@@ -177,7 +172,7 @@
 			break;
 	}
 	
-	marker.map = mapView_;
+	marker.map = self.mapView_;
 
 }
 

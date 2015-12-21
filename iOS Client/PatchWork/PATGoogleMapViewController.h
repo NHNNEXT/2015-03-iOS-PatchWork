@@ -19,11 +19,17 @@
 -(void) PATShowEmotionView;
 @end
 
+@protocol cameraPositionReset
+-(void) PATResetCameraAtLatitude:(double)latitude withLongitude:(double)longitude;
+@end
+
+
 
 @interface PATGoogleMapViewController : UIViewController <CLLocationManagerDelegate>
 
-@property (weak, nonatomic) id<sideMenuShowUp, emotionSelect> delegate;
+@property (weak, nonatomic) id<sideMenuShowUp, emotionSelect, cameraPositionReset> delegate;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) GMSCameraPosition* camera;
+@property (nonatomic) GMSMapView* mapView_;
 
 @end

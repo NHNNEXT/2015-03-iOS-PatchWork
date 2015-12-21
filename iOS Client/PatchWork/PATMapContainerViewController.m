@@ -43,6 +43,7 @@
 	[self addChildViewController:self.searchLocationViewController];
 	self.searchLocationViewController.willShowKeyboard = NO;
 	self.searchLocationViewController.view.frame = CGRectMake(self.PATStartPositionOfSearchLocation, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+	self.searchLocationViewController.delegate = self;
 	[self.view addSubview:self.searchLocationViewController.view];
 	[self.searchLocationViewController didMoveToParentViewController:self];
 }
@@ -125,6 +126,26 @@
 							 completion:nil];
 		}
 	}
+}
+
+
+-(void) PATResetCameraAtLatitude:(double)latitude withLongitude:(double)longitude {
+	self.mapViewController.mapView_.camera = [GMSCameraPosition cameraWithLatitude:latitude longitude:longitude zoom:8];
+}
+
+
+-(void) PATCameraToPlaceAtLatitude:(double)latitude withLongitude:(double)longitude {
+	
+	self.searchLocationViewController.inputTextField.text = @"";
+	self.PATStartPositionOfSearchLocation = self.view.bounds.size.width*(-1.0f);
+	self.searchLocationViewController.view.frame = CGRectMake(self.PATStartPositionOfSearchLocation, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+	
+	CLLocationCoordinate2D target;
+	target.latitude = latitude;
+	target.longitude = longitude;
+	GMSCameraUpdate* updateCamera = [GMSCameraUpdate setTarget:target zoom:15];
+	
+	[self.mapViewController.mapView_ animateWithCameraUpdate:updateCamera];
 }
 
 

@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@class PATMapContainerViewController;
+
+@protocol cameraToAnotherPlace
+-(void) PATCameraToPlaceAtLatitude:(double)latitude withLongitude:(double)longitude;
+@end
+
 
 @interface PATSearchLocationViewController : UIViewController<UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) id<cameraToAnotherPlace> delegate;
 @property (nonatomic) UITextField* inputTextField;
 @property (nonatomic) BOOL willShowKeyboard;
 @property (nonatomic) UITableView* predictedPlaceTable;

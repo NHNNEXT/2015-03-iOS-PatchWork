@@ -119,7 +119,7 @@ static NSString* cellIdentifier = @"cellIdentifier";
 		[placeIDArray addObject:placeID];
 	}
 	
-	[self.predictedPlaceTable setFrame:CGRectMake(self.view.bounds.size.width*(1/15.0), self.view.bounds.origin.y + 80, self.view.bounds.size.width*(13/15.0), [placeArray count]*self.view.bounds.size.width*0.05*2.4)];
+	[self.predictedPlaceTable setFrame:CGRectMake(self.view.bounds.size.width*(1/15.0), self.view.bounds.origin.y + 80, self.view.bounds.size.width*(13/15.0), [placeArray count]*self.view.bounds.size.width*0.05*2.67)];
 	
 	if ([placeArray count] > 0) {
 		self.predictedPlaceTable.backgroundColor = [UIColor colorWithWhite:1 alpha:1];

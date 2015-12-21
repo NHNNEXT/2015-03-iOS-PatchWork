@@ -41,10 +41,11 @@
 	[_locationManager startMonitoringSignificantLocationChanges];
 	
 	// Load Google map (Note that an argument into mapWithFrame: is self.view.bounds instead of CGRectZero)
-	self.camera = [GMSCameraPosition cameraWithLatitude:0
-											  longitude:0
-												   zoom:1];
-	mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:self.camera];
+	GMSCameraPosition* camera = [GMSCameraPosition cameraWithLatitude:self.currentLocation.coordinate.latitude
+															longitude:self.currentLocation.coordinate.longitude
+																 zoom:1];
+
+	mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
 	mapView_.myLocationEnabled = YES;
 	[self.view addSubview:mapView_];
 

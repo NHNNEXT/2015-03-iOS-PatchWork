@@ -16,7 +16,10 @@
 
 @interface PATWheelViewController : UIViewController <PATSwirlGestureRecognizerDelegate, PATWheelTouchUpGestureRecognizerDelegate, PATWheelTouchDownGestureRecognizerDelegate, UIGestureRecognizerDelegate, CLLocationManagerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *controlsView;
+@property (strong, nonatomic) IBOutlet UIImageView *detectingLocationView;
+@property (strong, nonatomic) IBOutlet UIImageView *locationServiceErrorView;
+
+@property (strong, nonatomic) IBOutlet UIView *controlsView;
 @property (strong, nonatomic) IBOutlet UIImageView *knob;
 @property (strong, nonatomic) IBOutlet UILabel *position;
 @property (strong, nonatomic) IBOutlet UILabel *cityLabel;

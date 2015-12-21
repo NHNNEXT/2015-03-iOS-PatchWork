@@ -32,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.locationServiceErrorView.hidden = YES;
 	
 	self.swirlGestureRecognizer = [[PATSwirlGestureRecognizer alloc] initWithTarget:self action:@selector(rotationAction:)];
     [self.swirlGestureRecognizer setDelegate:self];
@@ -63,7 +64,6 @@
     // viewDidLoad에서 애니메이션 효과를 바로 적용하려면 performSelector를 통해서 실행해야한다고 함.
     // http://stackoverflow.com/questions/2188664/how-to-add-an-animation-to-the-uiview-in-viewdidappear
     [self performSelector:@selector(givePulseAnimation) withObject:nil afterDelay:0.1f];
-    [self getCityName];
 	
 	// Location Manager setting
 	_locationManager = [[CLLocationManager alloc] init];
@@ -338,13 +338,38 @@
 
 
 
+
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
-	CLLocation *currentLocation = [locations lastObject];
-    
+    CLLocation *currentLocation = [locations lastObject];
 	self.latitude = [NSNumber numberWithDouble:currentLocation.coordinate.latitude];
 	self.longitude = [NSNumber numberWithDouble:currentLocation.coordinate.longitude];
+
+    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder reverseGeocodeLocation:manager.location completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (error){
+            NSLog(@"Geocode failed with error: %@", error);
+            return;
+        }
+        
+        // 도시 이름을 영어 이름으로 반환
+        NSMutableArray *userDefaultLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en", nil] forKey:@"AppleLanguages"];
+        
+        for (CLPlacemark * placemark in placemarks) {
+            self.city = [placemark locality];
+            NSLog(@"city name : %@", self.city);
+        }
+        manager.stopUpdatingLocation;
+        self.cityLabel.text = self.city;
+        self.detectingLocationView.hidden = YES;
+        // 언어 설정 원래대로 복구
+        [[NSUserDefaults standardUserDefaults] setObject:userDefaultLanguages forKey:@"AppleLanguages"];
+        }];
+    
 }
+
+
 
 
 
@@ -353,6 +378,7 @@
 
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
+    self.locationServiceErrorView.hidden = YES;
 	NSLog(@"location manager instance error.");
 }
 
@@ -384,7 +410,7 @@
 	NSString *postLength = [NSString stringWithFormat:@"%lu", [postData length]];
 	
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-	[request setURL:[NSURL URLWithString:@"http://localhost:5000/insertEmotion"]];
+	[request setURL:[NSURL URLWithString:@"http://192.168.1.135:5000/insertEmotion"]];
 	[request setHTTPMethod:@"POST"];
 	[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
 	[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];

@@ -67,7 +67,7 @@
 
 - (void) setCameraPositionToCurrentLocation {
 	CLLocationCoordinate2D target = CLLocationCoordinate2DMake(self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude);
-	mapView_.camera = [GMSCameraPosition cameraWithTarget:target zoom:1];
+	mapView_.camera = [GMSCameraPosition cameraWithTarget:target zoom:16];
 	
 }
 
@@ -86,7 +86,7 @@
 
 - (void) loadJSON
 {
-	NSURL* url = [NSURL URLWithString:@"http://localhost:5000/loadData"];
+	NSURL* url = [NSURL URLWithString:@"http://192.168.1.135:5000/loadData"];
 	NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
 	[request setHTTPMethod:@"GET"];
 	[request setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"content-type"];

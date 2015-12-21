@@ -14,7 +14,7 @@
 	
 	[super viewDidLoad];
 	
-	// Set googleMapVC, sideMenuVC and SettingsVC as properties, and add googleMapVC as a Subview
+	// Set googleMapVC, sideMenuVC, settingsVC and searchLocationVC as properties, and add googleMapVC as a Subview
 	self.mapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATGoogleMapViewController"];
 	self.sideMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATSideMenuViewController"];
 	self.settingsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATSettingsViewController"];

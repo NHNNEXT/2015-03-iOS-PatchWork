@@ -10,10 +10,11 @@
 #import <UIKit/UIKit.h>
 @class PATMapContainerViewController;
 
-@interface PATSearchLocationViewController : UIViewController<UITextFieldDelegate, UITableViewDelegate>
+@interface PATSearchLocationViewController : UIViewController<UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) UITextField* inputTextField;
 @property (nonatomic) BOOL willShowKeyboard;
+@property (nonatomic) UITableView* predictedPlaceTable;
 
 @end
 

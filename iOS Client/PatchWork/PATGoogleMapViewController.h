@@ -24,5 +24,6 @@
 
 @property (weak, nonatomic) id<sideMenuShowUp, emotionSelect> delegate;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (nonatomic) GMSCameraPosition* camera;
 
 @end

@@ -247,7 +247,7 @@
 	
 	// Load emotionButton with plus image on the bottom right corner
 	UIButton* emotionButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	UIImage *plus = [UIImage imageNamed:@"plusEmotion.png"];
+	UIImage *plus = [UIImage imageNamed:@"plusEmotion"];
 	[emotionButton setImage:plus forState:UIControlStateNormal];
 	[emotionButton setTranslatesAutoresizingMaskIntoConstraints:NO];
 	[self.view addSubview:emotionButton];
@@ -292,7 +292,7 @@
 	
 	// Load locationButton with arrow image on the top right corner
 	UIButton* locationButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	UIImage *arrow = [UIImage imageNamed:@"currentPosition.gif"];
+	UIImage *arrow = [UIImage imageNamed:@"currentPosition@2x"];
 	[locationButton setImage:arrow forState:UIControlStateNormal];
 	[locationButton setTranslatesAutoresizingMaskIntoConstraints:NO];
 	[self.view addSubview:locationButton];

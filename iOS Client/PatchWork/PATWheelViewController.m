@@ -193,7 +193,7 @@
     animation.duration=2;
     animation.repeatCount=HUGE_VALF;
     animation.autoreverses=YES;
-    animation.fromValue=[NSNumber numberWithFloat:0.7];
+    animation.fromValue=[NSNumber numberWithFloat:0.86];
     animation.toValue=[NSNumber numberWithFloat:1];
     [self.controlsView.layer addAnimation:animation forKey:@"opacity"];
 }
@@ -407,7 +407,7 @@
 	
 	NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
 	
-	NSString *postLength = [NSString stringWithFormat:@"%lu", [postData length]];
+	NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
 	
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 	[request setURL:[NSURL URLWithString:@"http://192.168.1.135:5000/insertEmotion"]];

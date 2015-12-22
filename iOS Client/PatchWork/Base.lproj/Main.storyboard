@@ -192,7 +192,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="layer.cornerRadius" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCj-XE-s80" userLabel="emotion pos displayer">
-                                        <rect key="frame" x="101" y="101" width="118" height="118"/>
+                                        <rect key="frame" x="95" y="95" width="130" height="130"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="400"/>
@@ -271,7 +271,7 @@
                                     <constraint firstItem="tBm-hM-3yQ" firstAttribute="top" secondItem="fzj-mL-8Du" secondAttribute="bottom" constant="-31" id="6zo-eJ-7Z0"/>
                                     <constraint firstItem="Dm4-e5-wMb" firstAttribute="centerX" secondItem="uJp-oG-imp" secondAttribute="centerX" id="7NO-k7-HEq"/>
                                     <constraint firstItem="uJp-oG-imp" firstAttribute="width" secondItem="tBm-hM-3yQ" secondAttribute="width" constant="64" id="BsQ-Xo-lP4"/>
-                                    <constraint firstItem="oCj-XE-s80" firstAttribute="height" secondItem="EbP-kG-qPw" secondAttribute="height" constant="-32" id="Bvb-zG-Jba"/>
+                                    <constraint firstItem="oCj-XE-s80" firstAttribute="height" secondItem="EbP-kG-qPw" secondAttribute="height" constant="-20" id="Bvb-zG-Jba"/>
                                     <constraint firstItem="uJp-oG-imp" firstAttribute="centerX" secondItem="MiA-d0-dEM" secondAttribute="centerX" id="Hfi-lk-inO"/>
                                     <constraint firstAttribute="width" constant="320" id="Ot7-bk-yml"/>
                                     <constraint firstItem="uJp-oG-imp" firstAttribute="height" secondItem="tBm-hM-3yQ" secondAttribute="height" constant="64" id="P4A-aE-Fcm"/>
@@ -287,7 +287,7 @@
                                     <constraint firstItem="s0V-dd-zZW" firstAttribute="top" secondItem="tBm-hM-3yQ" secondAttribute="bottom" constant="14" id="iRD-a9-kJj"/>
                                     <constraint firstItem="Dm4-e5-wMb" firstAttribute="centerY" secondItem="uJp-oG-imp" secondAttribute="centerY" id="iwM-07-BfS"/>
                                     <constraint firstItem="5v8-NZ-YhF" firstAttribute="leading" secondItem="tBm-hM-3yQ" secondAttribute="trailing" constant="-35" id="k7l-hm-c6F"/>
-                                    <constraint firstItem="oCj-XE-s80" firstAttribute="width" secondItem="EbP-kG-qPw" secondAttribute="width" constant="-32" id="lKU-dV-dFq"/>
+                                    <constraint firstItem="oCj-XE-s80" firstAttribute="width" secondItem="EbP-kG-qPw" secondAttribute="width" constant="-20" id="lKU-dV-dFq"/>
                                     <constraint firstItem="DDS-nu-Tld" firstAttribute="leading" secondItem="tBm-hM-3yQ" secondAttribute="trailing" constant="-38" id="lO3-x1-If4"/>
                                     <constraint firstItem="EHJ-vb-C8l" firstAttribute="top" secondItem="tBm-hM-3yQ" secondAttribute="bottom" constant="-29" id="mSz-ct-Y6Q"/>
                                     <constraint firstItem="EbP-kG-qPw" firstAttribute="centerX" secondItem="tBm-hM-3yQ" secondAttribute="centerX" id="oDQ-iL-QAS"/>
@@ -324,8 +324,8 @@
                                     <segue destination="dQO-8j-WCY" kind="presentation" id="zov-lp-Er5"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="no location service" translatesAutoresizingMaskIntoConstraints="NO" id="vMu-4Q-WPG">
-                                <rect key="frame" x="-91" y="503" width="320" height="568"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no location service" translatesAutoresizingMaskIntoConstraints="NO" id="vMu-4Q-WPG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <variation key="heightClass=regular" misplaced="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
                                 </variation>

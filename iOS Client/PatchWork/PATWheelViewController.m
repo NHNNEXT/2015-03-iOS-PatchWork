@@ -13,6 +13,7 @@
 @property (strong, nonatomic) PATSwirlGestureRecognizer* swirlGestureRecognizer;
 @property (strong, nonatomic) PATWheelTouchUpGestureRecognizer* touchUpGestureRecognizer;
 @property (strong, nonatomic) PATWheelTouchDownGestureRecognizer* touchDownGestureRecognizer;
+
 @property (strong, nonatomic) AVAudioPlayer* wheelSoundPlayer;
 @property (strong, nonatomic) NSString* city;
 
@@ -57,6 +58,7 @@
                       forState:UIControlStateNormal];
     _doneArrow.hidden = YES;
     _emotionInWheel.hidden = YES;
+    self.emotionPoses.hidden = YES;
     
     // wheel을 터치할 때 wheel glow가 fade-in 할 수 있도록 애니메이션 적용
     self.knob.hidden = YES;
@@ -74,7 +76,6 @@
 	[_locationManager startUpdatingLocation];
 	
 }
-
 
 
 
@@ -141,12 +142,41 @@
 
 
 
+- (void)giveDesolveAnimationTo:(UIView *)target {
+    CATransition * animation = [CATransition animation];
+    animation.type = kCATransitionFade;
+    animation.duration = 0.4;
+    [target.layer addAnimation:animation forKey:nil];
+}
+
+
+
+
+
+- (void)emotionPosShow:(id)sender {
+    [self giveDesolveAnimationTo:self.emotionPoses];
+    self.emotionPoses.hidden = NO;
+}
+
+
+
+
+
+
+- (IBAction)emotionPosHide:(id)sender {
+    self.emotionPoses.hidden = YES;
+}
+
+
+
+
 
 
 - (void)wheelGlowAppear:(id)sender {
     if([(PATWheelTouchDownGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
         return;
     }
+    
     NSLog(@"Appear");
     
     CGFloat movedPosition = 180 * ((PATWheelTouchDownGestureRecognizer*)sender).currentAngle / M_PI;
@@ -387,6 +417,7 @@
 
 
 
+
 - (IBAction)didDoneButtonTouched:(id)sender {
 
 	NSLog(@"done button touched"); //
@@ -430,4 +461,6 @@
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)emotionPosDisplay:(id)sender {
+}
 @end

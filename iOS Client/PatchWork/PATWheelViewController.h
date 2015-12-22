@@ -18,6 +18,8 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *detectingLocationView;
 @property (strong, nonatomic) IBOutlet UIImageView *locationServiceErrorView;
+@property (strong, nonatomic) IBOutlet UIButton *emotionPosShowButton;
+@property (strong, nonatomic) IBOutlet UIView *emotionPoses;
 
 @property (strong, nonatomic) IBOutlet UIView *controlsView;
 @property (strong, nonatomic) IBOutlet UIImageView *knob;
@@ -41,6 +43,8 @@
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
+- (IBAction)emotionPosShow:(id)sender;
+- (IBAction)emotionPosHide:(id)sender;
 - (IBAction)didDoneButtonTouched:(id)sender;
 
  

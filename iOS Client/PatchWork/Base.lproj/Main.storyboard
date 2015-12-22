@@ -425,9 +425,6 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <segue destination="dQO-8j-WCY" kind="showDetail" identifier="toMapContainerSegue" action="showViewController:sender:" id="W1M-tc-sQH"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jxu-ss-kU9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -444,7 +441,6 @@
         <image name="wheel5" width="1636" height="677"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="y8z-xc-hx1"/>
-        <segue reference="XbP-jv-UVK"/>
+        <segue reference="tWa-Q2-LUa"/>
     </inferredMetricsTieBreakers>
 </document>

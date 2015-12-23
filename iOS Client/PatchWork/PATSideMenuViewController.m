@@ -48,6 +48,10 @@
 														  attribute:NSLayoutAttributeLeading
 														 multiplier:1.0
 														   constant:self.view.bounds.size.width*0.3f]];
+	[timeMachineButton addTarget:self
+						  action:@selector(showTimeMachine)
+				forControlEvents:UIControlEventTouchUpInside];
+	
 
 	
 	// Search Place Button
@@ -114,6 +118,11 @@
 
 - (void) showTextField {
 	[self.delegate PATShowTextField];
+}
+
+
+- (void) showTimeMachine {
+	[self.delegate PATShowTimeMachine];
 }
 
 

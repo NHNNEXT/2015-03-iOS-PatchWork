@@ -12,19 +12,23 @@
 #import "PATSideMenuViewController.h"
 #import "PATSettingsViewController.h"
 #import "PATSearchLocationViewController.h"
+#import "PATTimeMachineViewController.h"
 @class PATGoogleMapViewController;
 @class PATSideMenuViewController;
 @class PATSettingsViewController;
 @class PATSearchLocationViewController;
+@class PATTimeMachineViewController;
 
-@interface PATMapContainerViewController : UIViewController<sideMenuShowUp, showSettingFurther, emotionSelect, showTextField, cameraPositionReset, cameraToAnotherPlace, backToContainerFromSearchLocation>
+@interface PATMapContainerViewController : UIViewController<sideMenuShowUp, showSettingFurther, emotionSelect, showTextField, cameraPositionReset, cameraToAnotherPlace, backToContainerFromSearchLocation, showTimeMachineDelegate>
 
 @property (nonatomic, strong) PATGoogleMapViewController* mapViewController;
 @property (nonatomic, strong) PATSideMenuViewController* sideMenuViewController;
 @property (nonatomic, strong) PATSettingsViewController* settingsViewController;
 @property (nonatomic, strong) PATSearchLocationViewController* searchLocationViewController;
+@property (nonatomic, strong) PATTimeMachineViewController* timeMachineViewController;
 @property (nonatomic) float PATStartPositionOfSideMenu;
 @property (nonatomic) float PATStartPositionOfSettings;
 @property (nonatomic) float PATStartPositionOfSearchLocation;
+@property (nonatomic) float PATStartPositionOfTimeMachine;
 
 @end

@@ -17,10 +17,14 @@
 -(void) PATShowTextField;
 @end
 
+@protocol showTimeMachineDelegate
+- (void) PATShowTimeMachine;
+@end
+
 
 @interface PATSideMenuViewController : UIViewController
 
-@property (weak, nonatomic) id<showSettingFurther, showTextField> delegate;
+@property (weak, nonatomic) id<showSettingFurther, showTextField, showTimeMachineDelegate> delegate;
 
 -(UIButton *) PATaddTextButtonWithTitle:(NSString *)title withFont:(NSString *)font withSize:(CGFloat) size;
 

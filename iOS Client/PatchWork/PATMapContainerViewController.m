@@ -19,6 +19,7 @@
 	self.sideMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATSideMenuViewController"];
 	self.settingsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATSettingsViewController"];
 	self.searchLocationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATSearchLocationViewController"];
+	self.timeMachineViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATTimeMachineViewController"];
 	
 	[self addChildViewController:self.mapViewController];
 	self.mapViewController.view.frame = self.view.bounds;
@@ -46,6 +47,15 @@
 	self.searchLocationViewController.delegate = self;
 	[self.view addSubview:self.searchLocationViewController.view];
 	[self.searchLocationViewController didMoveToParentViewController:self];
+	
+	
+	self.PATStartPositionOfTimeMachine = self.view.bounds.size.width*(-1.0f);
+	[self addChildViewController:self.timeMachineViewController];
+	self.timeMachineViewController.view.frame = CGRectMake(self.PATStartPositionOfTimeMachine, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+	[self.view addSubview:self.timeMachineViewController.view];
+//	self.timeMachineViewController.delegate = self;
+	[self.timeMachineViewController didMoveToParentViewController:self];
+	
 }
 
 

@@ -149,5 +149,16 @@
 }
 
 
+- (void) PATBackToGoogleMap {
+	
+	self.PATStartPositionOfSearchLocation = self.view.bounds.size.width*(-1.0f);
+	
+	[UIView animateWithDuration:0.
+					 animations:^{
+						self.searchLocationViewController.view.frame = CGRectMake(self.PATStartPositionOfSearchLocation, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+					 }
+					 completion:nil];
+}
+
 
 @end

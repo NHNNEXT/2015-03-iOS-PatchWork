@@ -137,7 +137,7 @@ static NSString* cellIdentifier = @"cellIdentifier";
 	if ([enteredPlace length] >= 1) {
 	
 		NSUInteger index = [placeArray indexOfObject:enteredPlace];
-		NSLog(@"index = %ld", index);
+		NSLog(@"index = %u", (unsigned int)index);
 	
 		if (index <= [placeArray count]) {
 	
@@ -174,6 +174,8 @@ static NSString* cellIdentifier = @"cellIdentifier";
 		else {
 			self.inputTextField.text = @"";
 		}
+	} else {
+		[self backToGoogleMap];
 	}
 }
 
@@ -217,6 +219,13 @@ static NSString* cellIdentifier = @"cellIdentifier";
 
 - (void) cameraToPlaceAtLatitude:(double) latitude withLongitude:(double) longitude {
 	[self.delegate PATCameraToPlaceAtLatitude:latitude withLongitude: longitude];
+}
+
+
+// text field returned without place text
+
+- (void) backToGoogleMap {
+	[self.delegate PATBackToGoogleMap];
 }
 
 

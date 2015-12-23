@@ -133,44 +133,47 @@ static NSString* cellIdentifier = @"cellIdentifier";
 	[sender endEditing:YES];
 	
 	enteredPlace = self.inputTextField.text;
-	NSUInteger index = [placeArray indexOfObject:enteredPlace];
-	NSLog(@"index = %ld", index);
 	
-	if (index <= [placeArray count]) {
+	if ([enteredPlace length] >= 1) {
 	
-		enteredPlaceID = [placeIDArray objectAtIndex:index];
+		NSUInteger index = [placeArray indexOfObject:enteredPlace];
+		NSLog(@"index = %ld", index);
+	
+		if (index <= [placeArray count]) {
+	
+			enteredPlaceID = [placeIDArray objectAtIndex:index];
 
-		NSMutableString* placeID_url = [[NSMutableString alloc] initWithFormat:@"https://maps.googleapis.com/maps/api/place/details/json?placeid="];
-		[placeID_url appendString:enteredPlaceID];
-		[placeID_url appendString:@"&key=AIzaSyA7jS3ywIDCjZsnuRywrNOacgCSOpi308c"];
+			NSMutableString* placeID_url = [[NSMutableString alloc] initWithFormat:@"https://maps.googleapis.com/maps/api/place/details/json?placeid="];
+			[placeID_url appendString:enteredPlaceID];
+			[placeID_url appendString:@"&key=AIzaSyA7jS3ywIDCjZsnuRywrNOacgCSOpi308c"];
 	
+			NSMutableURLRequest* place_request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:placeID_url]];
+			[place_request setHTTPMethod:@"GET"];
+			[place_request setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"content-type"];
 	
-		NSMutableURLRequest* place_request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:placeID_url]];
-		[place_request setHTTPMethod:@"GET"];
-		[place_request setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"content-type"];
-	
-		NSError* place_error;
-		NSURLResponse* place_response;
-		NSData* place_responseData = [NSURLConnection sendSynchronousRequest:place_request
+			NSError* place_error;
+			NSURLResponse* place_response;
+			NSData* place_responseData = [NSURLConnection sendSynchronousRequest:place_request
 												 returningResponse:&place_response
 															 error:&place_error];
 	
-		NSDictionary* place_json = [NSJSONSerialization JSONObjectWithData:place_responseData
+			NSDictionary* place_json = [NSJSONSerialization JSONObjectWithData:place_responseData
 														 options:NSJSONReadingMutableContainers
 														   error:&place_error];
 	
-		NSDictionary* place_json_result = [place_json objectForKey:@"result"];
-		NSDictionary* place_json_geometry = [place_json_result objectForKey:@"geometry"];
-		NSDictionary* place_json_location = [place_json_geometry objectForKey:@"location"];
-		NSString* place_lat = [place_json_location objectForKey:@"lat"];
-		NSString* place_lon = [place_json_location objectForKey:@"lng"];
+			NSDictionary* place_json_result = [place_json objectForKey:@"result"];
+			NSDictionary* place_json_geometry = [place_json_result objectForKey:@"geometry"];
+			NSDictionary* place_json_location = [place_json_geometry objectForKey:@"location"];
+			NSString* place_lat = [place_json_location objectForKey:@"lat"];
+			NSString* place_lon = [place_json_location objectForKey:@"lng"];
 	
-		NSLog(@"lat = %@,\n lon = %@", place_lat, place_lon);
+			NSLog(@"lat = %@,\n lon = %@", place_lat, place_lon);
 
-		[self cameraToPlaceAtLatitude:[place_lat doubleValue] withLongitude:[place_lon doubleValue]];
-	}
-	else {
-		self.inputTextField.text = @"";
+			[self cameraToPlaceAtLatitude:[place_lat doubleValue] withLongitude:[place_lon doubleValue]];
+		}
+		else {
+			self.inputTextField.text = @"";
+		}
 	}
 }
 

@@ -29,7 +29,7 @@
 }
 
 - (void) viewDidLoad {
-	
+
 	[super viewDidLoad];
 	
 	// Location Manager setting
@@ -38,18 +38,21 @@
 	_locationManager.delegate = self;
 	[_locationManager requestWhenInUseAuthorization];
 	[_locationManager startMonitoringSignificantLocationChanges];
+	[_locationManager startUpdatingLocation];
+}
+
+
+- (void) setInitialCameraAtLatitude:(double)latitude withLongitude:(double)longitude {
 	
 	// Load Google map (Note that an argument into mapWithFrame: is self.view.bounds instead of CGRectZero)
-	self.camera = [GMSCameraPosition cameraWithLatitude:self.currentLocation.coordinate.latitude longitude:self.currentLocation.coordinate.longitude zoom:1];
-
-	self.mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:self.camera];
+	GMSCameraPosition* camera = [GMSCameraPosition cameraWithLatitude:latitude longitude:longitude zoom:10];
+	
+	self.mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
 	self.mapView_.myLocationEnabled = YES;
 	[self.view addSubview:self.mapView_];
-
+	
 	[self loadJSON];
 	[self loadButtons];
-	
-	[_locationManager startUpdatingLocation];
 }
 
 

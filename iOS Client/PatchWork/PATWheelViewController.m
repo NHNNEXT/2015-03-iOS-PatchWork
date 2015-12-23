@@ -75,6 +75,8 @@
 	[_locationManager startMonitoringSignificantLocationChanges];
 	[_locationManager startUpdatingLocation];
 	
+	// Map Container View Controller instantiate
+	self.mapContainerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATMapContainerViewController"];
 }
 
 
@@ -418,7 +420,7 @@
 
 
 
-- (IBAction)didDoneButtonTouched:(id)sender {
+- (void)didDoneButtonTouched:(id)sender {
 
 	NSLog(@"done button touched"); //
     
@@ -434,7 +436,6 @@
 	NSString *post = [NSString stringWithString:makePost];
 
 	NSLog(@"%@", post); //
-	NSLog(@"Make sure that Done Button CANNOT be operated if emotion was not selected."); //
 	
 	NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
 	
@@ -449,6 +450,9 @@
 	
 	NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 
+	self.mapContainerViewController.latitude = [self.latitude doubleValue];
+	self.mapContainerViewController.longitude = [self.longitude doubleValue];
+	[self presentViewController:self.mapContainerViewController animated:YES completion:nil];
 }
 
 

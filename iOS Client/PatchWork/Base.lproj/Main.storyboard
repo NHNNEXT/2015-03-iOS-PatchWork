@@ -165,7 +165,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="didDoneButtonTouched:" destination="hsz-Ta-8Zq" eventType="touchUpInside" id="Nqg-lf-VpI"/>
-                                    <segue destination="dQO-8j-WCY" kind="show" identifier="" id="y8z-xc-hx1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30X-CL-wap">
@@ -418,7 +417,7 @@
         <!--PATMapContainerViewController-->
         <scene sceneID="MjN-9U-mSG">
             <objects>
-                <viewController title="PATMapContainerViewController" id="dQO-8j-WCY" customClass="PATMapContainerViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PATMapContainerViewController" title="PATMapContainerViewController" id="dQO-8j-WCY" customClass="PATMapContainerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PBE-fS-ldz"/>
                         <viewControllerLayoutGuide type="bottom" id="RsF-iP-r5Z"/>
@@ -778,6 +777,10 @@
         <scene sceneID="wYR-0C-7s9">
             <objects>
                 <viewController storyboardIdentifier="PATTimeMachineViewController" title="PATTimeMachineViewController" id="Oes-Nv-2nd" customClass="PATTimeMachineViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YR0-yf-oFI"/>
+                        <viewControllerLayoutGuide type="bottom" id="wpq-wE-pVY"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vHw-Ng-wzE">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -816,7 +819,7 @@
         <image name="wheelGlow.png" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="zov-lp-Er5"/>
         <segue reference="9zf-j4-FOs"/>
-        <segue reference="y8z-xc-hx1"/>
     </inferredMetricsTieBreakers>
 </document>

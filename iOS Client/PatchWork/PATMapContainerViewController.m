@@ -11,10 +11,10 @@
 @implementation PATMapContainerViewController
 
 -(void) viewDidLoad {
-	
+
 	[super viewDidLoad];
 	
-	// Set googleMapVC, sideMenuVC, settingsVC and searchLocationVC as properties, and add googleMapVC as a Subview
+	// Set googleMapVC, sideMenuVC, settingsVC, searchLocationVC and timeMachineVC as properties, and add googleMapVC as a Subview
 	self.mapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATGoogleMapViewController"];
 	self.sideMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATSideMenuViewController"];
 	self.settingsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATSettingsViewController"];
@@ -26,6 +26,7 @@
 	[self.view addSubview:self.mapViewController.view];
 	self.mapViewController.delegate = self;
 	[self.mapViewController didMoveToParentViewController:self];
+	[self.mapViewController setInitialCameraAtLatitude:self.latitude withLongitude:self.longitude];
 	
 	self.PATStartPositionOfSideMenu = self.view.bounds.size.width*(-1.0f);
 	[self addChildViewController:self.sideMenuViewController];

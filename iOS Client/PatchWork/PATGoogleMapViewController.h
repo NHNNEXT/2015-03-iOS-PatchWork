@@ -29,7 +29,8 @@
 
 @property (weak, nonatomic) id<sideMenuShowUp, emotionSelect, cameraPositionReset> delegate;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (nonatomic) GMSCameraPosition* camera;
 @property (nonatomic) GMSMapView* mapView_;
+
+- (void) setInitialCameraAtLatitude:(double) latitude withLongitude:(double) longitude;
 
 @end

@@ -3,9 +3,10 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
-#include "PATSwirlGestureRecognizer.h"
-#include "PATWheelTouchUpGestureRecognizer.h"
-#include "PATWheelTouchDownGestureRecognizer.h"
+#import "PATSwirlGestureRecognizer.h"
+#import "PATWheelTouchUpGestureRecognizer.h"
+#import "PATWheelTouchDownGestureRecognizer.h"
+#import "PATMapContainerViewController.h"
 
 #import <CoreLocation/CoreLocation.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
@@ -43,9 +44,11 @@
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
+@property (strong, nonatomic) PATMapContainerViewController* mapContainerViewController;
+
 - (IBAction)emotionPosShow:(id)sender;
 - (IBAction)emotionPosHide:(id)sender;
-- (IBAction)didDoneButtonTouched:(id)sender;
+- (void)didDoneButtonTouched:(id)sender;
 
  
 @end

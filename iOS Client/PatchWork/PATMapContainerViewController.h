@@ -30,5 +30,7 @@
 @property (nonatomic) float PATStartPositionOfSettings;
 @property (nonatomic) float PATStartPositionOfSearchLocation;
 @property (nonatomic) float PATStartPositionOfTimeMachine;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
 
 @end

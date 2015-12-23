@@ -17,6 +17,7 @@
 		58924EF01C17E2F1007B94AB /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 58924EEC1C17E2F1007B94AB /* DigitsKitResources.bundle */; };
 		58924EF11C17E2F1007B94AB /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58924EED1C17E2F1007B94AB /* TwitterCore.framework */; };
 		58924EF41C17E35D007B94AB /* PATLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58924EF31C17E35D007B94AB /* PATLoginViewController.m */; };
+		58F39AF41C2A67D4004615A8 /* PATTimeMachineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F39AF31C2A67D4004615A8 /* PATTimeMachineViewController.m */; };
 		58FBB6DA1C0037A800951B0E /* PATGoogleMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FBB6D31C0037A800951B0E /* PATGoogleMapViewController.m */; };
 		58FBB6DB1C0037A800951B0E /* PATGoogleMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FBB6D31C0037A800951B0E /* PATGoogleMapViewController.m */; };
 		58FBB6DE1C0037A800951B0E /* PATMapContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58FBB6D71C0037A800951B0E /* PATMapContainerViewController.m */; };
@@ -90,6 +91,8 @@
 		58924EED1C17E2F1007B94AB /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
 		58924EF21C17E35D007B94AB /* PATLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATLoginViewController.h; sourceTree = "<group>"; };
 		58924EF31C17E35D007B94AB /* PATLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PATLoginViewController.m; sourceTree = "<group>"; };
+		58F39AF21C2A67C0004615A8 /* PATTimeMachineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATTimeMachineViewController.h; sourceTree = "<group>"; };
+		58F39AF31C2A67D4004615A8 /* PATTimeMachineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PATTimeMachineViewController.m; sourceTree = "<group>"; };
 		58FBB6D21C0037A800951B0E /* PATGoogleMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATGoogleMapViewController.h; sourceTree = "<group>"; };
 		58FBB6D31C0037A800951B0E /* PATGoogleMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PATGoogleMapViewController.m; sourceTree = "<group>"; };
 		58FBB6D61C0037A800951B0E /* PATMapContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATMapContainerViewController.h; sourceTree = "<group>"; };
@@ -278,6 +281,8 @@
 				58FBB6D31C0037A800951B0E /* PATGoogleMapViewController.m */,
 				58FBB6D61C0037A800951B0E /* PATMapContainerViewController.h */,
 				58FBB6D71C0037A800951B0E /* PATMapContainerViewController.m */,
+				58F39AF21C2A67C0004615A8 /* PATTimeMachineViewController.h */,
+				58F39AF31C2A67D4004615A8 /* PATTimeMachineViewController.m */,
 				584E73331C2114F0006AD94D /* PATSearchLocationViewController.h */,
 				584E73341C21150B006AD94D /* PATSearchLocationViewController.m */,
 				58FBB6D81C0037A800951B0E /* PATSideMenuViewController.h */,
@@ -516,6 +521,7 @@
 				58924EF41C17E35D007B94AB /* PATLoginViewController.m in Sources */,
 				58FBB6DA1C0037A800951B0E /* PATGoogleMapViewController.m in Sources */,
 				E99348361C0B695F0096292F /* PATWheelTouchUpGestureRecognizer.m in Sources */,
+				58F39AF41C2A67D4004615A8 /* PATTimeMachineViewController.m in Sources */,
 				E930E0951BD741450032C541 /* main.m in Sources */,
 				E98357231C0569CE00CFD428 /* PATSwirlGestureRecognizer.m in Sources */,
 				58FBB6DE1C0037A800951B0E /* PATMapContainerViewController.m in Sources */,

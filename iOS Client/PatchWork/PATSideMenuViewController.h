@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@protocol showSettingFurther
+@protocol showSettingDelegate
 -(void) PATShowSetting;
 @end
 
-@protocol showTextField
+@protocol showTextFieldDelegate
 -(void) PATShowTextField;
 @end
 
@@ -24,7 +24,7 @@
 
 @interface PATSideMenuViewController : UIViewController
 
-@property (weak, nonatomic) id<showSettingFurther, showTextField, showTimeMachineDelegate> delegate;
+@property (weak, nonatomic) id<showSettingDelegate, showTextFieldDelegate, showTimeMachineDelegate> delegate;
 
 -(UIButton *) PATaddTextButtonWithTitle:(NSString *)title withFont:(NSString *)font withSize:(CGFloat) size;
 

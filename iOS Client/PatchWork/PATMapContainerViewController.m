@@ -171,4 +171,14 @@
 }
 
 
+- (void) PATShowTimeMachine {
+
+	self.PATStartPositionOfTimeMachine = 0.;
+	self.timeMachineViewController.view.frame = CGRectMake(self.PATStartPositionOfTimeMachine, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+	
+	self.PATStartPositionOfSideMenu = self.view.bounds.size.width*(-1.0);
+	self.sideMenuViewController.view.frame = CGRectMake(self.PATStartPositionOfSideMenu, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+}
+
+
 @end

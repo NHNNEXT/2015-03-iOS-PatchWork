@@ -95,10 +95,10 @@
                         <viewControllerLayoutGuide type="bottom" id="QSi-Kg-xXF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Jwt-nL-Tqw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QnC-Jk-7G9" userLabel="middle guide line">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QnC-Jk-7G9" userLabel="middle guide line">
                                 <rect key="frame" x="160" y="284" width="0.0" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="width" id="aSa-wF-zWv"/>
@@ -108,7 +108,7 @@
                                     <rect key="frame" x="300" y="400" width="0.0" height="0.0"/>
                                 </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="i'm in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64M-uC-uxQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="i'm in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64M-uC-uxQ">
                                 <rect key="frame" x="70" y="84" width="45" height="23"/>
                                 <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="23"/>
                                 <color key="textColor" red="0.3411764705882353" green="0.34509803921568627" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
@@ -117,16 +117,16 @@
                                     <rect key="frame" x="210" y="200" width="45" height="23"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="AMSTARDAM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTz-a8-OiP" userLabel="city">
-                                <rect key="frame" x="122" y="84" width="124" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kTz-a8-OiP" userLabel="city">
+                                <rect key="frame" x="126" y="84" width="14" height="23"/>
                                 <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="23"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.2666666667" green="0.27058823529999998" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular" misplaced="YES">
                                     <rect key="frame" x="262" y="200" width="124" height="23"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="and i'm feeling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lK-2a-hVq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and i'm feeling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lK-2a-hVq">
                                 <rect key="frame" x="86" y="110" width="128" height="22"/>
                                 <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="22"/>
                                 <color key="textColor" red="0.3411764706" green="0.34509803919999998" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
@@ -135,7 +135,7 @@
                                     <rect key="frame" x="226" y="226" width="128" height="22"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFO-jC-cBt" userLabel="feeling">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFO-jC-cBt" userLabel="feeling">
                                 <rect key="frame" x="221" y="110" width="19" height="22"/>
                                 <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="22"/>
                                 <color key="textColor" red="0.3411764706" green="0.34509803919999998" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
@@ -144,7 +144,7 @@
                                     <rect key="frame" x="361" y="226" width="19" height="22"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNo-rk-ZdG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNo-rk-ZdG">
                                 <rect key="frame" x="132" y="474" width="58" height="35"/>
                                 <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="23"/>
                                 <state key="normal" title="DONE">
@@ -158,7 +158,7 @@
                                     <segue destination="dQO-8j-WCY" kind="show" identifier="" id="y8z-xc-hx1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30X-CL-wap">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30X-CL-wap">
                                 <rect key="frame" x="102" y="475" width="30" height="35"/>
                                 <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="23"/>
                                 <state key="normal" title="&gt;">
@@ -171,7 +171,7 @@
                                     <action selector="didDoneButtonTouched:" destination="hsz-Ta-8Zq" eventType="touchUpInside" id="SbG-Zv-Kx5"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MiA-d0-dEM" userLabel="wheel control">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MiA-d0-dEM" userLabel="wheel control">
                                 <rect key="frame" x="0.0" y="146" width="320" height="320"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wheel.png" translatesAutoresizingMaskIntoConstraints="NO" id="tBm-hM-3yQ">
@@ -298,11 +298,17 @@
                                     <rect key="frame" x="140" y="262" width="320" height="320"/>
                                 </variation>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="no location service" translatesAutoresizingMaskIntoConstraints="NO" id="vMu-4Q-WPG">
+                                <rect key="frame" x="227" y="480" width="320" height="568"/>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                                </variation>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ocv-5j-AEB">
-                                <rect key="frame" x="102" y="499" width="30" height="35"/>
-                                <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="23"/>
+                                <rect key="frame" x="293" y="19" width="30" height="35"/>
+                                <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="18"/>
                                 <state key="normal" title="&gt;">
-                                    <color key="titleColor" red="0.90980392160000001" green="0.25490196079999999" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.53542564655172409" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="heightClass=regular" misplaced="YES">
                                     <rect key="frame" x="569" y="27" width="30" height="35"/>
@@ -312,10 +318,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xjf-cf-D1u">
-                                <rect key="frame" x="132" y="498" width="58" height="35"/>
-                                <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="16"/>
+                                <rect key="frame" x="268" y="18" width="40" height="35"/>
+                                <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="14"/>
                                 <state key="normal" title="SKIP">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.53542564655172409" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="heightClass=regular" misplaced="YES">
                                     <rect key="frame" x="545" y="27" width="30" height="33"/>
@@ -324,12 +330,6 @@
                                     <segue destination="dQO-8j-WCY" kind="presentation" id="zov-lp-Er5"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="no location service" translatesAutoresizingMaskIntoConstraints="NO" id="vMu-4Q-WPG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
-                                </variation>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.027450980392156862" green="0.035294117647058823" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -337,36 +337,21 @@
                             <constraint firstItem="QFO-jC-cBt" firstAttribute="centerX" secondItem="Jwt-nL-Tqw" secondAttribute="centerX" constant="70.5" id="8Lm-uv-8ld"/>
                             <constraint firstItem="QnC-Jk-7G9" firstAttribute="centerY" secondItem="Jwt-nL-Tqw" secondAttribute="centerY" id="BUc-yH-wOF"/>
                             <constraint firstItem="MiA-d0-dEM" firstAttribute="top" secondItem="QnC-Jk-7G9" secondAttribute="bottom" constant="-138" id="Bd8-5P-YYO"/>
-                            <constraint firstItem="vMu-4Q-WPG" firstAttribute="top" secondItem="Xjf-cf-D1u" secondAttribute="bottom" constant="-63" id="CA3-4s-Ltp">
-                                <variation key="heightClass=regular" constant="-60"/>
-                            </constraint>
                             <constraint firstItem="QnC-Jk-7G9" firstAttribute="top" secondItem="kTz-a8-OiP" secondAttribute="bottom" constant="177" id="CPo-ii-7ih"/>
                             <constraint firstItem="MiA-d0-dEM" firstAttribute="centerX" secondItem="Jwt-nL-Tqw" secondAttribute="centerX" id="DIL-ca-QRS"/>
                             <constraint firstItem="MiA-d0-dEM" firstAttribute="leading" secondItem="64M-uC-uxQ" secondAttribute="trailing" constant="-115" id="FYr-2O-AT2"/>
                             <constraint firstItem="jNo-rk-ZdG" firstAttribute="centerX" secondItem="Jwt-nL-Tqw" secondAttribute="centerX" constant="1" id="GFA-ha-JOe"/>
                             <constraint firstItem="QFO-jC-cBt" firstAttribute="top" secondItem="kTz-a8-OiP" secondAttribute="bottom" constant="3" id="GbE-OK-fvz"/>
                             <constraint firstItem="vMu-4Q-WPG" firstAttribute="width" secondItem="Jwt-nL-Tqw" secondAttribute="width" id="HHu-WV-J0G"/>
-                            <constraint firstItem="Xjf-cf-D1u" firstAttribute="centerY" secondItem="Ocv-5j-AEB" secondAttribute="centerY" id="I7v-Nw-eYc">
-                                <variation key="heightClass=regular" constant="-1"/>
-                            </constraint>
                             <constraint firstItem="jNo-rk-ZdG" firstAttribute="top" secondItem="uJp-oG-imp" secondAttribute="bottom" constant="11" id="Jv3-cQ-gLc"/>
-                            <constraint firstItem="Ocv-5j-AEB" firstAttribute="leading" secondItem="Xjf-cf-D1u" secondAttribute="trailing" constant="1" id="TPK-9k-HbF">
-                                <variation key="heightClass=regular" constant="-6"/>
-                            </constraint>
                             <constraint firstItem="oCj-XE-s80" firstAttribute="centerX" secondItem="Jwt-nL-Tqw" secondAttribute="centerX" id="U6l-sZ-Yv9"/>
-                            <constraint firstItem="kTz-a8-OiP" firstAttribute="leading" secondItem="64M-uC-uxQ" secondAttribute="trailing" constant="7" id="YPz-27-MgI"/>
+                            <constraint firstItem="kTz-a8-OiP" firstAttribute="leading" secondItem="64M-uC-uxQ" secondAttribute="trailing" constant="11" id="YPz-27-MgI"/>
                             <constraint firstItem="QFO-jC-cBt" firstAttribute="leading" secondItem="4lK-2a-hVq" secondAttribute="trailing" constant="7" id="ZD2-6D-P0z"/>
                             <constraint firstItem="4lK-2a-hVq" firstAttribute="top" secondItem="kTz-a8-OiP" secondAttribute="bottom" constant="3" id="aeq-38-G9y"/>
                             <constraint firstItem="jNo-rk-ZdG" firstAttribute="leading" secondItem="30X-CL-wap" secondAttribute="trailing" id="jgO-lA-Q3l"/>
-                            <constraint firstItem="Ocv-5j-AEB" firstAttribute="leading" secondItem="vMu-4Q-WPG" secondAttribute="trailing" constant="-37" id="lex-EH-GqB">
-                                <variation key="heightClass=regular" constant="-31"/>
-                            </constraint>
                             <constraint firstItem="vMu-4Q-WPG" firstAttribute="height" secondItem="Jwt-nL-Tqw" secondAttribute="height" id="mF7-62-rRw"/>
                             <constraint firstItem="QnC-Jk-7G9" firstAttribute="centerX" secondItem="Jwt-nL-Tqw" secondAttribute="centerX" id="nA1-WD-et1"/>
                             <constraint firstItem="QnC-Jk-7G9" firstAttribute="top" secondItem="64M-uC-uxQ" secondAttribute="bottom" constant="177" id="qOU-JJ-rdD"/>
-                            <constraint firstItem="vMu-4Q-WPG" firstAttribute="top" secondItem="Ocv-5j-AEB" secondAttribute="bottom" constant="-64" id="vWN-ZF-F1x">
-                                <variation key="heightClass=regular" constant="-62"/>
-                            </constraint>
                             <constraint firstItem="vMu-4Q-WPG" firstAttribute="centerY" secondItem="Jwt-nL-Tqw" secondAttribute="centerY" id="wYW-S1-nex"/>
                             <constraint firstItem="vMu-4Q-WPG" firstAttribute="centerX" secondItem="Jwt-nL-Tqw" secondAttribute="centerX" id="wvd-fg-fgr"/>
                         </constraints>
@@ -375,25 +360,11 @@
                                 <exclude reference="Ocv-5j-AEB"/>
                                 <exclude reference="Xjf-cf-D1u"/>
                             </mask>
-                            <mask key="constraints">
-                                <exclude reference="CA3-4s-Ltp"/>
-                                <exclude reference="vWN-ZF-F1x"/>
-                                <exclude reference="TPK-9k-HbF"/>
-                                <exclude reference="lex-EH-GqB"/>
-                                <exclude reference="I7v-Nw-eYc"/>
-                            </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="subviews">
                                 <include reference="Ocv-5j-AEB"/>
                                 <include reference="Xjf-cf-D1u"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="CA3-4s-Ltp"/>
-                                <include reference="vWN-ZF-F1x"/>
-                                <include reference="TPK-9k-HbF"/>
-                                <include reference="lex-EH-GqB"/>
-                                <include reference="I7v-Nw-eYc"/>
                             </mask>
                         </variation>
                     </view>
@@ -413,7 +384,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VuC-1e-jjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="361" y="292"/>
+            <point key="canvasLocation" x="469" y="276"/>
         </scene>
         <!--PATMapContainerViewController-->
         <scene sceneID="MjN-9U-mSG">
@@ -424,7 +395,7 @@
                         <viewControllerLayoutGuide type="bottom" id="RsF-iP-r5Z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JMK-AT-J2V">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zMv-Kc-4IG">
@@ -452,7 +423,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="hsz-Ta-8Zq" kind="presentation" identifier="toEmotionSegue" id="tWa-Q2-LUa"/>
+                        <segue destination="4EU-Sy-HRu" kind="presentation" identifier="toEmotionSegue" id="aXp-wk-rtv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xXW-aa-bbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -567,7 +538,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ktp-oR-eoS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yls-NU-fz2">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -585,7 +556,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2Fc-OA-5Gf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pT8-Mg-EtW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -603,35 +574,35 @@
                         <viewControllerLayoutGuide type="bottom" id="EKX-5w-1bK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yoa-CW-dPE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ud9-7P-0eB" userLabel="middle guide line">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ud9-7P-0eB" userLabel="middle guide line">
                                 <rect key="frame" x="160" y="284" width="0.0" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="width" id="VoJ-dU-Bh3"/>
                                     <constraint firstAttribute="height" id="Yao-fA-FMW"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="i'm in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4F-W9-IBF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="i'm in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4F-W9-IBF">
                                 <rect key="frame" x="70" y="84" width="45" height="23"/>
                                 <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="23"/>
                                 <color key="textColor" red="0.3411764706" green="0.34509803919999998" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="AMSTARDAM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncc-Nx-sqa" userLabel="city">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AMSTARDAM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncc-Nx-sqa" userLabel="city">
                                 <rect key="frame" x="122" y="84" width="124" height="23"/>
                                 <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="23"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="and i'm feeling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viN-dQ-Pl7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and i'm feeling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viN-dQ-Pl7">
                                 <rect key="frame" x="86" y="110" width="128" height="22"/>
                                 <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="22"/>
                                 <color key="textColor" red="0.3411764706" green="0.34509803919999998" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text=" ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfH-oV-HT3" userLabel="feeling">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfH-oV-HT3" userLabel="feeling">
                                 <rect key="frame" x="221" y="110" width="19" height="22"/>
                                 <fontDescription key="fontDescription" name="OdinRounded" family="Odin Rounded" pointSize="22"/>
                                 <color key="textColor" red="0.3411764706" green="0.34509803919999998" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
@@ -657,7 +628,7 @@
                                     <action selector="didDoneButtonTouched:" destination="4EU-Sy-HRu" eventType="touchUpInside" id="3rL-ju-Yga"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Myf-wz-OTf" userLabel="wheel control">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myf-wz-OTf" userLabel="wheel control">
                                 <rect key="frame" x="0.0" y="146" width="320" height="320"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wheel5" translatesAutoresizingMaskIntoConstraints="NO" id="xoX-jT-RFi">
@@ -694,7 +665,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location detecting" translatesAutoresizingMaskIntoConstraints="NO" id="bLM-NH-O8W">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="no location service" translatesAutoresizingMaskIntoConstraints="NO" id="EML-2J-Vtm">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no location service" translatesAutoresizingMaskIntoConstraints="NO" id="EML-2J-Vtm">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                         </subviews>
@@ -737,7 +708,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g4S-2R-djg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="865" y="1023"/>
+            <point key="canvasLocation" x="736" y="946"/>
         </scene>
     </scenes>
     <resources>
@@ -752,7 +723,7 @@
         <image name="wheelGlow.png" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tWa-Q2-LUa"/>
+        <segue reference="9zf-j4-FOs"/>
         <segue reference="zov-lp-Er5"/>
     </inferredMetricsTieBreakers>
 </document>

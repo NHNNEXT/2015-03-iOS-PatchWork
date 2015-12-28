@@ -408,7 +408,7 @@
 	NSLog(@"done button touched"); //
     
 	NSMutableString *makePost = [NSMutableString stringWithCapacity:200];
-	[makePost appendString:@"userid=12"];
+	[makePost appendString:@"userid=1"];                        //insert email id here
 	[makePost appendString:@"&lat="];
 	[makePost appendString:[self.latitude stringValue]];
 	[makePost appendString:@"&lon="];

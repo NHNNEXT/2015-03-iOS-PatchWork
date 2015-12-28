@@ -46,9 +46,10 @@
 
 @property (strong, nonatomic) PATMapContainerViewController* mapContainerViewController;
 
-- (IBAction)emotionPosShow:(id)sender;
-- (IBAction)emotionPosHide:(id)sender;
+
 - (void)didDoneButtonTouched:(id)sender;
+- (IBAction)emotionPosShow:(id)sender forEvent:(UIEvent *)event;
+- (IBAction)emotionPosHide:(id)sender forEvent:(UIEvent *)event;
 
  
 @end

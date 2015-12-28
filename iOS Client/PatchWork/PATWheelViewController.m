@@ -77,6 +77,7 @@
 	
 	// Map Container View Controller instantiate
 	self.mapContainerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATMapContainerViewController"];
+    NSLog(@"%@", self.mapContainerViewController);
 }
 
 
@@ -155,7 +156,8 @@
 
 
 
-- (void)emotionPosShow:(id)sender {
+
+- (IBAction)emotionPosShow:(id)sender forEvent:(UIEvent *)event {
     [self giveDesolveAnimationTo:self.emotionPoses];
     self.emotionPoses.hidden = NO;
 }
@@ -165,9 +167,11 @@
 
 
 
-- (IBAction)emotionPosHide:(id)sender {
+- (IBAction)emotionPosHide:(id)sender forEvent:(UIEvent *)event {
+    [self giveDesolveAnimationTo:self.emotionPoses];
     self.emotionPoses.hidden = YES;
 }
+
 
 
 
@@ -348,28 +352,6 @@
 
 
 
-- (void) getCityName {
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://ipinfo.io/json"]];
-    
-    __block NSDictionary *json;
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                               json = [NSJSONSerialization JSONObjectWithData:data
-                                                                      options:0
-                                                                        error:nil];
-                               [self setCity:[json objectForKey:@"city"]];
-                               self.city = [self.city uppercaseString];
-                               NSLog(@"%@", [self city]);
-                               self.cityLabel.text = self.city;
-                           }];
-}
-
-
-
-
-
-
 
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
@@ -389,12 +371,13 @@
         [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en", nil] forKey:@"AppleLanguages"];
         
         for (CLPlacemark * placemark in placemarks) {
-            self.city = [placemark locality];
+            self.city = [placemark thoroughfare];
             NSLog(@"city name : %@", self.city);
         }
         manager.stopUpdatingLocation;
         self.cityLabel.text = self.city;
-        self.detectingLocationView.hidden = YES;
+        self.cityLabel.textColor = [UIColor colorWithWhite:1.f alpha:1.f];
+
         // 언어 설정 원래대로 복구
         [[NSUserDefaults standardUserDefaults] setObject:userDefaultLanguages forKey:@"AppleLanguages"];
         }];
@@ -442,7 +425,7 @@
 	NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
 	
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-	[request setURL:[NSURL URLWithString:@"http://localhost:5000/insertEmotion"]];
+	[request setURL:[NSURL URLWithString:@"http://192.168.1.135:5000/insertEmotion"]];
 	[request setHTTPMethod:@"POST"];
 	[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
 	[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -450,11 +433,11 @@
 	
 	NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 
-	self.mapContainerViewController.latitude = [self.latitude doubleValue];
+
+    self.mapContainerViewController.latitude = [self.latitude doubleValue];
 	self.mapContainerViewController.longitude = [self.longitude doubleValue];
 	[self presentViewController:self.mapContainerViewController animated:YES completion:nil];
 }
-
 
 
 
@@ -465,6 +448,5 @@
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)emotionPosDisplay:(id)sender {
-}
+
 @end

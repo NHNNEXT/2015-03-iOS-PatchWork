@@ -11,23 +11,24 @@
 @implementation PATMapContainerViewController
 
 -(void) viewDidLoad {
-
-	[super viewDidLoad];
-	
+    NSLog(@"MapContainer ViewController Loaded");
+    [super viewDidLoad];
 	// Set googleMapVC, sideMenuVC, settingsVC, searchLocationVC and timeMachineVC as properties, and add googleMapVC as a Subview
 	self.mapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATGoogleMapViewController"];
 	self.sideMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATSideMenuViewController"];
 	self.settingsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATSettingsViewController"];
 	self.searchLocationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATSearchLocationViewController"];
 	self.timeMachineViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATTimeMachineViewController"];
-	
+
+
 	[self addChildViewController:self.mapViewController];
 	self.mapViewController.view.frame = self.view.bounds;
 	[self.view addSubview:self.mapViewController.view];
 	self.mapViewController.delegate = self;
 	[self.mapViewController didMoveToParentViewController:self];
 	[self.mapViewController setInitialCameraAtLatitude:self.latitude withLongitude:self.longitude];
-	
+    
+    
 	self.PATStartPositionOfSideMenu = self.view.bounds.size.width*(-1.0f);
 	[self addChildViewController:self.sideMenuViewController];
 	self.sideMenuViewController.view.frame = CGRectMake(self.PATStartPositionOfSideMenu, 0, self.view.bounds.size.width, self.view.bounds.size.height);
@@ -35,12 +36,14 @@
 	self.sideMenuViewController.delegate = self;
 	[self.sideMenuViewController didMoveToParentViewController:self];
 	
+
 	self.PATStartPositionOfSettings = self.view.bounds.size.width*(-1.0f);
 	[self addChildViewController:self.settingsViewController];
 	self.settingsViewController.view.frame = CGRectMake(self.PATStartPositionOfSettings, 0, self.view.bounds.size.width, self.view.bounds.size.height);
 	[self.view addSubview:self.settingsViewController.view];
 	[self.settingsViewController didMoveToParentViewController:self];
-	
+
+    
 	self.PATStartPositionOfSearchLocation = self.view.bounds.size.width*(-1.0f);
 	[self addChildViewController:self.searchLocationViewController];
 	self.searchLocationViewController.willShowKeyboard = NO;
@@ -49,15 +52,16 @@
 	[self.view addSubview:self.searchLocationViewController.view];
 	[self.searchLocationViewController didMoveToParentViewController:self];
 	
-	
+    
 	self.PATStartPositionOfTimeMachine = self.view.bounds.size.width*(-1.0f);
 	[self addChildViewController:self.timeMachineViewController];
 	self.timeMachineViewController.view.frame = CGRectMake(self.PATStartPositionOfTimeMachine, 0, self.view.bounds.size.width, self.view.bounds.size.height);
 	[self.view addSubview:self.timeMachineViewController.view];
 //	self.timeMachineViewController.delegate = self;
 	[self.timeMachineViewController didMoveToParentViewController:self];
-	
+
 }
+
 
 
 -(void) PATShowSideMenu {
@@ -86,7 +90,8 @@
 
 
 -(void) PATShowEmotionView {
-	[self performSegueWithIdentifier:@"toEmotionSegue" sender:self];
+    NSLog(@"toEmotionSegue");
+    [self performSegueWithIdentifier:@"toEmotionSegue" sender:self];
 }
 
 

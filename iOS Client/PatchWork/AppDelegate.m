@@ -22,7 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-	[GMSServices provideAPIKey:@"AIzaSyA7jS3ywIDCjZsnuRywrNOacgCSOpi308c"];
+	[GMSServices provideAPIKey:@"AIzaSyA7jS3ywIDCjZsnuRywrNOacgCSO"];
     
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];

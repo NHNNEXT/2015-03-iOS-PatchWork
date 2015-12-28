@@ -10,7 +10,8 @@
 #import <UIKit/UIKit.h>
 
 
-@interface PATTimeMachineViewController : UIViewController
+@interface PATTimeMachineViewController : UIViewController <UIGestureRecognizerDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
+@property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
 
 @end

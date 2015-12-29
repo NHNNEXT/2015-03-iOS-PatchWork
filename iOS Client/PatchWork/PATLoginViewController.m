@@ -24,9 +24,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [_tempBtn setHidden:YES];
     
-    //FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    //loginButton.center = self.view.center;
+    UIButton *myLoginButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    myLoginButton.backgroundColor=[UIColor darkGrayColor];
+    myLoginButton.frame=CGRectMake(80,400,180,40);
+    [myLoginButton setTitle: @"Login" forState: UIControlStateNormal];
+    
+    [myLoginButton
+     addTarget:self
+     action:@selector(loginButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+
+    
+    [self.view addSubview:myLoginButton];
+    
     CGRect btnFrame = _loginButton.frame;
     btnFrame.origin.x = 137;
     btnFrame.origin.y = 391;
@@ -74,6 +85,59 @@
     
 }
 
+-(void)loginButtonClicked
+{
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login
+     logInWithReadPermissions: @[@"public_profile"]
+     fromViewController:self
+     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+         if (error) {
+             NSLog(@"Process error");
+         } else if (result.isCancelled) {
+             NSLog(@"Cancelled");
+         } else {
+             NSLog(@"Logged in");
+             
+             NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
+             [parameters setValue:@"id,name,email" forKey:@"fields"];
+             if ([FBSDKAccessToken currentAccessToken]) {
+                 [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters]
+                  startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                      if (!error) {
+                          NSMutableDictionary *dictData = [[NSMutableDictionary alloc] init];
+                          
+                          [dictData setObject:result[@"email"] forKey:@"email"];
+                          
+                          NSLog(@"fetched user:%@", result[@"email"]);
+                          
+                          NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://localhost:5000/login"]];
+                          [request setHTTPMethod:@"POST"];
+                          [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+                          [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+                          
+                          NSError *error;
+                          NSData *postData = [NSJSONSerialization dataWithJSONObject:dictData options:0 error:&error];
+                          [request setHTTPBody:postData];
+                          
+                          NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+                          NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+                          
+                          NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                          }];
+                          
+                          [postDataTask resume];
+                          
+                          [self performSegueWithIdentifier: @"btn" sender: self];
+                      }
+                  }];
+             }
+             
+
+         }
+     }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -105,6 +169,41 @@
 
 -(void)loginView:(FBSDKLoginButton *)loginView handleError:(NSError *)error{
     NSLog(@"%@", [error localizedDescription]);
+    /*
+    NSMutableDictionary* parameters = [NSMutableDictionary dictionary];
+    [parameters setValue:@"id,name,email" forKey:@"fields"];
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:parameters]
+         startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+             if (!error) {
+                 NSMutableDictionary *dictData = [[NSMutableDictionary alloc] init];
+                 
+                 [dictData setObject:result[@"email"] forKey:@"email"];
+                 
+                 NSLog(@"fetched user:%@", result[@"email"]);
+                 
+                 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://localhost:5000/login"]];
+                 [request setHTTPMethod:@"POST"];
+                 [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+                 [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+                 
+                 NSError *error;
+                 NSData *postData = [NSJSONSerialization dataWithJSONObject:dictData options:0 error:&error];
+                 [request setHTTPBody:postData];
+                 
+                 NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+                 NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+                 
+                 NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                 }];
+                 
+                 [postDataTask resume];
+                 
+                 [self performSegueWithIdentifier: @"btn" sender: self];
+              }
+         }];
+    }
+     */
 }
 
 
@@ -120,69 +219,5 @@
         // Country selector will be set to Spain
     }];
 }
-
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"Segue identifier: %@", [segue identifier]);
-    if ([[segue identifier] isEqualToString:@"facebookBtn"]){
-        //[FBSDKAppEvents activateApp];
-        
-        /*
-         NSString *facebookAuthApiURL = @"server_api_address";
-         // Other data will be propagating
-         NSURL *postURL = [NSURL URLWithString:facebookAuthApiURL];
-         NSError __autoreleasing *errorRequest;
-         NSHTTPURLResponse __autoreleasing *responseRequest;
-         
-         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:postURL];
-         NSInputStream *inputData;
-         
-         [request setHTTPMethod:@"POST"];
-         [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-         [request setHTTPBodyStream:inputData];
-         
-         */
-        PATWheelViewController *nextViewController = [segue destinationViewController];
-        nextViewController.authBy = @"facebook";
-        NSLog(@"Before segue: %@", nextViewController.authBy);
-        
-    } else if ([[segue identifier] isEqualToString:@"twitterBtn"]){
-        PATWheelViewController *nextViewController = [segue destinationViewController];
-        nextViewController.authBy = @"twitter";
-        
-        /*
-         DGTAuthenticateButton *authButton;
-         authButton = [DGTAuthenticateButton buttonWithAuthenticationCompletion:^(DGTSession *session, NSError *error) {
-         if (session.userID) {
-         // TODO: associate the session userID with your user model
-         NSString *msg = [NSString stringWithFormat:@"Phone number: %@", session.phoneNumber];
-         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You are logged in!"
-         message:msg
-         delegate:nil
-         cancelButtonTitle:@"OK"
-         otherButtonTitles:nil];
-         [alert show];
-         } else if (error) {
-         NSLog(@"Authentication error: %@", error.localizedDescription);
-         }
-         }];
-         
-         authButton.center = self.view.center;
-         [self.view addSubview:authButton];
-         
-         
-         DGTAuthenticationConfiguration *configuration = [[DGTAuthenticationConfiguration alloc] initWithAccountFields:DGTAccountFieldsEmail];
-         configuration.title = @"Login to Digits";
-         Digits *digits = [Digits sharedInstance];
-         [digits authenticateWithViewController:nil configuration:configuration completion:^(DGTSession *session, NSError *error) {
-         // Inspect session to access the email address of the user
-         }];
-         */
-        
-    }
-    
-}
-
 
 @end

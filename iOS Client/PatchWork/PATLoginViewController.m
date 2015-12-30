@@ -27,9 +27,12 @@
     [_tempBtn setHidden:YES];
     
     UIButton *myLoginButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    myLoginButton.backgroundColor=[UIColor darkGrayColor];
-    myLoginButton.frame=CGRectMake(80,400,180,40);
-    [myLoginButton setTitle: @"Login" forState: UIControlStateNormal];
+    //myLoginButton.backgroundColor=[UIColor darkGrayColor];
+    myLoginButton.frame=CGRectMake(69,402,180,40);
+    //[myLoginButton setTitle: @"Login with Facebook" forState: UIControlStateNormal];
+    
+    UIImage *btnImage = [UIImage imageNamed:@"LOGIN_facebook login.png"];
+    [myLoginButton setImage:btnImage forState:UIControlStateNormal];
     
     [myLoginButton
      addTarget:self
@@ -39,16 +42,19 @@
     [self.view addSubview:myLoginButton];
     
     CGRect btnFrame = _loginButton.frame;
-    btnFrame.origin.x = 137;
-    btnFrame.origin.y = 391;
+    btnFrame.origin.x = 20;
+    btnFrame.origin.y = 431;
     _loginButton.frame = btnFrame;
+    _loginButton.autoresizingMask = UIViewAutoresizingNone;
     [self.view addSubview:_loginButton];
+    
     
     //[self toggleHiddenState:YES];
     self.lblLoginStatus.text = @"";
     
     _loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
     
+    /*
     DGTAuthenticateButton *authButton = [[DGTAuthenticateButton alloc] init];
     authButton = [DGTAuthenticateButton buttonWithAuthenticationCompletion:^(DGTSession *session, NSError *error) {
         if (session.userID) {
@@ -70,7 +76,7 @@
     btnFrameTwitter.origin.y = 458;
     authButton.frame = btnFrameTwitter;
     [self.view addSubview:authButton];
-    
+    */
     
     /*
     DGTAuthenticationConfiguration *configuration = [[DGTAuthenticationConfiguration alloc] initWithAccountFields:DGTAccountFieldsEmail];

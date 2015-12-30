@@ -613,17 +613,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myf-wz-OTf" userLabel="wheel control">
                                 <rect key="frame" x="0.0" y="146" width="320" height="320"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4B8D392F-9B06-4AFE-B03C-E65B124DB3FC" translatesAutoresizingMaskIntoConstraints="NO" id="xoX-jT-RFi">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="53738394-5FD5-4952-97E0-5AD65CAF7C06" translatesAutoresizingMaskIntoConstraints="NO" id="xoX-jT-RFi">
                                         <rect key="frame" x="35" y="35" width="250" height="250"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="3Lh-ux-Pvs"/>
                                             <constraint firstAttribute="height" constant="250" id="9wI-kp-gvn"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="23473CBC-D54E-4F74-ACF8-ECA7F6066B09" translatesAutoresizingMaskIntoConstraints="NO" id="lfP-CT-RYc" userLabel="wheel glow.png">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3781485B-E513-4AD7-9860-94E91A371772" translatesAutoresizingMaskIntoConstraints="NO" id="lfP-CT-RYc" userLabel="wheel glow.png">
                                         <rect key="frame" x="3" y="3" width="314" height="314"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="35D5A8DC-3C70-4DA3-AA1E-ADC4DF06E6B8" translatesAutoresizingMaskIntoConstraints="NO" id="GnM-LB-pzh" userLabel="emotion color.png">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1A49D519-2B5F-4A17-BB29-F6A6B51FDF7D" translatesAutoresizingMaskIntoConstraints="NO" id="GnM-LB-pzh" userLabel="emotion color.png">
                                         <rect key="frame" x="85" y="85" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="0HP-c9-zWv"/>
@@ -644,7 +644,7 @@
                                     <constraint firstItem="lfP-CT-RYc" firstAttribute="centerY" secondItem="Myf-wz-OTf" secondAttribute="centerY" id="sir-Hb-7Km"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="5DD8511A-7286-4399-B33A-F97930DF94A8" translatesAutoresizingMaskIntoConstraints="NO" id="bLM-NH-O8W">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="0E3C89DE-75EE-4B6C-8904-E24DD5116840" translatesAutoresizingMaskIntoConstraints="NO" id="bLM-NH-O8W">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no location service" translatesAutoresizingMaskIntoConstraints="NO" id="EML-2J-Vtm">
@@ -751,7 +751,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="23473CBC-D54E-4F74-ACF8-ECA7F6066B09" width="1636" height="677">
+        <image name="0E3C89DE-75EE-4B6C-8904-E24DD5116840" width="1636" height="677">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -767,7 +767,7 @@ lwGaAaEBqQG2AbsBvQG/AcQBzAHPAdQB3AHfAfEB9AH5AAAAAAAAAgEAAAAAAAAAPwAAAAAAAAAAAAAA
 AAAAAfs
 </mutableData>
         </image>
-        <image name="35D5A8DC-3C70-4DA3-AA1E-ADC4DF06E6B8" width="267" height="265">
+        <image name="1A49D519-2B5F-4A17-BB29-F6A6B51FDF7D" width="267" height="265">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -5538,7 +5538,7 @@ BFuiAARbpgAEW60ABFu1AARbwgAEW8cABFvJAARbywAEW9AABFvYAARb2wAEW+AABFvoAARb6wAEW/0A
 BFwAAARcBQAAAAAAAAQBAAAAAAAAAEIAAAAAAAAAAAAAAAAABFwHA
 </mutableData>
         </image>
-        <image name="4B8D392F-9B06-4AFE-B03C-E65B124DB3FC" width="1636" height="677">
+        <image name="3781485B-E513-4AD7-9860-94E91A371772" width="1636" height="677">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -5554,7 +5554,7 @@ lwGaAaEBqQG2AbsBvQG/AcQBzAHPAdQB3AHfAfEB9AH5AAAAAAAAAgEAAAAAAAAAPwAAAAAAAAAAAAAA
 AAAAAfs
 </mutableData>
         </image>
-        <image name="5DD8511A-7286-4399-B33A-F97930DF94A8" width="1636" height="677">
+        <image name="53738394-5FD5-4952-97E0-5AD65CAF7C06" width="1636" height="677">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -5579,7 +5579,7 @@ AAAAAfs
         <image name="wheelGlow.png" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Pux-KU-FhK"/>
+        <segue reference="1KP-WI-Z9V"/>
         <segue reference="9zf-j4-FOs"/>
     </inferredMetricsTieBreakers>
 </document>

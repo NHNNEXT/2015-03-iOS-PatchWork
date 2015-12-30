@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet DGTAuthenticateButton *authButton;
 
 @property (nonatomic, copy) NSString *profileID;
+
 @property (weak, nonatomic) IBOutlet UIButton *tempBtn;
 
 - (IBAction)didClick:(id)sender;

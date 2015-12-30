@@ -89,7 +89,7 @@ static NSString* cellIdentifier = @"cellIdentifier";
 	
 	NSMutableString* temp_url = [[NSMutableString alloc] initWithFormat:@"https://maps.googleapis.com/maps/api/place/autocomplete/json?input="];
 	[temp_url appendString:self.inputTextField.text];
-	[temp_url appendString:@"&types=geocode&key=AIzaSyA7jS3ywIDCjZsnuRywrNOacgCSO"];
+	[temp_url appendString:@"&types=geocode&key=AIzaSyA7jS3ywIDCjZsnuRywrNOacgCSOpi308c"];
 	
 	NSString* url = [temp_url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 	
@@ -145,7 +145,7 @@ static NSString* cellIdentifier = @"cellIdentifier";
 
 			NSMutableString* placeID_url = [[NSMutableString alloc] initWithFormat:@"https://maps.googleapis.com/maps/api/place/details/json?placeid="];
 			[placeID_url appendString:enteredPlaceID];
-			[placeID_url appendString:@"&key=AIzaSyA7jS3ywIDCjZsnuRywrNOacgCSO"];
+			[placeID_url appendString:@"&key=AIzaSyA7jS3ywIDCjZsnuRywrNOacgCSOpi308c"];
 	
 			NSMutableURLRequest* place_request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:placeID_url]];
 			[place_request setHTTPMethod:@"GET"];

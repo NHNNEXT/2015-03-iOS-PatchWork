@@ -110,6 +110,23 @@
 	
 }
 
+- (void) logout {
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://localhost:5000/logout"]];
+    [request setHTTPMethod:@"GET"];
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    
+    NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    }];
+    
+    [postDataTask resume];
+    
+    //[self.logout];
+    //[FBSession.activeSession closeAndClearTokenInformation];
+}
+
+
 
 - (void)showSettingsFurther {
 	[self.delegate PATShowSetting];

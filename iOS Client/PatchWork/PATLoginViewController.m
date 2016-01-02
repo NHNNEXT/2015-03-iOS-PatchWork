@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [_tempBtn setHidden:YES];
+    //[_tempBtn setHidden:YES];
     
     UIButton *myLoginButton=[UIButton buttonWithType:UIButtonTypeCustom];
     //myLoginButton.backgroundColor=[UIColor darkGrayColor];
@@ -112,7 +112,6 @@
                   startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                       if (!error) {
                           NSMutableDictionary *dictData = [[NSMutableDictionary alloc] init];
-                          
                           [dictData setObject:result[@"email"] forKey:@"email"];
                           
                           NSLog(@"fetched user:%@", result[@"email"]);

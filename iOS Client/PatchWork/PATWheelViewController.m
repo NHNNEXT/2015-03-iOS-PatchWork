@@ -425,7 +425,7 @@
 	NSString *postLength = [NSString stringWithFormat:@"%lu", (unsigned long)[postData length]];
 	
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-	[request setURL:[NSURL URLWithString:@"http://localhost:5000/insertEmotion"]];
+	[request setURL:[NSURL URLWithString:@"http://52.192.198.85:5000/insertEmotion"]];
 	[request setHTTPMethod:@"POST"];
 	[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
 	[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];

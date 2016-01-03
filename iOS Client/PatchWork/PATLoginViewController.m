@@ -10,6 +10,7 @@
 #import "PATLoginViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
 #import <Fabric/Fabric.h>
 #import <DigitsKit/DigitsKit.h>
 #import "PATWheelViewController.h"
@@ -24,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[_tempBtn setHidden:YES];
+    [_tempBtn setHidden:YES];
     
     UIButton *myLoginButton=[UIButton buttonWithType:UIButtonTypeCustom];
     //myLoginButton.backgroundColor=[UIColor darkGrayColor];
@@ -95,7 +96,7 @@
 {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login
-     logInWithReadPermissions: @[@"public_profile"]
+     logInWithReadPermissions: @[@"public_profile", @"email"]
      fromViewController:self
      handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
          if (error) {
@@ -112,18 +113,16 @@
                   startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
                       if (!error) {
                           NSMutableDictionary *dictData = [[NSMutableDictionary alloc] init];
+                          NSLog(@"%@", result);
                           [dictData setObject:result[@"email"] forKey:@"email"];
                           
                           NSLog(@"fetched user:%@", result[@"email"]);
                           
-                          NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://localhost:5000/login"]];
-                          [request setHTTPMethod:@"POST"];
-                          [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-                          [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
-                          
-                          NSError *error;
-                          NSData *postData = [NSJSONSerialization dataWithJSONObject:dictData options:0 error:&error];
-                          [request setHTTPBody:postData];
+                          NSString *url = @"http://localhost:5000/login?email=";
+                          //[revisedURL stringByAppendingString:@"%@%@",url, result["@email"]];
+                          NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", url, result[@"email"]]]];
+                          [request setHTTPMethod:@"GET"];
+                        
                           
                           NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
                           NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];

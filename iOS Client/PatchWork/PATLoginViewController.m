@@ -118,11 +118,28 @@
                           
                           NSLog(@"fetched user:%@", result[@"email"]);
                           
-                          NSString *url = @"http://localhost:5000/login?email=";
-                          //[revisedURL stringByAppendingString:@"%@%@",url, result["@email"]];
-                          NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", url, result[@"email"]]]];
+                          NSString *url = @"http://52.192.198.85:5000/login?email=";
+                          //[revisedURL stringByAppendingString:@"%@%@",url, result[@"email"]];
+                          NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@\'%@\'", url, result[@"email"]]]];
                           [request setHTTPMethod:@"GET"];
-                        
+                          
+                          
+                          //POST 방식으로 보내고 싶으면 다음과 같이 하시면 됩니다~!
+                          /*
+                          NSMutableString *makeBody = [NSMutableString stringWithCapacity:200];
+                          [makeBody appendFormat:@"email=\'%@\'", result[@"email"]];
+                          NSData *bodyData = [[NSString stringWithString:makeBody] dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+                          NSString *bodyLength = [NSString stringWithFormat:@"%lu", (unsigned long)[bodyData length]];
+                          
+                          NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+                          [request setURL:[NSURL URLWithString:@"http://52.192.198.85:5000/login"]];
+                          [request setHTTPMethod:@"POST"];
+                          [request setValue:bodyLength forHTTPHeaderField:@"Content-Length"];
+                          [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+                          [request setHTTPBody:bodyData];
+                          NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+                           */
+ 
                           
                           NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
                           NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
@@ -186,7 +203,7 @@
                  
                  NSLog(@"fetched user:%@", result[@"email"]);
                  
-                 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://localhost:5000/login"]];
+                 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://52.192.198.85:5000/login"]];
                  [request setHTTPMethod:@"POST"];
                  [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
                  [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];

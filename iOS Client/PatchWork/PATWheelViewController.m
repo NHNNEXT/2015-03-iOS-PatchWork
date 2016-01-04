@@ -15,6 +15,7 @@
 @property (strong, nonatomic) PATWheelTouchDownGestureRecognizer* touchDownGestureRecognizer;
 
 @property (strong, nonatomic) AVAudioPlayer* wheelSoundPlayer;
+@property (strong, nonatomic) AVAudioPlayer* wheelBackgroundSoundPlayer;
 @property (strong, nonatomic) NSString* city;
 
 @property (nonatomic) NSNumber* longitude;
@@ -22,7 +23,11 @@
 @property (nonatomic) NSNumber* emotion;
 @property (nonatomic) float bearing;
 
+@property NSString* wheelBackgroundSoundPath;
+@property NSURL* soundFileURL;
 @end
+
+
 
 
 
@@ -81,7 +86,11 @@
 	// Map Container View Controller instantiate
 	self.mapContainerViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PATMapContainerViewController"];
     NSLog(@"%@", self.mapContainerViewController);
+    self.wheelBackgroundSoundPath = [[NSBundle mainBundle] pathForResource:@"wheelBackgroundSound"
+                                                                         ofType:@"mp3"];
+    self.soundFileURL = [NSURL fileURLWithPath:self.wheelBackgroundSoundPath];
 }
+
 
 
 
@@ -92,12 +101,58 @@
     if((int)_bearing%45 != 0){
         return;
     }
-    NSError * error;
     // wheelSound 디렉토리는 각자 설정해야함.
-    NSURL* wheelSoundURL = [NSURL URLWithString:@"file:///Users/Thomas/wheelSound.wav"]; 
-    self.wheelSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:wheelSoundURL error:&error];
-    [self.wheelSoundPlayer play];
+    if((int)_bearing == 0 || (int)_bearing == 180) {
+        NSURL* wheelSoundURL = [NSURL URLWithString:@"file:///Users/Thomas/wheelToggle1.mp3"];
+        self.wheelSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:wheelSoundURL error:nil];
+        [self.wheelSoundPlayer play];
+    }else if((int)_bearing == 45 || (int)_bearing == 225) {
+        NSURL* wheelSoundURL = [NSURL URLWithString:@"file:///Users/Thomas/wheelToggle2.mp3"];
+        self.wheelSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:wheelSoundURL error:nil];
+        [self.wheelSoundPlayer play];
+    }else if((int)_bearing == 90 || (int)_bearing == 270) {
+        NSURL* wheelSoundURL = [NSURL URLWithString:@"file:///Users/Thomas/wheelToggle3.mp3"];
+        self.wheelSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:wheelSoundURL error:nil];
+        [self.wheelSoundPlayer play];
+    }else if((int)_bearing == 135 || (int)_bearing == 315) {
+        NSURL* wheelSoundURL = [NSURL URLWithString:@"file:///Users/Thomas/wheelToggle4.mp3"];
+        self.wheelSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:wheelSoundURL error:nil];
+        [self.wheelSoundPlayer play];
+    }
+    
 }
+
+
+
+
+
+
+
+- (void)playWheelBackgroundSound {
+    NSError * error2;
+    // wheelSound 디렉토리는 각자 설정해야함.
+    self.wheelBackgroundSoundPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:self.soundFileURL error:&error2];
+    [self.wheelBackgroundSoundPlayer play];
+}
+
+
+
+
+
+
+
+-(void)doVolumeFade {
+    self.wheelBackgroundSoundPlayer.volume -= 0.03;
+    if(self.wheelBackgroundSoundPlayer.volume < 0.001){
+        [self.wheelBackgroundSoundPlayer stop];
+    }else{
+        [self performSelector:@selector(doVolumeFade)
+                   withObject:nil
+                   afterDelay:0.1
+                      inModes:[NSArray arrayWithObject: NSRunLoopCommonModes]];
+    }
+}
+
 
 
 
@@ -112,6 +167,7 @@
     [self.emotionInWheel.layer addAnimation:animation forKey:nil];
     [self.position.layer addAnimation:animation forKey:nil];
 }
+
 
 
 
@@ -211,6 +267,7 @@
 
 
 
+
 - (void)wheelGlowAppear:(id)sender {
     PATWheelTouchDownGestureRecognizer *recognizer = (PATWheelTouchDownGestureRecognizer*)sender;
     CGPoint touchPos = [recognizer.touch locationInView:self.controlsView];
@@ -240,7 +297,10 @@
     self.knob.hidden = NO;
     _emotionInWheel.hidden = NO;
     NSLog(@"Appear");
+    //[self playWheelBackgroundSound];
 }
+
+
 
 
 
@@ -250,6 +310,7 @@
     [self giveAnimationToKnob];
     self.knob.hidden = YES;
     self.wheelTouchChecker = NO;
+    [self doVolumeFade];
 }
 
 
@@ -390,7 +451,7 @@
     [self transformRotate:direction];
     
     if ((int)_bearing%45==0){
-        [self playWheelSound];
+        //[self playWheelSound];
     }
     
     [self giveAnimationToEmotion];

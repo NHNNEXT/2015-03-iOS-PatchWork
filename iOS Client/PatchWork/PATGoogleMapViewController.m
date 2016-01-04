@@ -127,54 +127,68 @@
 			marker.title = @"JOY";
 			UIColor* markerColor = [UIColor colorWithRed:210/255.0 green:168/255.0 blue:30/255.0 alpha:1.0];
 			marker.icon = [self setMarkerShapeWithColor:markerColor];
+            marker.icon = [UIImage imageNamed:@"marker_joy"];
 			break;
 		}
 		case 2: {
 			marker.title = @"TIRED";
 			UIColor* markerColor = [UIColor colorWithRed:134/255.0 green:99/255.0 blue:59/255.0 alpha:1.0];
 			marker.icon = [self setMarkerShapeWithColor:markerColor];
+            marker.icon = [UIImage imageNamed:@"marker_tired"];
 			break;
 		}
 		case 3: {
 			marker.title = @"FUN";
 			UIColor* markerColor = [UIColor colorWithRed:211/255.0 green:108/255.0 blue:31/255.0 alpha:1.0];
 			marker.icon = [self setMarkerShapeWithColor:markerColor];
+            marker.icon = [UIImage imageNamed:@"marker_fun"];
 			break;
 		}
 		case 4: {
 			marker.title = @"ANGRY";
 			UIColor* markerColor = [UIColor colorWithRed:194/255.0 green:45/255.0 blue:66/255.0 alpha:1.0];
 			marker.icon = [self setMarkerShapeWithColor:markerColor];
+            marker.icon = [UIImage imageNamed:@"marker_angry"];
 			break;
 		}
 		case 5: {
 			marker.title = @"SURPRISED";
 			UIColor* markerColor = [UIColor colorWithRed:221/255.0 green:98/255.0 blue:151/255.0 alpha:1.0];
 			marker.icon = [self setMarkerShapeWithColor:markerColor];
+            marker.icon = [UIImage imageNamed:@"marker_surprised"];
 			break;
 		}
 		case 6: {
 			marker.title = @"SCARED";
 			UIColor* markerColor = [UIColor colorWithRed:117/255.0 green:62/255.0 blue:146/255.0 alpha:1.0];
 			marker.icon = [self setMarkerShapeWithColor:markerColor];
+            marker.icon = [UIImage imageNamed:@"marker_scared"];
 			break;
 		}
 		case 7: {
 			marker.title = @"SAD";
 			UIColor* markerColor = [UIColor colorWithRed:79/255.0 green:111/255.0 blue:217/255.0 alpha:1.0];
 			marker.icon = [self setMarkerShapeWithColor:markerColor];
+            marker.icon = [UIImage imageNamed:@"marker_sad"];
 			break;
 		}
 		case 8: {
 			marker.title = @"EXCITED";
 			UIColor* markerColor = [UIColor colorWithRed:97/255.0 green:238/255.0 blue:216/255.0 alpha:1.0];
 			marker.icon = [self setMarkerShapeWithColor:markerColor];
+            marker.icon = [UIImage imageNamed:@"marker_excited"];
 			break;
 		}
 		default:
 			break;
 	}
 	
+    CGSize markerSize = CGSizeMake(52, 52);
+    UIGraphicsBeginImageContextWithOptions(markerSize, NO, 0.0);
+    [marker.icon drawInRect:CGRectMake(0, 0, markerSize.width, markerSize.height)];
+    marker.icon = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
 	marker.map = self.mapView_;
 
 }
@@ -186,8 +200,8 @@
 	UIGraphicsBeginImageContext(CGSizeMake(20, 20));
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	
-	CGContextSetLineWidth(context, 1.0);
-	CGContextSetStrokeColorWithColor(context, color.CGColor);
+	CGContextSetLineWidth(context, 0.0);
+	//CGContextSetStrokeColorWithColor(context, color.CGColor);
 	[markerImage drawInRect:CGRectMake(0, 0, 20, 20)];
 	CGContextAddEllipseInRect(context, CGRectMake(0, 0, 20, 20));
 	CGContextSetFillColorWithColor(context, color.CGColor);
@@ -198,6 +212,9 @@
 	
 	return markerImage;
 }
+
+
+
 
 
 - (void) loadButtons
@@ -216,7 +233,7 @@
 																			   toItem:self.view
 																			attribute:NSLayoutAttributeLeading
 																		   multiplier:1.0
-																			 constant:20.0];
+																			 constant:15.0];
 	[self.view addConstraint:buttonLeadConstraint];
 	
 	NSLayoutConstraint* buttonTopConstraint = [NSLayoutConstraint constraintWithItem:sideMenuButton
@@ -234,14 +251,14 @@
 																  toItem:nil
 															   attribute:NSLayoutAttributeWidth
 															  multiplier:1.0
-																constant:50.0]];
+																constant:45.0]];
 	[sideMenuButton addConstraint:[NSLayoutConstraint constraintWithItem:sideMenuButton
 															   attribute:NSLayoutAttributeHeight
 															   relatedBy:NSLayoutRelationEqual
 																  toItem:nil
 															   attribute:NSLayoutAttributeHeight
 															  multiplier:1.0
-																constant:50.0]];
+																constant:45.0]];
 	
 	[sideMenuButton addTarget: self
 					   action: @selector(slideOutSideMenu)
@@ -262,7 +279,7 @@
 																			 toItem:self.view
 																		  attribute:NSLayoutAttributeTrailing
 																		 multiplier:1.0
-																		   constant:-20.0];
+																		   constant:-17.0];
 	[self.view addConstraint:plusLeadConstraint];
 	
 	NSLayoutConstraint* plusBottomConstraint = [NSLayoutConstraint constraintWithItem:emotionButton
@@ -271,7 +288,7 @@
 																			   toItem:self.view
 																			attribute:NSLayoutAttributeBottom
 																		   multiplier:1.0
-																			 constant:-20.0];
+																			 constant:-30.0];
 	[self.view addConstraint:plusBottomConstraint];
 	
 	[emotionButton addConstraint:[NSLayoutConstraint constraintWithItem:emotionButton
@@ -307,7 +324,7 @@
 																			  toItem:self.view
 																		   attribute:NSLayoutAttributeTrailing
 																		  multiplier:1.0
-																			constant:-20.0];
+																			constant:-19.0];
 	[self.view addConstraint:arrowLeadConstraint];
 	
 	NSLayoutConstraint* arrowTopConstraint = [NSLayoutConstraint constraintWithItem:locationButton
@@ -316,7 +333,7 @@
 																			 toItem:self.view
 																		  attribute:NSLayoutAttributeTop
 																		 multiplier:1.0
-																		   constant:40.0];
+																		   constant:31.0];
 	[self.view addConstraint:arrowTopConstraint];
 	
 	[locationButton addConstraint:[NSLayoutConstraint constraintWithItem:locationButton
@@ -325,14 +342,14 @@
 																  toItem:nil
 															   attribute:NSLayoutAttributeWidth
 															  multiplier:1.0
-																constant:30.0]];
+																constant:44.0]];
 	[locationButton addConstraint:[NSLayoutConstraint constraintWithItem:locationButton
 															   attribute:NSLayoutAttributeHeight
 															   relatedBy:NSLayoutRelationEqual
 																  toItem:nil
 															   attribute:NSLayoutAttributeHeight
 															  multiplier:1.0
-																constant:30.0]];
+																constant:44.0]];
 	
 	[locationButton addTarget: self
 					   action: @selector(setCameraPositionToCurrentLocation)

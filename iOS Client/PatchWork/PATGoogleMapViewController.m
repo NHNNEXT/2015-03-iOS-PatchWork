@@ -39,6 +39,10 @@
 	[_locationManager requestWhenInUseAuthorization];
 	[_locationManager startMonitoringSignificantLocationChanges];
 	[_locationManager startUpdatingLocation];
+    
+//    self.patTimeMachineViewController = [[PATTimeMachineViewController alloc] init];
+//    self.patTimeMachineViewController.delegate = self;
+    
 }
 
 
@@ -69,6 +73,22 @@
 - (void) setCameraPositionToCurrentLocation {
 	[self.delegate PATResetCameraAtLatitude:self.currentLocation.coordinate.latitude withLongitude:self.currentLocation.coordinate.longitude];
 }
+
+
+#pragma mark updateEmotionsDelegate
+- (void) updateEmotions:(NSString*)time{
+    NSLog(@"updateEmotions");
+    [self deleteAllMarkers];
+    [self loadJSON:time];
+}
+
+
+
+- (void) deleteAllMarkers {
+    NSLog(@"deleted all markers!  %@", self.mapView_);
+    [self.mapView_ clear];
+}
+
 
 
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
@@ -115,6 +135,56 @@
 					 havingEmotion:emotion];
 	}
 }
+
+
+
+
+
+- (void) loadJSON:(NSString*)time
+{
+    NSLog(@"%@",time);
+    time = [time componentsSeparatedByString:@"\nAgo"][0];
+    time = [time stringByReplacingOccurrencesOfString:@"\\s"
+                                           withString:@""
+                                              options:NSRegularExpressionSearch
+                                                range:NSMakeRange(0, time.length)];
+    
+    NSString* urlString = [NSString stringWithFormat:@"http://52.192.198.85:5000/loadData/%@",time];
+    NSURL* url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"GET"];
+    [request setValue:@"application/json;charset=UTF-8" forHTTPHeaderField:@"content-type"];
+    
+    NSError* error;
+    NSURLResponse* response;
+    NSData* responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
+                                                         options:NSJSONReadingMutableContainers
+                                                           error:&error];
+    NSDictionary* item = [json objectForKey:@"results"];
+    
+    latArr = [item valueForKey:@"lat"];
+    lonArr = [item valueForKey:@"lon"];
+    emotionArr = [item valueForKey:@"emotion"];
+    
+    for (int i = 0; i < [item count]; i++) {
+        double lat = [latArr[i] doubleValue];
+        double lon = [lonArr[i] doubleValue];
+        int emotion = (int)[emotionArr[i] integerValue];
+        
+        [self addMarkersAtLatitude:lat
+                     withLongitude:lon
+                     havingEmotion:emotion];
+    }
+}
+
+
+
+
+
 
 
 - (void) addMarkersAtLatitude:(double)lat withLongitude:(double) lon havingEmotion:(int) emotion {
@@ -189,8 +259,9 @@
     marker.icon = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
+    
 	marker.map = self.mapView_;
-
+    
 }
 
 

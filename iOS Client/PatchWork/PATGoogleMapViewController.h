@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+//#import "PATTimeMachineViewController.h"
+
 @import GoogleMaps;
 
 @protocol sideMenuShowUp
@@ -31,6 +33,10 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) GMSMapView* mapView_;
 
+//@property (strong, nonatomic) PATTimeMachineViewController* patTimeMachineViewController;
+
+- (void) updateEmotions:(NSString*)time;
+- (void) deleteAllMarkers;
 - (void) setInitialCameraAtLatitude:(double) latitude withLongitude:(double) longitude;
 
 @end

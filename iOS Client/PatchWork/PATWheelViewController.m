@@ -552,6 +552,12 @@
 
 
 
+- (IBAction)didSkipButtonTouched:(id)sender {
+    self.mapContainerViewController.latitude = [self.latitude doubleValue];
+    self.mapContainerViewController.longitude = [self.longitude doubleValue];
+    [self presentViewController:self.mapContainerViewController animated:YES completion:nil];
+}
+
 
 
 - (void)didReceiveMemoryWarning

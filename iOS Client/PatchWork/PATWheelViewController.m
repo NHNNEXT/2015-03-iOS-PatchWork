@@ -50,7 +50,7 @@
     [self.swirlGestureRecognizer requireGestureRecognizerToFail:self.touchDownGestureRecognizer];
     
     // 휠 돌리는 중에는 emotionPosShowButton 마스킹 기능을 막기 위해 다음 변수를 둠.
-    self.didWheelTouch = NO;
+    self.wheelTouchChecker = NO;
     
     // 휠 돌리기 전까지 done버튼 비활성화
     [_doneButton setEnabled:NO];
@@ -161,8 +161,16 @@
 
 
 - (IBAction)emotionPosShow:(id)sender forEvent:(UIEvent *)event {
-    [self giveDesolveAnimationTo:self.emotionPoses];
-    self.emotionPoses.hidden = NO;
+    UIView* button = (UIView*) sender;
+    UITouch* touch = [[event touchesForView:button] anyObject];
+    CGPoint touchPos = [touch locationInView:self.controlsView];
+    if([self didEmotionPosShowButtonTouch:touchPos]){
+        NSLog(@"WheelGlowAppear Cancelled!");
+        [self giveDesolveAnimationTo:self.emotionPoses];
+        self.emotionPoses.hidden = NO;
+        self.wheelTouchChecker = NO;
+        self.emotionPosTouchChecker = YES;
+    }
 }
 
 
@@ -173,9 +181,31 @@
 - (IBAction)emotionPosHide:(id)sender forEvent:(UIEvent *)event {
     [self giveDesolveAnimationTo:self.emotionPoses];
     self.emotionPoses.hidden = YES;
+    self.wheelTouchChecker = NO;
+    self.emotionPosTouchChecker = NO;
 }
 
 
+
+
+// wheel touch 영역과 emotionPosShowButton 영역을 구분하기 위해 다음 마스킹 코드를 둠.
+- (BOOL)didEmotionPosShowButtonTouch:(CGPoint)touchPos{
+
+    //emotionPosShowButton을 누르면 그냥 cancel
+    CGPoint wheelPos = self.emotionInWheel.center;
+    //wheel중심으로부터 touch한 곳까지의 거리
+    CGFloat lengthFromCenterToTouch = sqrt(pow(wheelPos.x-touchPos.x,2)+pow(wheelPos.y-touchPos.y,2));
+    CGFloat emotionPosButtonRadius = self.emotionInWheel.frame.size.width/2;
+    NSLog(@"length:%f, radius:%f", lengthFromCenterToTouch, emotionPosButtonRadius);
+    if(self.emotionPosTouchChecker){
+        return YES;
+    }
+    if(self.wheelTouchChecker || lengthFromCenterToTouch > emotionPosButtonRadius){
+        NSLog(@"emotion pos show 범위에서 벗어났습니다.");
+        return NO;
+    }
+    return YES;
+}
 
 
 
@@ -183,17 +213,19 @@
 
 - (void)wheelGlowAppear:(id)sender {
     PATWheelTouchDownGestureRecognizer *recognizer = (PATWheelTouchDownGestureRecognizer*)sender;
+    CGPoint touchPos = [recognizer.touch locationInView:self.controlsView];
+    NSLog(@"%f, %f", touchPos.x, touchPos.y);
+    
     if([recognizer state] == UIGestureRecognizerStateEnded) {
         return;
     }
-
-    if([self didTouchEmotionPosShowButton:sender]){
+    
+    if([self didEmotionPosShowButtonTouch:touchPos]){
         return;
     }
     
-    NSLog(@"Appear");
+    self.wheelTouchChecker = YES;
     // 휠 돌리는 중에는 emotionPosShowButton 마스킹 기능을 막기 위해 다음 변수를 둠.
-    self.didWheelTouch = YES;
     
     CGFloat movedPosition = 180 * ((PATWheelTouchDownGestureRecognizer*)sender).currentAngle / M_PI;
     CGFloat direction = (movedPosition - _bearing) * M_PI / 180;
@@ -207,27 +239,7 @@
     [self giveAnimationToEmotion];
     self.knob.hidden = NO;
     _emotionInWheel.hidden = NO;
-}
-
-
-
-
-// wheel touch 영역과 emotionPosShowButton 영역을 구분하기 위해 다음 마스킹 코드를 둠.
-- (BOOL)didTouchEmotionPosShowButton:(id)sender{
-
-    PATWheelTouchDownGestureRecognizer *recognizer = (PATWheelTouchDownGestureRecognizer*)sender;
-    
-    //emotionPosShowButton을 누르면 그냥 cancel
-    CGPoint wheelPos = self.emotionInWheel.center;
-    CGPoint touchPos = [recognizer.touch locationInView:self.controlsView];
-    //wheel중심으로부터 touch한 곳까지의 거리
-    CGFloat lengthFromCenterToTouch = sqrt(pow(wheelPos.x-touchPos.x,2)+pow(wheelPos.y-touchPos.y,2));
-    CGFloat emotionPosButtonRadius = self.emotionInWheel.frame.size.width/2;
-    
-    if(self.didWheelTouch || lengthFromCenterToTouch > emotionPosButtonRadius){
-        return NO;
-    }
-    return YES;
+    NSLog(@"Appear");
 }
 
 
@@ -235,10 +247,9 @@
 
 - (void)wheelGlowDisappear:(id)sender {
     NSLog(@"Disappear");
-    self.didWheelTouch = NO;
-    
     [self giveAnimationToKnob];
     self.knob.hidden = YES;
+    self.wheelTouchChecker = NO;
 }
 
 
@@ -294,6 +305,10 @@
 
 
 - (void)updateFeelingText {
+    if(self.wheelTouchChecker==NO){
+        return;
+    }
+
     [self giveAnimationToEmotion];
     if(_bearing>=0 && _bearing<45){
         self.position.text = @"JOY";
@@ -353,14 +368,16 @@
 
 
 - (void)rotationAction:(id)sender {
-    if([(PATSwirlGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
+    PATSwirlGestureRecognizer* recognizer = (PATSwirlGestureRecognizer*) sender;
+    CGPoint touchPos = [recognizer.touch locationInView:self.controlsView];
+    if([recognizer state] == UIGestureRecognizerStateEnded) {
         return;
     }
-    if([self didTouchEmotionPosShowButton:sender]){
+    if([self didEmotionPosShowButtonTouch:touchPos]){
         return;
     }
-    
-    CGFloat direction = ((PATSwirlGestureRecognizer*)sender).currentAngle - ((PATSwirlGestureRecognizer*)sender).previousAngle;
+    NSLog(@"%f, %f", touchPos.x, touchPos.y);
+    CGFloat direction = (recognizer).currentAngle - (recognizer).previousAngle;
     
     _bearing += 180 * direction / M_PI;
     if (_bearing < -0.5) {

@@ -51,7 +51,8 @@
 @property CGFloat touchPosition;
 
 // 휠 돌리는 중에는 emotionPosShowButton 마스킹 기능을 막기 위해 다음 변수를 둠.
-@property BOOL didWheelTouch;
+@property BOOL wheelTouchChecker;
+@property BOOL emotionPosTouchChecker;
 
 
 - (void)didDoneButtonTouched:(id)sender;

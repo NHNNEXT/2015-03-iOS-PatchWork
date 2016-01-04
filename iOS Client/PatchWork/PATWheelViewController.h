@@ -22,6 +22,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *emotionPosShowButton;
 @property (strong, nonatomic) IBOutlet UIView *emotionPoses;
 
+
+
 @property (strong, nonatomic) IBOutlet UIView *controlsView;
 @property (strong, nonatomic) IBOutlet UIImageView *knob;
 @property (strong, nonatomic) IBOutlet UILabel *position;
@@ -46,10 +48,17 @@
 
 @property (strong, nonatomic) PATMapContainerViewController* mapContainerViewController;
 
+@property CGFloat touchPosition;
+
+// 휠 돌리는 중에는 emotionPosShowButton 마스킹 기능을 막기 위해 다음 변수를 둠.
+@property BOOL didWheelTouch;
+
 
 - (void)didDoneButtonTouched:(id)sender;
 - (IBAction)emotionPosShow:(id)sender forEvent:(UIEvent *)event;
 - (IBAction)emotionPosHide:(id)sender forEvent:(UIEvent *)event;
+
+
 
  
 @end

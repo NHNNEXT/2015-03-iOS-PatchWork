@@ -16,5 +16,6 @@
 
 @interface PATWheelTouchDownGestureRecognizer : UIGestureRecognizer
 @property CGFloat currentAngle;
+@property UITouch* touch;
 @end
 

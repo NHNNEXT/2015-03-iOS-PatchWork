@@ -145,7 +145,7 @@ static NSString* cellIdentifier = @"cellIdentifier";
 
 			NSMutableString* placeID_url = [[NSMutableString alloc] initWithFormat:@"https://maps.googleapis.com/maps/api/place/details/json?placeid="];
 			[placeID_url appendString:enteredPlaceID];
-			[placeID_url appendString:@"&key=AIzaSyA7jS3ywIDCjZsnuRywrNOacgCSOpi308c"];
+			[placeID_url appendString:@"&key=AIzaSyA7jS3ywIDCjZsnuRywrNOacgCSO"];
 	
 			NSMutableURLRequest* place_request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:placeID_url]];
 			[place_request setHTTPMethod:@"GET"];

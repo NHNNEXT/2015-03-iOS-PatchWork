@@ -49,6 +49,9 @@
 
     [self.swirlGestureRecognizer requireGestureRecognizerToFail:self.touchDownGestureRecognizer];
     
+    // 휠 돌리는 중에는 emotionPosShowButton 마스킹 기능을 막기 위해 다음 변수를 둠.
+    self.didWheelTouch = NO;
+    
     // 휠 돌리기 전까지 done버튼 비활성화
     [_doneButton setEnabled:NO];
     [_doneButton setTitleColor:[UIColor colorWithRed:255/255.f
@@ -179,11 +182,18 @@
 
 
 - (void)wheelGlowAppear:(id)sender {
-    if([(PATWheelTouchDownGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
+    PATWheelTouchDownGestureRecognizer *recognizer = (PATWheelTouchDownGestureRecognizer*)sender;
+    if([recognizer state] == UIGestureRecognizerStateEnded) {
+        return;
+    }
+
+    if([self didTouchEmotionPosShowButton:sender]){
         return;
     }
     
     NSLog(@"Appear");
+    // 휠 돌리는 중에는 emotionPosShowButton 마스킹 기능을 막기 위해 다음 변수를 둠.
+    self.didWheelTouch = YES;
     
     CGFloat movedPosition = 180 * ((PATWheelTouchDownGestureRecognizer*)sender).currentAngle / M_PI;
     CGFloat direction = (movedPosition - _bearing) * M_PI / 180;
@@ -202,10 +212,30 @@
 
 
 
+// wheel touch 영역과 emotionPosShowButton 영역을 구분하기 위해 다음 마스킹 코드를 둠.
+- (BOOL)didTouchEmotionPosShowButton:(id)sender{
+
+    PATWheelTouchDownGestureRecognizer *recognizer = (PATWheelTouchDownGestureRecognizer*)sender;
+    
+    //emotionPosShowButton을 누르면 그냥 cancel
+    CGPoint wheelPos = self.emotionInWheel.center;
+    CGPoint touchPos = [recognizer.touch locationInView:self.controlsView];
+    //wheel중심으로부터 touch한 곳까지의 거리
+    CGFloat lengthFromCenterToTouch = sqrt(pow(wheelPos.x-touchPos.x,2)+pow(wheelPos.y-touchPos.y,2));
+    CGFloat emotionPosButtonRadius = self.emotionInWheel.frame.size.width/2;
+    
+    if(self.didWheelTouch || lengthFromCenterToTouch > emotionPosButtonRadius){
+        return NO;
+    }
+    return YES;
+}
+
+
 
 
 - (void)wheelGlowDisappear:(id)sender {
     NSLog(@"Disappear");
+    self.didWheelTouch = NO;
     
     [self giveAnimationToKnob];
     self.knob.hidden = YES;
@@ -324,6 +354,9 @@
 
 - (void)rotationAction:(id)sender {
     if([(PATSwirlGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
+        return;
+    }
+    if([self didTouchEmotionPosShowButton:sender]){
         return;
     }
     

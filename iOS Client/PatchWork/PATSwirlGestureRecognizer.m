@@ -40,10 +40,10 @@
 
 - (void)touchesMoved:(NSSet*)touches withEvent:(UIEvent *)event {
     [super touchesMoved:touches withEvent:event];
-    UITouch *touch = [touches anyObject];
+    self.touch = [touches anyObject];
     
-    self.currentAngle = [self getTouchAngle:[touch locationInView:touch.view]];
-    self.previousAngle = [self getTouchAngle:[touch previousLocationInView:touch.view]];
+    self.currentAngle = [self getTouchAngle:[self.touch locationInView:self.touch.view]];
+    self.previousAngle = [self getTouchAngle:[self.touch previousLocationInView:self.touch.view]];
     
     if ([self.target respondsToSelector:self.action]) {
         [self.target performSelector:self.action withObject:self];

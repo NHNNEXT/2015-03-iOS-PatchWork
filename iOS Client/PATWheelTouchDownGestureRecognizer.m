@@ -32,8 +32,8 @@
     NSLog(@"Touched!");
 
     [super touchesBegan:touches withEvent:event];
-    UITouch *touch = [touches anyObject];
-    self.currentAngle = [self getTouchAngle:[touch locationInView:touch.view]];
+    self.touch = [touches anyObject];
+    self.currentAngle = [self getTouchAngle:[self.touch locationInView:self.touch.view]];
     
     if (touches.count > 1) {
         self.state = UIGestureRecognizerStateFailed;
@@ -45,19 +45,35 @@
     }
 }
 
+
+
+
+
 - (void)touchesMoved:(NSSet*)touches withEvent:(UIEvent *)event {
     [super touchesMoved:touches withEvent:event];
 }
+
+
+
+
 
 - (void)touchesEnded:(NSSet*)touches withEvent:(UIEvent *)event {
     [super touchesEnded:touches withEvent:event];
     [super setState:UIGestureRecognizerStateEnded];
 }
 
+
+
+
+
 - (void)touchesCancelled:(NSSet*)touches withEvent:(UIEvent *)event {
     [super touchesCancelled:touches withEvent:event];
     [super setState:UIGestureRecognizerStateCancelled];
 }
+
+
+
+
 
 - (float)getTouchAngle:(CGPoint)touch {
     

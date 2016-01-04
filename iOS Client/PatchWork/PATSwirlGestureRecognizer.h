@@ -18,5 +18,6 @@
 
 @property CGFloat currentAngle;
 @property CGFloat previousAngle;
+@property UITouch* touch;
 
 @end

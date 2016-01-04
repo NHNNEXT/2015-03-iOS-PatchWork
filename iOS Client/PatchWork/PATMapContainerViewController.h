@@ -13,6 +13,7 @@
 #import "PATSettingsViewController.h"
 #import "PATSearchLocationViewController.h"
 #import "PATTimeMachineViewController.h"
+
 @class PATGoogleMapViewController;
 @class PATSideMenuViewController;
 @class PATSettingsViewController;

@@ -20,7 +20,7 @@
 @class PATSearchLocationViewController;
 @class PATTimeMachineViewController;
 
-@interface PATMapContainerViewController : UIViewController<sideMenuShowUp, showSettingDelegate, emotionSelect, showTextFieldDelegate, cameraPositionReset, cameraToAnotherPlace, backToContainerFromSearchLocation, showTimeMachineDelegate>
+@interface PATMapContainerViewController : UIViewController<sideMenuShowUp, showSettingDelegate, emotionSelect, showTextFieldDelegate, cameraPositionReset, cameraToAnotherPlace, backToContainerFromSearchLocation, showTimeMachineDelegate,updateEmotionsDelegate>
 
 @property (nonatomic, strong) PATGoogleMapViewController* mapViewController;
 @property (nonatomic, strong) PATSideMenuViewController* sideMenuViewController;
@@ -33,7 +33,6 @@
 @property (nonatomic) float PATStartPositionOfTimeMachine;
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
-
 
 
 @end

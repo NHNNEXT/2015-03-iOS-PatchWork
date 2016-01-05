@@ -57,7 +57,7 @@
 	[self addChildViewController:self.timeMachineViewController];
 	self.timeMachineViewController.view.frame = CGRectMake(self.PATStartPositionOfTimeMachine, 0, self.view.bounds.size.width, self.view.bounds.size.height);
 	[self.view addSubview:self.timeMachineViewController.view];
-//	self.timeMachineViewController.delegate = self;
+	self.timeMachineViewController.delegate = self;
 	[self.timeMachineViewController didMoveToParentViewController:self];
 
 }
@@ -201,6 +201,10 @@
 }
 
 
+
+-(void) updateEmotions:(NSString *)time {
+    [self.mapViewController updateEmotions:time];
+}
 
 
 @end

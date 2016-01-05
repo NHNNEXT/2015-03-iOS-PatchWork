@@ -514,6 +514,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="1I9-4n-rMm" kind="presentation" identifier="logout" id="j8X-vu-77U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O8U-X2-KTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -614,7 +617,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wheelGlow" translatesAutoresizingMaskIntoConstraints="NO" id="lfP-CT-RYc" userLabel="wheel glow.png">
                                         <rect key="frame" x="3" y="3" width="314" height="314"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="B6E7B536-DD1F-4FE8-9154-EFF3D75D8DA3" translatesAutoresizingMaskIntoConstraints="NO" id="GnM-LB-pzh" userLabel="emotion color.png">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="C3A6F49E-0865-40C8-9B59-448CC9ABD544" translatesAutoresizingMaskIntoConstraints="NO" id="GnM-LB-pzh" userLabel="emotion color.png">
                                         <rect key="frame" x="85" y="85" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="0HP-c9-zWv"/>
@@ -822,7 +825,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="B6E7B536-DD1F-4FE8-9154-EFF3D75D8DA3" width="267" height="265">
+        <image name="C3A6F49E-0865-40C8-9B59-448CC9ABD544" width="267" height="265">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -5604,6 +5607,7 @@ AAAAAAAAAAAAAAAAAARb9A
         <image name="wheelGlow.png" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="j8X-vu-77U"/>
         <segue reference="9zf-j4-FOs"/>
     </inferredMetricsTieBreakers>
 </document>

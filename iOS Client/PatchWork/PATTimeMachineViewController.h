@@ -17,5 +17,4 @@
 @interface PATTimeMachineViewController : UIViewController <UIGestureRecognizerDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 @property (weak, nonatomic) id<updateEmotionsDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
-@property (strong, nonatomic) PATGoogleMapViewController* patGoogleMapViewController;
 @end

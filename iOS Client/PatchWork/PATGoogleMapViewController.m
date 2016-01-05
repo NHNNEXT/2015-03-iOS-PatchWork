@@ -40,9 +40,6 @@
 	[_locationManager startMonitoringSignificantLocationChanges];
 	[_locationManager startUpdatingLocation];
     
-//    self.patTimeMachineViewController = [[PATTimeMachineViewController alloc] init];
-//    self.patTimeMachineViewController.delegate = self;
-    
 }
 
 
@@ -263,6 +260,7 @@
 	marker.map = self.mapView_;
     
 }
+
 
 
 - (UIImage *) setMarkerShapeWithColor: (UIColor*) color {

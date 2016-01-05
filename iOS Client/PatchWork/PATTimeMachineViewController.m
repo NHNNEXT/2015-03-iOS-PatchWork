@@ -37,7 +37,6 @@
     [[self.pickerView.subviews objectAtIndex:1] setHidden:TRUE];
     [[self.pickerView.subviews objectAtIndex:2] setHidden:TRUE];
     
-    _patGoogleMapViewController = [[PATGoogleMapViewController alloc] init];
 }
 
 
@@ -101,9 +100,7 @@
 // Catpure the picker view selection
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     NSString* time = (NSString*)[_pickerData objectAtIndex:row];
-    //[self.delegate updateEmotions:time];
-    [_patGoogleMapViewController deleteAllMarkers];
-    [_patGoogleMapViewController updateEmotions:time];
+    [self.delegate updateEmotions:time];
 }
 
 

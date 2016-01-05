@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/Thomas/git/2015-03-iOS-PatchWork/iOS Client/PatchWork.xcodeproj">
+      location = "group:PatchWork.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

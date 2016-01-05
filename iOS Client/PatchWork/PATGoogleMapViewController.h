@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <CoreText/CoreText.h>
 
 @import GoogleMaps;
 
@@ -26,7 +27,7 @@
 
 
 
-@interface PATGoogleMapViewController : UIViewController <CLLocationManagerDelegate>
+@interface PATGoogleMapViewController : UIViewController <CLLocationManagerDelegate, GMSMapViewDelegate>
 
 @property (weak, nonatomic) id<sideMenuShowUp, emotionSelect, cameraPositionReset> delegate;
 @property (strong, nonatomic) CLLocationManager *locationManager;

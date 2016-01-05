@@ -15,8 +15,12 @@
 - (void) loadButtons;
 - (void) loadJSON;
 - (void) setCameraPositionToCurrentLocation;
-- (void) addMarkersAtLatitude:(double)lat withLongitude:(double) lon havingEmotion:(int) emotion;
-- (UIImage *) setMarkerShapeWithColor: (UIColor*) color;
+//- (void) addMarkersAtLatitude:(double)lat withLongitude:(double) lon havingEmotion:(int) emotion;
+//- (UIImage *) setMarkerShapeWithColor: (UIColor*) color;
+
+// methods for clustering
+- (void) addMarkersOnGMSMapView:(GMSMapView*) mapView AtLatitude:(double)lat withLongitude:(double) lon havingEmotion:(int) emotion withCount:(int) emotionCount;
+- (UIImage *) setMarkerShapeWithColor: (UIColor*) color withCount:(int) emotionCount;
 
 @end
 
@@ -26,6 +30,14 @@
 	NSMutableArray* latArr;
 	NSMutableArray* lonArr;
 	NSMutableArray* emotionArr;
+	NSDictionary* jsonItem;
+	
+	NSMutableArray* gridBoxArray;
+	NSMutableArray* emotionGridArray;
+	NSMutableArray* emotionCountArray;
+	
+	double frameWidth;
+	double frameHeight;
 }
 
 - (void) viewDidLoad {
@@ -39,7 +51,9 @@
 	[_locationManager requestWhenInUseAuthorization];
 	[_locationManager startMonitoringSignificantLocationChanges];
 	[_locationManager startUpdatingLocation];
-    
+	
+	frameWidth = self.view.bounds.size.width;
+	frameHeight = self.view.bounds.size.height;
 }
 
 
@@ -50,6 +64,7 @@
 	
 	self.mapView_ = [GMSMapView mapWithFrame:self.view.bounds camera:camera];
 	self.mapView_.myLocationEnabled = YES;
+	self.mapView_.delegate = self;
 	[self.view addSubview:self.mapView_];
 	
 	[self loadJSON];
@@ -116,21 +131,22 @@
 	NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
 														 options:NSJSONReadingMutableContainers
 														   error:&error];
-	NSDictionary* item = [json objectForKey:@"results"];
+	jsonItem = [json objectForKey:@"results"];
 
-	latArr = [item valueForKey:@"lat"];
-	lonArr = [item valueForKey:@"lon"];
-	emotionArr = [item valueForKey:@"emotion"];
-
+	latArr = [jsonItem valueForKey:@"lat"];
+	lonArr = [jsonItem valueForKey:@"lon"];
+	emotionArr = [jsonItem valueForKey:@"emotion"];
+/*
 	for (int i = 0; i < [item count]; i++) {
 		double lat = [latArr[i] doubleValue];
 		double lon = [lonArr[i] doubleValue];
 		int emotion = (int)[emotionArr[i] integerValue];
-		
+
 		[self addMarkersAtLatitude:lat
 					 withLongitude:lon
 					 havingEmotion:emotion];
 	}
+*/
 }
 
 
@@ -161,12 +177,12 @@
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
                                                          options:NSJSONReadingMutableContainers
                                                            error:&error];
-    NSDictionary* item = [json objectForKey:@"results"];
+    jsonItem = [json objectForKey:@"results"];
     
-    latArr = [item valueForKey:@"lat"];
-    lonArr = [item valueForKey:@"lon"];
-    emotionArr = [item valueForKey:@"emotion"];
-    
+    latArr = [jsonItem valueForKey:@"lat"];
+    lonArr = [jsonItem valueForKey:@"lon"];
+    emotionArr = [jsonItem valueForKey:@"emotion"];
+/*
     for (int i = 0; i < [item count]; i++) {
         double lat = [latArr[i] doubleValue];
         double lon = [lonArr[i] doubleValue];
@@ -176,14 +192,214 @@
                      withLongitude:lon
                      havingEmotion:emotion];
     }
+*/
+}
+
+
+// methods for clustering
+- (void) mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position
+{
+	[mapView clear];
+	
+	CGPoint topLeftPoint = CGPointMake(0, 0);
+	CLLocationCoordinate2D topLeftLocation = [mapView.projection coordinateForPoint: topLeftPoint];
+	
+	CGPoint bottomRightPoint = CGPointMake(self.mapView_.frame.size.width, self.mapView_.frame.size.height);
+	CLLocationCoordinate2D bottomRightLocation = [mapView.projection coordinateForPoint: bottomRightPoint];
+	
+	CGPoint topRightPoint = CGPointMake(self.mapView_.frame.size.width, 0);
+	CLLocationCoordinate2D topRightLocation = [mapView.projection coordinateForPoint: topRightPoint];
+	
+	CGPoint bottomLeftPoint = CGPointMake(0, self.mapView_.frame.size.height);
+	CLLocationCoordinate2D bottomLeftLocation = [mapView.projection coordinateForPoint: bottomLeftPoint];
+	
+	double xGridTotal = topRightLocation.longitude - topLeftLocation.longitude;
+	double yGridTotal = topLeftLocation.latitude - bottomLeftLocation.latitude;
+	
+	double sizeOfGridBox = 40.0;
+	
+	gridBoxArray = [NSMutableArray arrayWithCapacity:1];
+	emotionGridArray = [NSMutableArray arrayWithCapacity:1];
+	
+	for (int i = 0; i < [jsonItem count]; i++) {
+		
+		double lat = [latArr[i] doubleValue];
+		double lon = [lonArr[i] doubleValue];
+		int emotion = (int)[emotionArr[i] integerValue];
+		
+		if (lon > bottomLeftLocation.longitude && lon < bottomRightLocation.longitude
+			&& lat > bottomLeftLocation.latitude && lat < topLeftLocation.latitude)
+		{
+			[gridBoxArray addObject:[NSValue valueWithCGPoint:CGPointMake(lon, lat)]];
+			[emotionGridArray addObject:[NSNumber numberWithInt:emotion]];
+		}
+	}
+	
+	int NumberOfHorizontalGrid = (int) ceil(frameWidth / sizeOfGridBox);
+	int NumberOfVerticalGrid = (int) ceil(frameHeight / sizeOfGridBox);
+	
+	double xGrid = xGridTotal / NumberOfHorizontalGrid;
+	double yGrid = yGridTotal / NumberOfVerticalGrid;
+	
+	emotionCountArray = [NSMutableArray arrayWithCapacity:8];
+	
+	for (int i = 0; i < NumberOfHorizontalGrid; i++) {
+		for (int j = 0; j < NumberOfVerticalGrid; j++) {
+			
+			for (int i = 0; i < 8; i++) {
+				[emotionCountArray insertObject:[NSNumber numberWithInt:0] atIndex:i];
+			}
+			
+			double gridLonLeft = topLeftLocation.longitude + i * xGrid;
+			double gridLonRight = topLeftLocation.longitude + (i+1) * xGrid;
+			double gridLatTop = topLeftLocation.latitude - j * yGrid;
+			double gridLatBottom = topLeftLocation.latitude - (j+1) * yGrid;
+
+			for (int k = 0; k < [gridBoxArray count]; k++) {
+				
+				CGPoint markerPosition = [[gridBoxArray objectAtIndex:k] CGPointValue];
+				int emotionValue = [[emotionGridArray objectAtIndex:k] intValue];
+				
+				if (markerPosition.x >= gridLonLeft && markerPosition.x < gridLonRight
+						&& markerPosition.y >= gridLatBottom && markerPosition.y < gridLatTop) {
+					
+					int count = [[emotionCountArray objectAtIndex:emotionValue-1] intValue];
+					[emotionCountArray replaceObjectAtIndex:emotionValue-1 withObject:[NSNumber numberWithInt:(count+1)]];
+				}
+			}
+			
+			int maxEmotion = 0;
+			int countOfMaxEmotion = 0;
+			int countOfEmotion = 0;
+			
+			for (int k = 0; k < [emotionCountArray count]; k++) {
+				
+				countOfEmotion = [[emotionCountArray objectAtIndex:k] intValue];
+				
+				if (countOfMaxEmotion < countOfEmotion) {
+					maxEmotion = k+1;
+					countOfMaxEmotion += countOfEmotion;
+				}
+			}
+			
+			[emotionCountArray removeAllObjects];
+			
+			double xCenter = gridLonLeft + (i+0.5) * xGrid;
+			double yCenter = topLeftLocation.latitude - (j+0.5) * yGrid;
+
+			if (countOfMaxEmotion > 0) {
+				[self addMarkersOnGMSMapView:mapView AtLatitude:yCenter withLongitude:xCenter havingEmotion:maxEmotion withCount:countOfMaxEmotion];
+			}
+		}
+	}
+}
+
+// methods for clustering
+- (void) addMarkersOnGMSMapView:(GMSMapView*)mapView AtLatitude:(double)lat withLongitude:(double) lon havingEmotion:(int) emotion withCount:(int) emotionCount
+{
+	
+	CLLocationCoordinate2D position = CLLocationCoordinate2DMake(lat, lon);
+	GMSMarker* marker = [GMSMarker markerWithPosition:position];
+	
+	switch (emotion) {
+		case 1: {
+			marker.title = @"JOY";
+			UIColor* markerColor = [UIColor colorWithRed:210/255.0 green:168/255.0 blue:30/255.0 alpha:1.0];
+			marker.icon = [self setMarkerShapeWithColor:markerColor withCount:emotionCount];
+			break;
+		}
+		case 2: {
+			marker.title = @"TIRED";
+			UIColor* markerColor = [UIColor colorWithRed:134/255.0 green:99/255.0 blue:59/255.0 alpha:1.0];
+			marker.icon = [self setMarkerShapeWithColor:markerColor withCount:emotionCount];
+			break;
+		}
+		case 3: {
+			marker.title = @"FUN";
+			UIColor* markerColor = [UIColor colorWithRed:211/255.0 green:108/255.0 blue:31/255.0 alpha:1.0];
+			marker.icon = [self setMarkerShapeWithColor:markerColor withCount:emotionCount];
+			break;
+		}
+		case 4: {
+			marker.title = @"ANGRY";
+			UIColor* markerColor = [UIColor colorWithRed:194/255.0 green:45/255.0 blue:66/255.0 alpha:1.0];
+			marker.icon = [self setMarkerShapeWithColor:markerColor withCount:emotionCount];
+			break;
+		}
+		case 5: {
+			marker.title = @"SURPRISED";
+			UIColor* markerColor = [UIColor colorWithRed:221/255.0 green:98/255.0 blue:151/255.0 alpha:1.0];
+			marker.icon = [self setMarkerShapeWithColor:markerColor withCount:emotionCount];
+			break;
+		}
+		case 6: {
+			marker.title = @"SCARED";
+			UIColor* markerColor = [UIColor colorWithRed:117/255.0 green:62/255.0 blue:146/255.0 alpha:1.0];
+			marker.icon = [self setMarkerShapeWithColor:markerColor withCount:emotionCount];
+			break;
+		}
+		case 7: {
+			marker.title = @"SAD";
+			UIColor* markerColor = [UIColor colorWithRed:79/255.0 green:111/255.0 blue:217/255.0 alpha:1.0];
+			marker.icon = [self setMarkerShapeWithColor:markerColor withCount:emotionCount];
+			break;
+		}
+		case 8: {
+			marker.title = @"EXCITED";
+			UIColor* markerColor = [UIColor colorWithRed:97/255.0 green:238/255.0 blue:216/255.0 alpha:1.0];
+			marker.icon = [self setMarkerShapeWithColor:markerColor withCount:emotionCount];
+			break;
+		}
+		default:
+			break;
+	}
+	
+	marker.map = mapView;
+	
+}
+
+// methods for clustering
+- (UIImage *) setMarkerShapeWithColor: (UIColor*) color withCount:(int) emotionCount
+{
+	UIImage* markerImage;
+	UIGraphicsBeginImageContext(CGSizeMake(40, 40));
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	
+	CGContextSetLineWidth(context, 1.0);
+	CGContextSetStrokeColorWithColor(context, color.CGColor);
+	[markerImage drawInRect:CGRectMake(0, 0, 40, 40)];
+	CGContextAddEllipseInRect(context, CGRectMake(0, 0, 40, 40));
+	CGContextSetFillColorWithColor(context, color.CGColor);
+	CGContextFillPath(context);
+	
+	CGContextTranslateCTM(context, 0, 40);
+	CGContextScaleCTM(context, 1.0, -1.0);
+	
+	CTFontRef fontRef = CTFontCreateWithName((CFStringRef)@"OdinRounded", 25.0f, NULL);
+	NSDictionary *attrDictionary = [NSDictionary dictionaryWithObjectsAndKeys:(__bridge id)fontRef, (NSString *)kCTFontAttributeName, (id)[[UIColor whiteColor] CGColor], (NSString *)(kCTForegroundColorAttributeName), nil];
+	CFRelease(fontRef);
+	
+	CGMutablePathRef path = CGPathCreateMutable();
+	CGPathAddRect(path, NULL, CGRectMake(8, -3, 40, 40));
+	
+	NSAttributedString* attString = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d", emotionCount] attributes:attrDictionary];
+	
+	CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)attString);
+	CTFrameRef frame = CTFramesetterCreateFrame(framesetter,
+												CFRangeMake(0, [attString length]), path, NULL);
+	
+	CTFrameDraw(frame, context);
+	
+	markerImage = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	
+	return markerImage;
 }
 
 
 
 
-
-
-
+/*
 - (void) addMarkersAtLatitude:(double)lat withLongitude:(double) lon havingEmotion:(int) emotion {
 	
 	CLLocationCoordinate2D position = CLLocationCoordinate2DMake(lat, lon);
@@ -281,7 +497,7 @@
 	
 	return markerImage;
 }
-
+*/
 
 
 

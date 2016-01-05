@@ -15,7 +15,22 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LOGIN_intro logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="QTp-8a-zx9">
+                                <rect key="frame" x="166" y="199" width="269" height="109"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="269" id="5NX-ZO-gJr"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="269" id="6Z8-6c-PyH"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="101" id="BJu-d9-KLh"/>
+                                    <constraint firstAttribute="height" constant="109" id="VhO-0V-Jzv"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.023529411760000001" green="0.035294117649999998" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="QTp-8a-zx9" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="179" id="A4O-tQ-pxS"/>
+                            <constraint firstItem="QTp-8a-zx9" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="DrJ-Gc-Wgk"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -23,4 +38,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LOGIN_intro logo.png" width="818" height="338"/>
+    </resources>
 </document>

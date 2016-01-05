@@ -24,13 +24,13 @@
 		7504678C1C04A34C0027D5D3 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750467891C04A34C0027D5D3 /* FBSDKCoreKit.framework */; };
 		7504678D1C04A34C0027D5D3 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7504678A1C04A34C0027D5D3 /* FBSDKLoginKit.framework */; };
 		7504678E1C04A34C0027D5D3 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7504678B1C04A34C0027D5D3 /* FBSDKShareKit.framework */; };
-		752833F91C1805C800A2CD9A /* LOGIN_facebook login.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833F21C1805C800A2CD9A /* LOGIN_facebook login.png */; };
+		752833F91C1805C800A2CD9A /* LOGIN_facebook login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833F21C1805C800A2CD9A /* LOGIN_facebook login@2x.png */; };
 		752833FA1C1805C800A2CD9A /* LOGIN_intro logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833F31C1805C800A2CD9A /* LOGIN_intro logo@2x.png */; };
 		752833FB1C1805C800A2CD9A /* LOGIN_intro page.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833F41C1805C800A2CD9A /* LOGIN_intro page.png */; };
 		752833FC1C1805C800A2CD9A /* LOGIN_login logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833F51C1805C800A2CD9A /* LOGIN_login logo@2x.png */; };
 		752833FD1C1805C800A2CD9A /* LOGIN_login page.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833F61C1805C800A2CD9A /* LOGIN_login page.png */; };
 		752833FE1C1805C800A2CD9A /* LOGIN_phone number login.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833F71C1805C800A2CD9A /* LOGIN_phone number login.png */; };
-		752833FF1C1805C800A2CD9A /* LOGIN_sign in with.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833F81C1805C800A2CD9A /* LOGIN_sign in with.png */; };
+		752833FF1C1805C800A2CD9A /* LOGIN_sign in with@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752833F81C1805C800A2CD9A /* LOGIN_sign in with@2x.png */; };
 		E930E0951BD741450032C541 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E930E0941BD741450032C541 /* main.m */; };
 		E930E0981BD741460032C541 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E930E0971BD741460032C541 /* AppDelegate.m */; };
 		E930E09B1BD741460032C541 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E930E09A1BD741460032C541 /* ViewController.m */; };
@@ -110,13 +110,13 @@
 		750467891C04A34C0027D5D3 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-20151111/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		7504678A1C04A34C0027D5D3 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-20151111/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		7504678B1C04A34C0027D5D3 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../Downloads/FacebookSDKs-iOS-20151111/FBSDKShareKit.framework"; sourceTree = "<group>"; };
-		752833F21C1805C800A2CD9A /* LOGIN_facebook login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGIN_facebook login.png"; sourceTree = "<group>"; };
+		752833F21C1805C800A2CD9A /* LOGIN_facebook login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGIN_facebook login@2x.png"; sourceTree = "<group>"; };
 		752833F31C1805C800A2CD9A /* LOGIN_intro logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGIN_intro logo@2x.png"; sourceTree = "<group>"; };
 		752833F41C1805C800A2CD9A /* LOGIN_intro page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGIN_intro page.png"; sourceTree = "<group>"; };
 		752833F51C1805C800A2CD9A /* LOGIN_login logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGIN_login logo@2x.png"; sourceTree = "<group>"; };
 		752833F61C1805C800A2CD9A /* LOGIN_login page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGIN_login page.png"; sourceTree = "<group>"; };
 		752833F71C1805C800A2CD9A /* LOGIN_phone number login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGIN_phone number login.png"; sourceTree = "<group>"; };
-		752833F81C1805C800A2CD9A /* LOGIN_sign in with.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGIN_sign in with.png"; sourceTree = "<group>"; };
+		752833F81C1805C800A2CD9A /* LOGIN_sign in with@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGIN_sign in with@2x.png"; sourceTree = "<group>"; };
 		AD2ABD4FA5BFCD325C2554E0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E930E0901BD741450032C541 /* PatchWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PatchWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E930E0941BD741450032C541 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -219,13 +219,13 @@
 			isa = PBXGroup;
 			children = (
 				E99683A11C3AC2A700F79B0E /* markers */,
-				752833F21C1805C800A2CD9A /* LOGIN_facebook login.png */,
+				752833F21C1805C800A2CD9A /* LOGIN_facebook login@2x.png */,
 				752833F31C1805C800A2CD9A /* LOGIN_intro logo@2x.png */,
 				752833F41C1805C800A2CD9A /* LOGIN_intro page.png */,
 				752833F51C1805C800A2CD9A /* LOGIN_login logo@2x.png */,
 				752833F61C1805C800A2CD9A /* LOGIN_login page.png */,
 				752833F71C1805C800A2CD9A /* LOGIN_phone number login.png */,
-				752833F81C1805C800A2CD9A /* LOGIN_sign in with.png */,
+				752833F81C1805C800A2CD9A /* LOGIN_sign in with@2x.png */,
 				E996470F1C17BA4200A194E6 /* angry@2x.png */,
 				E99647101C17BA4200A194E6 /* excited@2x.png */,
 				E99647111C17BA4200A194E6 /* fun@2x.png */,
@@ -464,7 +464,7 @@
 				E9DC11551C25427100F6CBB3 /* wheelGlow@2x.png in Resources */,
 				E99683C11C3AC6A000F79B0E /* marker_tired@2x.png in Resources */,
 				E983571B1C0568F700CFD428 /* standard.png in Resources */,
-				752833FF1C1805C800A2CD9A /* LOGIN_sign in with.png in Resources */,
+				752833FF1C1805C800A2CD9A /* LOGIN_sign in with@2x.png in Resources */,
 				E9B1ABF61C272E6400A11060 /* no location service@2x.png in Resources */,
 				E9B876B81C209C6700C9A645 /* plusEmotion.png in Resources */,
 				E99683A01C3AB90B00F79B0E /* plusEmotion@2x.png in Resources */,
@@ -488,7 +488,7 @@
 				E99683971C3AB6B500F79B0E /* hamburger@2x.png in Resources */,
 				E99683BE1C3AC6A000F79B0E /* marker_sad@2x.png in Resources */,
 				752833FC1C1805C800A2CD9A /* LOGIN_login logo@2x.png in Resources */,
-				752833F91C1805C800A2CD9A /* LOGIN_facebook login.png in Resources */,
+				752833F91C1805C800A2CD9A /* LOGIN_facebook login@2x.png in Resources */,
 				E99683BC1C3AC6A000F79B0E /* marker_fun@2x.png in Resources */,
 				E99647171C17BA4300A194E6 /* fun@2x.png in Resources */,
 				E9DC11591C2543E600F6CBB3 /* wheel@2x.png in Resources */,

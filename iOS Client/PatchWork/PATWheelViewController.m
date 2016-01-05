@@ -297,7 +297,7 @@
     self.knob.hidden = NO;
     _emotionInWheel.hidden = NO;
     NSLog(@"Appear");
-    //[self playWheelBackgroundSound];
+    [self playWheelBackgroundSound];
 }
 
 
@@ -437,7 +437,7 @@
     if([self didEmotionPosShowButtonTouch:touchPos]){
         return;
     }
-    NSLog(@"%f, %f", touchPos.x, touchPos.y);
+    //NSLog(@"%f, %f", touchPos.x, touchPos.y);
     CGFloat direction = (recognizer).currentAngle - (recognizer).previousAngle;
     
     _bearing += 180 * direction / M_PI;

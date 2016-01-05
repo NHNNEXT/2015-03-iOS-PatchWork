@@ -29,11 +29,12 @@
     
     UIButton *myLoginButton=[UIButton buttonWithType:UIButtonTypeCustom];
     //myLoginButton.backgroundColor=[UIColor darkGrayColor];
-    myLoginButton.frame=CGRectMake(69,402,180,40);
+    myLoginButton.frame=CGRectMake(69,402,200,37);
     //[myLoginButton setTitle: @"Login with Facebook" forState: UIControlStateNormal];
     
     UIImage *btnImage = [UIImage imageNamed:@"LOGIN_facebook login.png"];
     [myLoginButton setImage:btnImage forState:UIControlStateNormal];
+
     
     [myLoginButton
      addTarget:self
@@ -48,8 +49,8 @@
     _loginButton.frame = btnFrame;
     _loginButton.autoresizingMask = UIViewAutoresizingNone;
     [self.view addSubview:_loginButton];
-    
-    
+//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:myLoginButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
+
     //[self toggleHiddenState:YES];
     self.lblLoginStatus.text = @"";
     

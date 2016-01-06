@@ -725,7 +725,7 @@
 				);
 				INFOPLIST_FILE = PatchWork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.nhnnext.PatchWork;
+				PRODUCT_BUNDLE_IDENTIFIER = org.nhnnext.PatchWork1;
 				PRODUCT_NAME = PatchWork;
 			};
 			name = Debug;
@@ -743,7 +743,7 @@
 				);
 				INFOPLIST_FILE = PatchWork/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.nhnnext.PatchWork;
+				PRODUCT_BUNDLE_IDENTIFIER = org.nhnnext.PatchWork1;
 				PRODUCT_NAME = PatchWork;
 			};
 			name = Release;

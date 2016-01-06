@@ -504,7 +504,7 @@
 
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    self.locationServiceErrorView.hidden = YES;
+    self.locationServiceErrorView.hidden = NO;
 	NSLog(@"location manager instance error.");
 }
 
@@ -557,6 +557,13 @@
     self.mapContainerViewController.longitude = [self.longitude doubleValue];
     [self presentViewController:self.mapContainerViewController animated:YES completion:nil];
 }
+
+
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 
 
 

@@ -136,8 +136,9 @@
 	latArr = [jsonItem valueForKey:@"lat"];
 	lonArr = [jsonItem valueForKey:@"lon"];
 	emotionArr = [jsonItem valueForKey:@"emotion"];
-/*
-	for (int i = 0; i < [item count]; i++) {
+
+    /*
+    for (int i = 0; i < jsonItem.count; i++) {
 		double lat = [latArr[i] doubleValue];
 		double lon = [lonArr[i] doubleValue];
 		int emotion = (int)[emotionArr[i] integerValue];
@@ -146,7 +147,7 @@
 					 withLongitude:lon
 					 havingEmotion:emotion];
 	}
-*/
+     */
 }
 
 
@@ -183,7 +184,7 @@
     lonArr = [jsonItem valueForKey:@"lon"];
     emotionArr = [jsonItem valueForKey:@"emotion"];
 /*
-    for (int i = 0; i < [item count]; i++) {
+    for (int i = 0; i < jsonItem.count; i++) {
         double lat = [latArr[i] doubleValue];
         double lon = [lonArr[i] doubleValue];
         int emotion = (int)[emotionArr[i] integerValue];
@@ -192,7 +193,7 @@
                      withLongitude:lon
                      havingEmotion:emotion];
     }
-*/
+ */
 }
 
 
@@ -246,8 +247,8 @@
 	for (int i = 0; i < NumberOfHorizontalGrid; i++) {
 		for (int j = 0; j < NumberOfVerticalGrid; j++) {
 			
-			for (int i = 0; i < 8; i++) {
-				[emotionCountArray insertObject:[NSNumber numberWithInt:0] atIndex:i];
+			for (int m = 0; m < 8; m++) {
+				[emotionCountArray insertObject:[NSNumber numberWithInt:0] atIndex:m];
 			}
 			
 			double gridLonLeft = topLeftLocation.longitude + i * xGrid;
@@ -284,7 +285,7 @@
 			
 			[emotionCountArray removeAllObjects];
 			
-			double xCenter = gridLonLeft + (i+0.5) * xGrid;
+			double xCenter = bottomLeftLocation.longitude + (i+0.5) * xGrid;
 			double yCenter = topLeftLocation.latitude - (j+0.5) * yGrid;
 
 			if (countOfMaxEmotion > 0) {
@@ -362,16 +363,16 @@
 - (UIImage *) setMarkerShapeWithColor: (UIColor*) color withCount:(int) emotionCount
 {
 	UIImage* markerImage;
-	UIGraphicsBeginImageContext(CGSizeMake(40, 40));
+	UIGraphicsBeginImageContext(CGSizeMake(5*emotionCount, 5*emotionCount));
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	
 	CGContextSetLineWidth(context, 1.0);
 	CGContextSetStrokeColorWithColor(context, color.CGColor);
-	[markerImage drawInRect:CGRectMake(0, 0, 40, 40)];
-	CGContextAddEllipseInRect(context, CGRectMake(0, 0, 40, 40));
+	CGContextAddEllipseInRect(context, CGRectMake(0, 0, 5*emotionCount, 5*emotionCount));
 	CGContextSetFillColorWithColor(context, color.CGColor);
 	CGContextFillPath(context);
-	
+
+    if (emotionCount>5) {
 	CGContextTranslateCTM(context, 0, 40);
 	CGContextScaleCTM(context, 1.0, -1.0);
 	
@@ -389,14 +390,13 @@
 												CFRangeMake(0, [attString length]), path, NULL);
 	
 	CTFrameDraw(frame, context);
+    }
 	
 	markerImage = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
 	
 	return markerImage;
 }
-
-
 
 
 /*
@@ -498,7 +498,6 @@
 	return markerImage;
 }
 */
-
 
 
 

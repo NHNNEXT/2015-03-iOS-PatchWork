@@ -13,8 +13,12 @@
 @protocol updateEmotionsDelegate
 -(void) updateEmotions:(NSString*)time;
 @end
+@protocol backToSettingsDelegate
+-(void) backToSettings;
+@end
+
 
 @interface PATTimeMachineViewController : UIViewController <UIGestureRecognizerDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
-@property (weak, nonatomic) id<updateEmotionsDelegate> delegate;
+@property (weak, nonatomic) id<updateEmotionsDelegate, backToSettingsDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
 @end

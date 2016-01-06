@@ -207,4 +207,29 @@
 }
 
 
+
+-(void) backToSettings {
+    
+    [UIView animateWithDuration:0.55
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         self.PATStartPositionOfTimeMachine -= 83.;   // time machine 중에 지도를 조작하는 경우도 있어서, time machine 레이어가 지도 레이어를 다 덮지 않게 함. 지도에 대한 조작을 활성화시킴.
+                         self.timeMachineViewController.view.frame = CGRectMake(self.PATStartPositionOfTimeMachine, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+                     }
+                     completion:^(BOOL finished){
+                     }];
+    
+    [UIView animateWithDuration:0.75
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         self.PATStartPositionOfSideMenu += self.view.bounds.size.width*1.0f;
+                         self.sideMenuViewController.view.frame = CGRectMake(self.PATStartPositionOfSideMenu, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+                     }
+                     completion:^(BOOL finished){
+                     }];
+}
+
+
 @end

@@ -104,5 +104,8 @@
 }
 
 
+- (IBAction)backToSettings:(id)sender {
+    [self.delegate backToSettings];
+}
 
 @end
